@@ -1,0 +1,3368 @@
+[
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "imperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "future",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "future",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "future",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "future",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "imperfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "3rd",
+        "tense": "future",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "imperfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "future",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "imperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "future",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "future",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "future",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "future",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "future",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "future",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "pluperfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "imperfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "future",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": "1st",
+        "tense": "future",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": "2nd",
+        "tense": "future",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "pluperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "3rd",
+        "tense": "pluperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "pluperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "1st",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "1st",
+        "tense": "imperfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": "2nd",
+        "tense": "imperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "pluperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "imperfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "1st",
+        "tense": "future",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "future",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "2nd",
+        "tense": "imperfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "imperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "imperfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "2nd",
+        "tense": "imperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "1st",
+        "tense": "imperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "future",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "pluperfect",
+        "voice": "active",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "future",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "pluperfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "future",
+        "voice": "active",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "imperfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "future",
+        "voice": "middle",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "future",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "pluperfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "middle",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "imperfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "1st",
+        "tense": "future",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "1st",
+        "tense": "imperfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": "1st",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "imperfect",
+        "voice": "passive",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "3rd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": "2nd",
+        "tense": "perfect",
+        "voice": "active",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "future",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": "1st",
+        "tense": "present",
+        "voice": "passive",
+        "mood": "subjunctive",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "present",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": null,
+        "tense": "future",
+        "voice": "active",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    },
+    {
+        "person": "3rd",
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "imperative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "passive",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "2nd",
+        "tense": "present",
+        "voice": "active",
+        "mood": "optative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "infinitive",
+        "grammatical_case": null,
+        "grammatical_number": null,
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "aorist",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "neuter"
+    },
+    {
+        "person": "3rd",
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": "1st",
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "indicative",
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": null
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine"
+    },
+    {
+        "person": null,
+        "tense": "perfect",
+        "voice": "middle",
+        "mood": "participle",
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "masculine"
+    }
+]

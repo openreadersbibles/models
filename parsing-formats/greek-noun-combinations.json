@@ -1,0 +1,458 @@
+[
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": null
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": null
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": null
+    },
+    {
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": null,
+        "degree": null
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": null
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "feminine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": null,
+        "degree": null
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "feminine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": null,
+        "degree": null
+    },
+    {
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": null,
+        "degree": null
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": null
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "feminine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": null
+    },
+    {
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": null
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": null,
+        "degree": null
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": null
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": null,
+        "degree": null
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": null
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": null,
+        "degree": null
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": null,
+        "degree": null
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "feminine",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": null
+    },
+    {
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": null
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": null,
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "feminine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": "feminine",
+        "degree": null
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "nominative",
+        "grammatical_number": "plural",
+        "gender": "feminine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "accusative",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "neuter",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "masculine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "plural",
+        "gender": "feminine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "genitive",
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": "superlative"
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "neuter",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": null,
+        "grammatical_number": "plural",
+        "gender": "masculine",
+        "degree": "comparative"
+    },
+    {
+        "grammatical_case": "dative",
+        "grammatical_number": "singular",
+        "gender": "feminine",
+        "degree": "superlative"
+    }
+]

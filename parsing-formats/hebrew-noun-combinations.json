@@ -1,0 +1,898 @@
+[
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "c",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "c",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "c",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "c",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "c",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "pl",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "pl",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "pl",
+        "gn": "unknown",
+        "st": "NA",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "c",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "NA",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "NA",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "sg",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "sg",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "c",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "NA",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "NA",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "sg",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "pl",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "NA",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "sg",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "sg",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "sg",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "pl",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "e",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "pl",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "pl",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "unknown",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "unknown",
+        "gn": "unknown",
+        "st": "c",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "unknown",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "unknown",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "sg",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "unknown",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "c",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "pl",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "sg",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "pl",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "unknown",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "sg",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p1",
+        "prs_nu": "sg",
+        "prs_gn": "unknown"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "e",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "unknown",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "sg",
+        "gn": "f",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "sg",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "du",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "pl",
+        "gn": "m",
+        "st": "a",
+        "prs_ps": "p2",
+        "prs_nu": "pl",
+        "prs_gn": "f"
+    },
+    {
+        "nu": "unknown",
+        "gn": "unknown",
+        "st": "a",
+        "prs_ps": "p3",
+        "prs_nu": "pl",
+        "prs_gn": "m"
+    },
+    {
+        "nu": "sg",
+        "gn": "m",
+        "st": "e",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "pl",
+        "gn": "f",
+        "st": "e",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "du",
+        "gn": "f",
+        "st": "e",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    },
+    {
+        "nu": "sg",
+        "gn": "unknown",
+        "st": "e",
+        "prs_ps": "NA",
+        "prs_nu": "NA",
+        "prs_gn": "NA"
+    }
+]
