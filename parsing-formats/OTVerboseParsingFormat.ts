@@ -1,7 +1,7 @@
-import { PublicationHebrewWordElement } from "../../publication-service/PublicationHebrewWordElement";
+import { PublicationHebrewWordElement } from "../publication/PublicationHebrewWordElement";
 import { ParsingFormat, ParsingFormatObject } from "./ParsingFormat";
 import { ParsingFormatBase } from "./ParsingFormatBase";
-import { NumeralConverter } from "../../publication-service/Publisher";
+import { NumeralConverter } from "../NumeralConverter";
 import { OTVerboseEnglish, OTVerboseParsingFormatStrings } from "./OTVerboseParsingFormatStrings";
 
 export class OTVerboseParsingFormat extends ParsingFormatBase implements ParsingFormat {

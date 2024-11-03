@@ -1,5 +1,5 @@
-import { PublicationGreekWordElement } from "../../publication-service/PublicationGreekWordElement";
-import { NumeralConverter } from "../../publication-service/Publisher";
+import { PublicationGreekWordElement } from "../publication/PublicationGreekWordElement";
+import { NumeralConverter } from "../NumeralConverter";
 import { NTVerboseEnglish, NTVerboseParsingFormatStrings } from "./NTVerboseParsingFormatStrings";
 import { ParsingFormat, ParsingFormatObject } from "./ParsingFormat";
 import { ParsingFormatBase } from "./ParsingFormatBase";

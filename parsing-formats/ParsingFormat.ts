@@ -1,4 +1,4 @@
-import { NumeralConverter } from "../../publication-service/Publisher";
+import { NumeralConverter } from "../NumeralConverter";
 import { NTConciseParsingFormat } from "./NTConciseParsingFormat";
 import { NTConciseEnglish } from "./NTConciseParsingFormatStrings";
 import { NTVerboseParsingFormat } from "./NTVerboseParsingFormat";
