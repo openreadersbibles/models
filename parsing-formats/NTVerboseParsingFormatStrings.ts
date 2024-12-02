@@ -37,6 +37,45 @@ export interface NTVerboseParsingFormatStrings extends StringLookup {
     third: string;
 }
 
+export const NTVerboseStringLabels = {
+    nominative: "Nominative",
+    genitive: "Genitive",
+    dative: "Dative",
+    accusative: "Accusative",
+
+    masculine: "Masculine",
+    feminine: "Feminine",
+    neuter: "Neuter",
+
+    singular: "Singular",
+    plural: "Plural",
+
+    present: "Present",
+    imperfect: "Imperfect",
+    future: "Future",
+    aorist: "Aorist",
+    perfect: "Perfect",
+    pluperfect: "Pluperfect",
+
+    active: "Active",
+    middle: "Middle",
+    passive: "Passive",
+
+    indicative: "Indicative",
+    imperative: "Imperative",
+    subjunctive: "Subjunctive",
+    optative: "Optative",
+    infinitive: "Infinitive",
+    participle: "Participle",
+
+    first: "First",
+    second: "Second",
+    third: "Third",
+
+    verb: "Verb",
+    noun: "Noun"
+};
+
 export const NTVerboseEnglish: NTVerboseParsingFormatStrings = {
     nominative: 'nominative',
     genitive: 'genitive',

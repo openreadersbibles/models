@@ -42,6 +42,48 @@ export interface OTVerboseParsingFormatStrings extends StringLookup {
     passive_participle: string;
 }
 
+export const OTVerboseStringLabels = {
+    noun: 'Noun',
+    interrogative: 'Interrogative',
+    pronominal_suffix: 'Suffix',
+    passive: 'Passive',
+    qal: 'Qal',
+    piel: 'Piel',
+    hiphil: 'Hiphil',
+    niphal: 'Niphal',
+    hithpael: 'Hithpael',
+    hishtaphel: 'Hishtaphel',
+    nithpael: 'Nithpael',
+    hithpeel: 'Hithpeel',
+    shafel: 'Shafel',
+    retentive: 'Retentive',
+
+    active: 'Active',
+    construct: 'Construct',
+    emphatic: 'Emphatic',
+
+    masculine: 'Masculine',
+    feminine: 'Feminine',
+
+    singular: 'Singular',
+    plural: 'Plural',
+    dual: 'Dual',
+
+    suffix: 'Pron Suff',
+    first_person: '1st',
+    second_person: '2nd',
+    third_person: '3rd',
+
+    perfect: 'Perfect',
+    active_participle: 'Active Participle',
+    wayyiqtol: 'Wayyiqtol',
+    imperfect: 'Imperfect',
+    infinitive_construct: 'Infinitive Construct',
+    imperative: 'Imperative',
+    infinitive_absolute: 'Infinitive Absolute',
+    passive_participle: 'Passive Participle',
+};
+
 export const OTVerboseEnglish: OTVerboseParsingFormatStrings = {
     noun: 'nominal',
     interrogative: 'interrogative',

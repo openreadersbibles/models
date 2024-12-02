@@ -2,12 +2,16 @@ import { NumeralConverter } from "../NumeralConverter";
 import { NTConciseParsingFormat } from "./NTConciseParsingFormat";
 import { NTConciseEnglish } from "./NTConciseParsingFormatStrings";
 import { NTVerboseParsingFormat } from "./NTVerboseParsingFormat";
-import { NTVerboseEnglish } from "./NTVerboseParsingFormatStrings";
+import { NTVerboseEnglish, NTVerboseStringLabels } from "./NTVerboseParsingFormatStrings";
 import { OTConciseParsingFormat } from "./OTConciseParsingFormat";
-import { OTBasicEnglish } from "./OTConciseParsingFormatStrings";
+import { OTBasicEnglish, OTConciseStringLabels } from "./OTConciseParsingFormatStrings";
 import { OTVerboseParsingFormat } from "./OTVerboseParsingFormat";
 import { Canon } from "../VerseReference";
-import { OTVerboseEnglish } from "./OTVerboseParsingFormatStrings";
+import { OTVerboseEnglish, OTVerboseStringLabels } from "./OTVerboseParsingFormatStrings";
+import { NTTemplaticEnglish, NTTemplativeStringLabels } from "./NTTemplaticParsingFormatStrings";
+import { NTTemplaticParsingFormat } from "./NTTemplaticParsingFormat";
+import { OTTemplaticEnglish, OTTemplativeStringLabels } from "./OTTemplaticParsingFormatStrings";
+import { OTTemplaticParsingFormat } from "./OTTemplaticParsingFormat";
 
 export type ParsingFormatId = string;
 
@@ -57,41 +61,7 @@ export const PARSING_FORMAT_TEMPLATES: ParsingFormatTemplate[] =
             name: "NT Verbose",
             canon: "NT",
             description: "Written-out Greek parsings (e.g., present active indicative 3s)",
-            strings: {
-                nominative: "Nominative",
-                genitive: "Genitive",
-                dative: "Dative",
-                accusative: "Accusative",
-
-                masculine: "Masculine",
-                feminine: "Feminine",
-                neuter: "Neuter",
-
-                singular: "Singular",
-                plural: "Plural",
-
-                present: "Present",
-                imperfect: "Imperfect",
-                future: "Future",
-                aorist: "Aorist",
-                perfect: "Perfect",
-                pluperfect: "Pluperfect",
-
-                active: "Active",
-                middle: "Middle",
-                passive: "Passive",
-
-                indicative: "Indicative",
-                imperative: "Imperative",
-                subjunctive: "Subjunctive",
-                optative: "Optative",
-                infinitive: "Infinitive",
-                participle: "Participle",
-
-                first: "First",
-                second: "Second",
-                third: "Third"
-            },
+            strings: NTVerboseStringLabels,
             placeholders: NTVerboseEnglish
         },
         {
@@ -99,68 +69,23 @@ export const PARSING_FORMAT_TEMPLATES: ParsingFormatTemplate[] =
             name: "NT Concise",
             canon: "NT",
             description: "Abbreviated Greek parsings (e.g., V3SAPI, NANS)",
-            strings: {
-                nominative: "Nominative",
-                genitive: "Genitive",
-                dative: "Dative",
-                accusative: "Accusative",
-
-                masculine: "Masculine",
-                feminine: "Feminine",
-                neuter: "Neuter",
-
-                singular: "Singular",
-                plural: "Plural",
-
-                present: "Present",
-                imperfect: "Imperfect",
-                future: "Future",
-                aorist: "Aorist",
-                perfect: "Perfect",
-                pluperfect: "Pluperfect",
-
-                active: "Active",
-                middle: "Middle",
-                passive: "Passive",
-
-                indicative: "Indicative",
-                imperative: "Imperative",
-                subjunctive: "Subjunctive",
-                optative: "Optative",
-                infinitive: "Infinitive",
-                participle: "Participle",
-
-                first: "First",
-                second: "Second",
-                third: "Third",
-
-                verb: "Verb",
-                noun: "Noun"
-            },
+            strings: NTVerboseStringLabels,
             placeholders: NTConciseEnglish
+        },
+        {
+            id: "nt-templatic",
+            name: "NT Templatic",
+            canon: "NT",
+            description: "Similar to NT Verbose, but you can customize the template.",
+            strings: NTTemplativeStringLabels,
+            placeholders: NTTemplaticEnglish
         },
         {
             id: "ot-concise",
             name: "OT Concise",
             canon: "OT",
             description: "Hebrew parsings shown in a condensed format (e.g., G20 for a qal imperfect 3ms)",
-            strings: {
-                noun_abbreviation: "Noun Abbreviation",
-                interrogative_abbreviation: "Interrogative Abbreviation",
-                emphatic_abbreviation: "Emphatic Abbreviation",
-                pronominal_suffix_abbreviation: "Pronominal Suffix Abbreviation",
-                passive_abbreviation: "Passive Abbreviation",
-                qal_abbreviation: "Qal Abbreviation",
-                piel_abbreviation: "Piel Abbreviation",
-                hiphil_abbreviation: "Hiphil Abbreviation",
-                niphal_abbreviation: "Niphal Abbreviation",
-                hithpael_abbreviation: "Hithpael Abbreviation",
-                hishtaphel_abbreviation: "Hishtaphel Abbreviation",
-                nithpael_abbreviation: "Nithpael Abbreviation",
-                hithpeel_abbreviation: "Hithpeel Abbreviation",
-                shafel_abbreviation: "Shafel Abbreviation",
-                retentive_abbreviation: "Retentive Abbreviation"
-            },
+            strings: OTConciseStringLabels,
             placeholders: OTBasicEnglish
         },
         {
@@ -168,48 +93,16 @@ export const PARSING_FORMAT_TEMPLATES: ParsingFormatTemplate[] =
             name: "OT Verbose",
             canon: "OT",
             description: "Hebrew parsings shown in a verbose format (e.g., qal imperfect 3ms)",
-            strings: {
-                noun: 'Noun',
-                interrogative: 'Interrogative',
-                pronominal_suffix: 'Suffix',
-                passive: 'Passive',
-                qal: 'Qal',
-                piel: 'Piel',
-                hiphil: 'Hiphil',
-                niphal: 'Niphal',
-                hithpael: 'Hithpael',
-                hishtaphel: 'Hishtaphel',
-                nithpael: 'Nithpael',
-                hithpeel: 'Hithpeel',
-                shafel: 'Shafel',
-                retentive: 'Retentive',
-
-                active: 'Active',
-                construct: 'Construct',
-                emphatic: 'Emphatic',
-
-                masculine: 'Masculine',
-                feminine: 'Feminine',
-
-                singular: 'Singular',
-                plural: 'Plural',
-                dual: 'Dual',
-
-                suffix: 'Pron Suff',
-                first_person: '1st',
-                second_person: '2nd',
-                third_person: '3rd',
-
-                perfect: 'Perfect',
-                active_participle: 'Active Participle',
-                wayyiqtol: 'Wayyiqtol',
-                imperfect: 'Imperfect',
-                infinitive_construct: 'Infinitive Construct',
-                imperative: 'Imperative',
-                infinitive_absolute: 'Infinitive Absolute',
-                passive_participle: 'Passive Participle',
-            },
+            strings: OTVerboseStringLabels,
             placeholders: OTVerboseEnglish
+        },
+        {
+            id: "ot-templatic",
+            name: "OT Templatic",
+            canon: "OT",
+            description: "Similar to OT Verbose, but you can customize the template.",
+            strings: OTTemplativeStringLabels,
+            placeholders: OTTemplaticEnglish
         },
     ];
 
@@ -224,6 +117,10 @@ export class ParsingFormatFactory {
                 return new NTConciseParsingFormat(id, templateId, numeralConverter, translations);
             case 'ot-verbose':
                 return new OTVerboseParsingFormat(id, templateId, numeralConverter, translations);
+            case 'nt-templatic':
+                return new NTTemplaticParsingFormat(id, templateId, numeralConverter, translations);
+            case 'ot-templatic':
+                return new OTTemplaticParsingFormat(id, templateId, numeralConverter, translations);
             default:
                 throw new Error(`Unknown parsing format template: ${templateId}`);
         }

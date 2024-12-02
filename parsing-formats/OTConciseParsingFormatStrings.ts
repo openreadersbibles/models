@@ -18,6 +18,24 @@ export interface OTConciseParsingFormatStrings extends StringLookup {
     retentive_abbreviation: string;
 }
 
+export const OTConciseStringLabels = {
+    noun_abbreviation: "Noun Abbreviation",
+    interrogative_abbreviation: "Interrogative Abbreviation",
+    emphatic_abbreviation: "Emphatic Abbreviation",
+    pronominal_suffix_abbreviation: "Pronominal Suffix Abbreviation",
+    passive_abbreviation: "Passive Abbreviation",
+    qal_abbreviation: "Qal Abbreviation",
+    piel_abbreviation: "Piel Abbreviation",
+    hiphil_abbreviation: "Hiphil Abbreviation",
+    niphal_abbreviation: "Niphal Abbreviation",
+    hithpael_abbreviation: "Hithpael Abbreviation",
+    hishtaphel_abbreviation: "Hishtaphel Abbreviation",
+    nithpael_abbreviation: "Nithpael Abbreviation",
+    hithpeel_abbreviation: "Hithpeel Abbreviation",
+    shafel_abbreviation: "Shafel Abbreviation",
+    retentive_abbreviation: "Retentive Abbreviation"
+};
+
 export const OTBasicEnglish: OTConciseParsingFormatStrings = {
     noun_abbreviation: 'S',
     interrogative_abbreviation: 'i',
