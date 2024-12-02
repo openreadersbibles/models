@@ -21,5 +21,5 @@ export const OTTemplaticEnglish: OTTemplaticParsingFormatStrings = {
     noun_template: '__NOUN__ __STATE__ __GENDER__ __NUMBER____PRONOMINAL_SUFFIX_TEMPLATE____INTERROGATIVE_TEMPLATE__',
     pronominal_suffix_template: ', __SUFFIX__ __PERSON__ __GENDER__ __NUMBER__',
     interrogative_template: ', __INTERROGATIVE__',
-    verb_template: '__STEM__ __TENSE__ __PERSON__ __GENDER__ __NUMBER__',
+    verb_template: '__STEM__ __TENSE__ __PERSON__ __GENDER__ __NUMBER____PRONOMINAL_SUFFIX_TEMPLATE____INTERROGATIVE_TEMPLATE__',
 };
