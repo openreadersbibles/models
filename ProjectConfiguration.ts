@@ -287,6 +287,7 @@ export class ProjectConfiguration {
         return this.footnoteMarkers[index % this.footnoteMarkers.length];
     }
 
+    /// 2025-03-21: I can't figure how why this would ever be a good funciton to use (with the fallback canon)
     getParsingFormat(key: string): ParsingFormat | undefined {
         return this._publicationSettings.getParsingFormat(this.fallbackCanon(), key);
     }
