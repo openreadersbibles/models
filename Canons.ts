@@ -26,8 +26,6 @@ export class CanonData {
     }
 
     fallbackVerseReference(): VerseReference {
-        // console.log("Fallback");
-        // console.trace();
         return new VerseReference(this._books[0], 1, 1, this._name);
     }
 

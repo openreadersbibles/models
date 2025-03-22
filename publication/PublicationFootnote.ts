@@ -78,10 +78,9 @@ export class PublicationFootnote {
             case PublicationFootnoteType.Parsing:
                 return `\\FnParse{${element.getParsingString(this.verse.reference)}}`;
             case PublicationFootnoteType.ParsingGloss:
-                // console.log(element.gloss);
                 if (element.gloss === null) {
                     console.error("Gloss expected, but 'gloss' is null.");
-                    console.log(element);
+                    console.error(element);
                     return '';
                 } else {
                     return `\\FnParseFormGloss{${element.getParsingString(this.verse.reference)}}{${element.lexicalform}}{${element.gloss.tex}}`;
@@ -102,7 +101,7 @@ export class PublicationFootnote {
             case PublicationFootnoteType.ParsingGloss:
                 if (element.gloss === null) {
                     console.error("Gloss expected, but 'gloss' is null.");
-                    console.log(element);
+                    console.error(element);
                 } else {
                     parent
                         .ele('gloss', { type: 'parsing' })
@@ -118,7 +117,7 @@ export class PublicationFootnote {
             case PublicationFootnoteType.Gloss:
                 if (element.gloss === null) {
                     console.error("Gloss expected, but 'gloss' is null.");
-                    console.log(element);
+                    console.error(element);
                 } else {
                     parent
                         .ele('gloss', { type: 'lexical-form' })
