@@ -17,7 +17,12 @@ export class BookDump {
             if (row.gloss !== null) {
                 row.gloss = annotationFromObject(row.gloss);
             }
+            if (row.phrasalGlosses !== null) {
+                row.phrasalGlosses = JSON.parse(row.phrasalGlosses);
+            }
             return row;
         });
+
+
     }
 }
