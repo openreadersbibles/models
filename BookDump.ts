@@ -5,15 +5,15 @@ export class BookDump {
     readonly book_id: UbsBook;
     readonly canon: Canon;
     readonly book_title: string;
-    readonly verses: any[];
+    readonly rows: any[];
 
-    constructor(book_id: UbsBook, canon: Canon, book_title: string, verses: any[]) {
+    constructor(book_id: UbsBook, canon: Canon, book_title: string, rows: any[]) {
         this.book_id = book_id;
         this.canon = canon;
         this.book_title = book_title;
 
         /// convert the annotation JSON to objects
-        this.verses = verses.map((row: any) => {
+        this.rows = rows.map((row: any) => {
             if (row.gloss !== null) {
                 row.gloss = annotationFromObject(row.gloss);
             }

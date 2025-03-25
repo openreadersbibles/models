@@ -102,6 +102,9 @@ export class PublicationFootnote {
                 if (element.gloss === null) {
                     console.error("Gloss expected, but 'gloss' is null.");
                     console.error(element);
+                } else if (element.gloss.tex === null || element.gloss.tex === undefined) {
+                    console.error("Gloss expected, but 'gloss.tex' is null.");
+                    console.error(element);
                 } else {
                     parent
                         .ele('gloss', { type: 'parsing' })
@@ -117,6 +120,9 @@ export class PublicationFootnote {
             case PublicationFootnoteType.Gloss:
                 if (element.gloss === null) {
                     console.error("Gloss expected, but 'gloss' is null.");
+                    console.error(element);
+                } else if (element.gloss.tex === null || element.gloss.tex === undefined) {
+                    console.error("Gloss expected, but 'gloss.tex' is null.");
                     console.error(element);
                 } else {
                     parent
