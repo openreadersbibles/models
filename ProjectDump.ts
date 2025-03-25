@@ -1,4 +1,4 @@
-import { BookDump } from "./BookDump";
+import { BookDump } from "./PublicationBook";
 import { ProjectId } from "./ProjectConfiguration";
 
 export interface ProjectDump {
