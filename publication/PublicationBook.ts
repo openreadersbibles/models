@@ -1,5 +1,5 @@
 import { create } from 'xmlbuilder2';
-import { annotationFromObject } from "./../Annotation";
+import { annotationFromJson, annotationFromObject } from "./../Annotation";
 import { PublicationGreekWordElement } from "./PublicationGreekWordElement";
 import { HasReferenceString, PublicationHebrewWordElement } from "./PublicationHebrewWordElement";
 import { WordElementCreator, PublicationVerse } from "./PublicationVerse";
@@ -25,13 +25,19 @@ export class PublicationBook {
         this.book_id = json.book_id;
         this.canon = json.canon;
         this.book_title = json.book_title;
-        this.rows = json.rows;
+        /// deep copy this data so that it's not modified by subsequent calls
+        this.rows = JSON.parse(JSON.stringify(json.rows));
 
         /// convert the annotation JSON to objects
         json.rows = json.rows.map((row: any) => {
-            if (row.gloss !== null) {
-                row.gloss = annotationFromObject(row.gloss);
+            if (row.gloss != null) {
+                row.gloss = annotationFromJson(row.gloss);
             }
+
+            if (row.phrasalGlosses != null) {
+                row.phrasalGlosses = JSON.parse(row.phrasalGlosses);
+            }
+
             return row;
         });
 

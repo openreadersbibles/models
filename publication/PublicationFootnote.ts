@@ -80,12 +80,20 @@ export class PublicationFootnote {
             case PublicationFootnoteType.ParsingGloss:
                 if (element.gloss === null) {
                     console.error("Gloss expected, but 'gloss' is null.");
-                    console.error(element);
+                    // console.error(element);
                     return '';
                 } else {
+                    if (element.gloss.tex == null) {
+                        console.error("Gloss expected, but 'gloss.tex' is null.");
+                        // console.error(element);
+                    }
                     return `\\FnParseFormGloss{${element.getParsingString(this.verse.reference)}}{${element.lexicalform}}{${element.gloss.tex}}`;
                 }
             case PublicationFootnoteType.Gloss:
+                if (element.gloss?.tex == null) {
+                    console.error("Gloss expected, but 'gloss.tex' is null.");
+                    // console.error(element);
+                }
                 return `\\FnFormGloss{${element.lexicalform}}{${element.gloss?.tex}}`;
             case PublicationFootnoteType.None:
             default:
@@ -99,12 +107,12 @@ export class PublicationFootnote {
                 parent.ele('gloss', { type: 'parsing' }).txt(element.getParsingString(verse.reference));
                 break;
             case PublicationFootnoteType.ParsingGloss:
-                if (element.gloss === null) {
+                if (element.gloss == null) {
                     console.error("Gloss expected, but 'gloss' is null.");
-                    console.error(element);
-                } else if (element.gloss.tex === null || element.gloss.tex === undefined) {
+                    // console.error(element);
+                } else if (element.gloss.tex == null) {
                     console.error("Gloss expected, but 'gloss.tex' is null.");
-                    console.error(element);
+                    // console.error(element);
                 } else {
                     parent
                         .ele('gloss', { type: 'parsing' })
@@ -120,10 +128,10 @@ export class PublicationFootnote {
             case PublicationFootnoteType.Gloss:
                 if (element.gloss === null) {
                     console.error("Gloss expected, but 'gloss' is null.");
-                    console.error(element);
+                    // console.error(element);
                 } else if (element.gloss.tex === null || element.gloss.tex === undefined) {
                     console.error("Gloss expected, but 'gloss.tex' is null.");
-                    console.error(element);
+                    // console.error(element);
                 } else {
                     parent
                         .ele('gloss', { type: 'lexical-form' })
