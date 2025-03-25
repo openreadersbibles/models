@@ -1,9 +1,9 @@
-import { BookDump } from "./PublicationBook";
+import { BookDumpJson } from "./publication/PublicationBook";
 import { ProjectId } from "./ProjectConfiguration";
 
 export interface ProjectDump {
     project_id: ProjectId;
-    books: BookDump[];
+    books: BookDumpJson[];
 }
 
 
