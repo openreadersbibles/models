@@ -105,7 +105,9 @@ export class PublicationVerse {
             });
 
             /// we want to add the <w> element if it's either a from- or a to- word
-            const needsTag = phrasalGlosses.some((pg) => word.hasWordId(pg.from_word_id) || word.hasWordId(pg.to_word_id));
+            // const needsTag = phrasalGlosses.some((pg) => word.hasWordId(pg.from_word_id) || word.hasWordId(pg.to_word_id));
+            /// I'm going to see about putting every word within a word tag
+            const needsTag = true;
             if (needsTag) {
                 localParent = parent.ele('w').att('xml:id', `id${String(word.elements[0].id)}`);
             }
