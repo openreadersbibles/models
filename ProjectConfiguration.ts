@@ -1,8 +1,9 @@
 import { CANONS } from "./Canons";
 import { UserId } from "./UserProfile";
 import { Canon, UbsBook, VerseReference } from "./VerseReference";
-import { ProjectPublicationSettings } from "./ProjectPublicationSettings";
 import { ParsingFormat } from "./parsing-formats/ParsingFormat";
+import { PublicationConfiguration, PublicationConfigurationRow } from "./PublicationConfiguration";
+import { ProjectParsingFormats } from "./ProjectParsingFormats";
 
 interface ThresholdObject {
     [key: string]: number;
@@ -43,14 +44,9 @@ export interface ProjectConfigurationRow {
     allow_joins: boolean;
     font_families: string;
     font_size: number | undefined;
+    parsing_formats: any;
     publication_configurations: any;
-    footnoteMarkers: string[];
-    polyglossiaOtherLanguage: string;
-    chapterHeader: string;
     numerals: string[];
-    publication_project_font: string;
-    publication_biblical_font: string;
-    latex_templates: { [key: string]: string };
 }
 
 export class ProjectConfiguration {
@@ -65,17 +61,11 @@ export class ProjectConfiguration {
     private _allow_joins: boolean = true;
     private _font_families: string = "";
     private _font_size: number | undefined;
-    private _publicationSettings: ProjectPublicationSettings = new ProjectPublicationSettings();
-
-    private _footnoteMarkers: string[];
-    private _polyglossiaOtherLanguage: string;
-    private _chapterHeader: string;
+    private _parsingFormats: ProjectParsingFormats = new ProjectParsingFormats();
     private _numerals: string[];
 
-    private _publication_project_font: string = "Charis SIL";
-    private _publication_biblical_font: string = "SBL BibLit";
-
-    private _latex_templates: Map<string, string> = new Map<string, string>();
+    // private _latex_templates: Map<string, string> = new Map<string, string>();
+    private _publication_configurations: Map<string, PublicationConfiguration> = new Map<string, PublicationConfiguration>();
 
     constructor(project_id: string) {
         this._project_id = project_id;
@@ -84,11 +74,7 @@ export class ProjectConfiguration {
         this._canons = ["OT", "NT"];
         this._frequency_thresholds.set("NT", 30);
         this._frequency_thresholds.set("OT", 50);
-
-        this._footnoteMarkers = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "aa", "bb", "cc", "dd", "ee", "ff", "gg", "hh", "ii", "jj", "kk", "ll", "mm", "nn", "oo", "pp", "qq", "rr", "ss", "tt", "uu", "vv", "ww", "xx", "yy", "zz"];
-        this._polyglossiaOtherLanguage = "english";
         this._numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
-        this._chapterHeader = "Chapter __CHAPTER__";
     }
 
     initializeBookNamesToLatin() {
@@ -123,59 +109,20 @@ export class ProjectConfiguration {
         return this._canons;
     }
 
-    get publicationSettings(): ProjectPublicationSettings {
-        return this._publicationSettings;
+    get parsingFormats(): ProjectParsingFormats {
+        return this._parsingFormats;
     }
 
     get font_families(): string {
         return this._font_families;
     }
+
     get font_size(): number | undefined {
         return this._font_size;
     }
 
-    get footnoteMarkers(): string[] {
-        return this._footnoteMarkers;
-    }
-
-    get polyglossiaOtherLanguage(): string {
-        return this._polyglossiaOtherLanguage;
-    }
-
-    get chapterHeader(): string {
-        return this._chapterHeader;
-    }
-
     get numerals(): string[] {
         return this._numerals;
-    }
-
-    public getLatexTemplate(id: string): string | undefined {
-        return this._latex_templates.get(id);
-    }
-
-    set latex_templates(value: Map<string, string>) {
-        this._latex_templates = value;
-    }
-
-    get latex_templates(): Map<string, string> {
-        return this._latex_templates;
-    }
-
-    set footnoteMarkers(markers: string[]) {
-        this._footnoteMarkers = markers;
-    }
-
-    set polyglossiaOtherLanguage(other: string) {
-        this._polyglossiaOtherLanguage = other;
-    }
-
-    set chapterHeader(header: string) {
-        this._chapterHeader = header;
-    }
-
-    set numerals(numerals: string[]) {
-        this._numerals = numerals;
     }
 
     set project_id(value: ProjectId) {
@@ -226,8 +173,12 @@ export class ProjectConfiguration {
         this._font_size = size;
     }
 
-    setLatexTemplate(id: string, template: string) {
-        this._latex_templates.set(id, template);
+    set numerals(numerals: string[]) {
+        this._numerals = numerals;
+    }
+
+    replaceNumerals(str: string): string {
+        return ProjectConfiguration.performNumeralReplacement(str, this._numerals);
     }
 
     member(user_id: UserId): ProjectRoleRow | undefined {
@@ -263,15 +214,6 @@ export class ProjectConfiguration {
         return this._bookNames.get(book) || `[Unknown: ${book}]`;
     }
 
-    getChapterHeader(chapter: number): string {
-        let str = this.chapterHeader.replace("__CHAPTER__", chapter.toString());
-        return this.replaceNumerals(str);
-    }
-
-    replaceNumerals(str: string): string {
-        return ProjectConfiguration.performNumeralReplacement(str, this._numerals);
-    }
-
     static performNumeralReplacement(str: string, numerals: string[]): string {
         if (numerals.length === 10) {
             for (let i = 0; i < 10; i++) {
@@ -283,33 +225,13 @@ export class ProjectConfiguration {
         return str;
     }
 
-    getFootnoteMarker(index: number): string {
-        return this.footnoteMarkers[index % this.footnoteMarkers.length];
-    }
-
     /// 2025-03-21: I can't figure how why this would ever be a good funciton to use (with the fallback canon)
     getParsingFormat(key: string): ParsingFormat | undefined {
-        return this._publicationSettings.getParsingFormat(this.fallbackCanon(), key);
+        return this.parsingFormats.getParsingFormat(this.fallbackCanon(), key);
     }
 
     setParsingFormat(value: ParsingFormat) {
-        this._publicationSettings.setParsingFormat(value.canon, value.id, value);
-    }
-
-    public get publicationProjectFont(): string {
-        return this._publication_project_font;
-    }
-
-    public set publicationProjectFont(font: string) {
-        this._publication_project_font = font;
-    }
-
-    public get publicationBiblicalFont(): string {
-        return this._publication_biblical_font;
-    }
-
-    public set publicationBiblicalFont(font: string) {
-        this._publication_biblical_font = font;
+        this.parsingFormats.setParsingFormat(value.canon, value.id, value);
     }
 
     get repositoryName(): string {
@@ -328,20 +250,9 @@ export class ProjectConfiguration {
         return `pub-${project_id}`;
     };
 
-    static default_latex_template = `\\documentclass{openreader}
-\\title{__TITLE__}
-\\date{}
-\\setmainlanguage{__MAINLANGUAGE__}
-\\setmainfont{__MAINLANGUAGEFONT__}
-\\setotherlanguage{__BIBLICALLANGUAGE__}
-__NEWFONTFAMILYCOMMAND__
-\\begin{document}
-\\selectlanguage{__BIBLICALLANGUAGE__}
-\\maketitle
-\\raggedbottom 
-\\fontsize{16pt}{24pt}\\selectfont
-__CONTENT__
-\\end{document}`;
+    public get publicationConfigurations(): Map<string, PublicationConfiguration> {
+        return this._publication_configurations;
+    }
 
     public toObject(): ProjectConfigurationRow {
         let thresholds: ThresholdObject = {};
@@ -356,10 +267,11 @@ __CONTENT__
         for (let [userId, role] of this._roles) {
             roles.push(role);
         }
-        let templates: { [key: string]: string } = {};
-        this._latex_templates.forEach((value, key) => {
-            templates[key] = value;
+        let configurations: { [key: string]: PublicationConfigurationRow } = {};
+        this._publication_configurations.forEach((value, key) => {
+            configurations[key] = value.toObject();
         });
+
         return {
             project_id: this._project_id,
             project_title: this._project_title,
@@ -372,14 +284,9 @@ __CONTENT__
             allow_joins: this._allow_joins,
             font_families: this._font_families,
             font_size: this._font_size,
-            publication_configurations: this._publicationSettings.toObject(),
-            footnoteMarkers: this._footnoteMarkers,
-            polyglossiaOtherLanguage: this._polyglossiaOtherLanguage,
-            chapterHeader: this._chapterHeader,
+            parsing_formats: this._parsingFormats.toObject(),
+            publication_configurations: configurations,
             numerals: this._numerals,
-            publication_project_font: this._publication_project_font,
-            publication_biblical_font: this._publication_biblical_font,
-            latex_templates: templates
         };
     }
 
@@ -391,7 +298,8 @@ __CONTENT__
         pc._allow_joins = row.allow_joins;
         pc._font_families = row.font_families;
         pc._font_size = row.font_size;
-        pc._publicationSettings = ProjectPublicationSettings.fromObject(row.publication_configurations, pc);
+        pc._numerals = row.numerals || [];
+        pc._parsingFormats = ProjectParsingFormats.fromObject(row.parsing_formats, pc);
         for (let canon in row.frequency_thresholds) {
             if (row.frequency_thresholds.hasOwnProperty(canon)) {
                 pc._frequency_thresholds.set(canon as Canon, row.frequency_thresholds[canon]);
@@ -406,17 +314,11 @@ __CONTENT__
         for (let role of row.roles) {
             pc._roles.set(role.user_id, role);
         }
-        for (let key in row.latex_templates) {
-            if (row.latex_templates.hasOwnProperty(key)) {
-                pc._latex_templates.set(key, row.latex_templates[key]);
+        for (let key in row.publication_configurations) {
+            if (row.publication_configurations.hasOwnProperty(key)) {
+                pc.publicationConfigurations.set(key, row.publication_configurations[key]);
             }
         }
-        pc._footnoteMarkers = row.footnoteMarkers || [];
-        pc._polyglossiaOtherLanguage = row.polyglossiaOtherLanguage;
-        pc._chapterHeader = row.chapterHeader;
-        pc._numerals = row.numerals || [];
-        pc.publicationProjectFont = row.publication_project_font;
-        pc.publicationBiblicalFont = row.publication_biblical_font;
         return pc;
     }
 

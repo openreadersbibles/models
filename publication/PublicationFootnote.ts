@@ -6,17 +6,18 @@ import { generateUUID } from "../../models/generateUUID";
 import { converter } from "../../models/Annotation";
 import { ProjectConfiguration } from "../../models/ProjectConfiguration";
 import { XMLBuilder } from "xmlbuilder2/lib/interfaces";
+import { PublicationRequest } from "../PublicationRequest";
 
 export enum PublicationFootnoteType { None, Parsing, Gloss, ParsingGloss }
 
 export class PublicationFootnote {
     verse: PublicationVerse;
     entries = new Map<string, PublicationFootnoteElement>();
-    project: ProjectConfiguration;
+    request: PublicationRequest;
 
-    constructor(verse: PublicationVerse, project: ProjectConfiguration) {
+    constructor(verse: PublicationVerse, request: PublicationRequest) {
         this.verse = verse;
-        this.project = project;
+        this.request = request;
 
         let ct = 0;
         verse.elements.forEach((el) => {
@@ -39,7 +40,7 @@ export class PublicationFootnote {
         /// the key is the lexical form, because in principal there can be more than
         /// one instance of a rare word in a verse, and we want to combine the glosses
         const key = element.lexicalform;
-        const marker = this.project.getFootnoteMarker(index);
+        const marker = this.request.configuration.getFootnoteMarker(index);
         if (this.entries.has(key)) {
             this.entries.get(key)?.addMarker(marker)
         } else {
@@ -50,7 +51,7 @@ export class PublicationFootnote {
     }
 
     public addPhrasalGloss(pg: PublicationPhrasalGloss, index: number) {
-        const marker = this.project.getFootnoteMarker(index);
+        const marker = this.request.configuration.getFootnoteMarker(index);
         /// because we expect phrasal glosses to be unique, we don't need to
         /// key them to any particular lexical form. They key is just a filler
         /// to make the map happy.
@@ -66,7 +67,7 @@ export class PublicationFootnote {
             footnoteText += `\\FootnoteSubHeader{${value.markerText()}}${value.text}\\FootnoteSubFooter`;
         });
         if (footnoteText.length > 0) {
-            let footnoteNumber = this.project.replaceNumerals(verseNumber.toString());
+            let footnoteNumber = this.request.project.replaceNumerals(verseNumber.toString());
             return `\\VerseFootnote{${footnoteNumber}}{${footnoteText}}`;
         } else {
             return "";

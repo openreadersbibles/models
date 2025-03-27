@@ -105,7 +105,7 @@ export class PublicationBook {
 
         this.hopper.forEach((chapter: any[], chapterIndex: number) => {
             const plainChapterNumber = request.project.replaceNumerals((chapterIndex + 1).toString());
-            const chapterHeader = request.project.getChapterHeader(chapterIndex + 1);
+            const chapterHeader = request.configuration.getChapterHeader(chapterIndex + 1);
 
             const chapter_attributes = {
                 type: 'chapter',

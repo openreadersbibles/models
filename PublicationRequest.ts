@@ -2,10 +2,12 @@ import { ProjectConfiguration, ProjectId } from "./ProjectConfiguration";
 import { Canon } from "./VerseReference";
 import { ParsingFormat, ParsingFormatId } from "./parsing-formats/ParsingFormat";
 import { BookIdentifier } from "./BookIdentifier";
+import { PublicationConfiguration } from "./PublicationConfiguration";
 
 export interface PublicationRequest {
     books: BookIdentifier[];
     project: ProjectConfiguration;
+    configuration: PublicationConfiguration;
     parsing_formats: Map<Canon, ParsingFormat>;
     nopdf: boolean;
     latex_template_id: string | undefined;
@@ -14,6 +16,7 @@ export interface PublicationRequest {
 export interface HollowPublicationRequest {
     books: string[];
     project_id: ProjectId;
+    publication_configuration_id: string;
     nopdf: boolean;
     parsing_formats: {
         [key: string]: ParsingFormatId;

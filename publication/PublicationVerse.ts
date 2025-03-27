@@ -41,7 +41,7 @@ export class PublicationVerse {
             /// note that placing these here assumes that phrasal glosses will have lower
             /// marker numbers than simple gloss footnotes (which is visually intuitive)
             pgs.filter((pg) => word.hasWordId(pg.from_word_id)).forEach((pg) => {
-                let marker = this.request.project.getFootnoteMarker(glossCounter);
+                let marker = this.request.configuration.getFootnoteMarker(glossCounter);
                 text += `\\MainTextFootnoteMark{${marker}}`;
                 /// keep track of these; we'll add the final markers later
                 if (!finalPhrasalGlossMarkers.has(pg.to_word_id)) {
@@ -57,7 +57,7 @@ export class PublicationVerse {
             /// if there is only one gloss, add a footnote marker
             const gc = word.getNumberOfGlosses();
             if (gc == 1) {
-                text += `\\MainTextFootnoteMark{${this.request.project.getFootnoteMarker(glossCounter)}}`;
+                text += `\\MainTextFootnoteMark{${this.request.configuration.getFootnoteMarker(glossCounter)}}`;
                 glossCounter++;
             } else if (gc > 1) {
                 console.error("More than one gloss for a word:");
@@ -79,7 +79,7 @@ export class PublicationVerse {
     }
 
     private footnoteText(): string {
-        const fn = new PublicationFootnote(this, this.request.project);
+        const fn = new PublicationFootnote(this, this.request);
         return fn.text();
     }
 
@@ -94,7 +94,7 @@ export class PublicationVerse {
 
             /// add any phrasal glosses in at the beginning of the span
             pgs.filter((pg) => word.hasWordId(pg.from_word_id)).forEach((pg) => {
-                const marker = this.request.project.getFootnoteMarker(glossCounter);
+                const marker = this.request.configuration.getFootnoteMarker(glossCounter);
                 glossCounter++;
 
                 parent.ele('span', {
@@ -118,7 +118,7 @@ export class PublicationVerse {
             const gc = word.getNumberOfGlosses();
             if (gc == 1) {
                 // text += `<note type="gloss" n="${this.request.project.getFootnoteMarker(glossCounter)}">dummy</note>`;
-                const note_node = parent.ele('note', { type: 'gloss', n: this.request.project.getFootnoteMarker(glossCounter) });
+                const note_node = parent.ele('note', { type: 'gloss', n: this.request.configuration.getFootnoteMarker(glossCounter) });
                 PublicationFootnote.xml(this, word.glossableElements()[0], note_node);
 
                 glossCounter++;

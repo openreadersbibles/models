@@ -2,17 +2,17 @@ import { ParsingFormat, ParsingFormatFactory, ParsingFormatId, ParsingFormatObje
 import { ProjectConfiguration } from "./ProjectConfiguration";
 import { Canon } from "./VerseReference";
 
-type CanonPublicationSettings = Map<ParsingFormatId, ParsingFormat>;
+type CanonParsingFormats = Map<ParsingFormatId, ParsingFormat>;
 
-export class ProjectPublicationSettings {
+export class ProjectParsingFormats {
     /// Different canons require different settings
-    private _settings: Map<Canon, CanonPublicationSettings> = new Map<Canon, CanonPublicationSettings>();
+    private _settings: Map<Canon, CanonParsingFormats> = new Map<Canon, CanonParsingFormats>();
 
-    public addCanonSettings(canon: Canon, settings: CanonPublicationSettings) {
+    public addCanonSettings(canon: Canon, settings: CanonParsingFormats) {
         this._settings.set(canon, settings);
     }
 
-    public getSettingsForCanon(canon: Canon): CanonPublicationSettings | undefined {
+    public getSettingsForCanon(canon: Canon): CanonParsingFormats | undefined {
         return this._settings.get(canon);
     }
 
@@ -61,7 +61,7 @@ export class ProjectPublicationSettings {
 
     toObject(): any {
         let obj: any = {};
-        this._settings.forEach((value: CanonPublicationSettings, canon: Canon) => {
+        this._settings.forEach((value: CanonParsingFormats, canon: Canon) => {
             if (!obj.hasOwnProperty(canon)) {
                 obj[canon] = {};
             }
@@ -72,8 +72,8 @@ export class ProjectPublicationSettings {
         return obj;
     }
 
-    static fromObject(obj: any, project: ProjectConfiguration): ProjectPublicationSettings {
-        let settings = new ProjectPublicationSettings();
+    static fromObject(obj: any, project: ProjectConfiguration): ProjectParsingFormats {
+        let settings = new ProjectParsingFormats();
         for (let key in obj) {
             let canon = key as Canon;
             let canonSettings = new Map<string, ParsingFormat>();
