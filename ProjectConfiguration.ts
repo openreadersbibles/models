@@ -50,6 +50,7 @@ export interface ProjectConfigurationRow {
 }
 
 export class ProjectConfiguration {
+    static Default = "default";
     private _project_id: ProjectId;
     private _project_title: string = "";
     private _project_description: string = "";
@@ -75,6 +76,9 @@ export class ProjectConfiguration {
         this._frequency_thresholds.set("NT", 30);
         this._frequency_thresholds.set("OT", 50);
         this._numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+        /// ensure that there is a default publication configuration
+        this._publication_configurations.set(ProjectConfiguration.Default, new PublicationConfiguration(ProjectConfiguration.Default, this));
     }
 
     initializeBookNamesToLatin() {
@@ -316,7 +320,7 @@ export class ProjectConfiguration {
         }
         for (let key in row.publication_configurations) {
             if (row.publication_configurations.hasOwnProperty(key)) {
-                pc.publicationConfigurations.set(key, row.publication_configurations[key]);
+                pc.publicationConfigurations.set(key, PublicationConfiguration.fromRow(row.publication_configurations[key], key, pc));
             }
         }
         return pc;

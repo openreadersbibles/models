@@ -12,6 +12,7 @@ export interface PublicationConfigurationRow {
 export class PublicationConfiguration {
     _project: ProjectConfiguration;
 
+    private _id: string;
     private _footnoteMarkers: string[];
     private _polyglossiaOtherLanguage: string;
     private _chapterHeader: string;
@@ -19,7 +20,8 @@ export class PublicationConfiguration {
     private _publication_biblical_font: string = "SBL BibLit";
     private _latex_template: string;
 
-    constructor(project: ProjectConfiguration) {
+    constructor(id: string, project: ProjectConfiguration) {
+        this._id = id;
         this._project = project;
 
         this._footnoteMarkers = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "aa", "bb", "cc", "dd", "ee", "ff", "gg", "hh", "ii", "jj", "kk", "ll", "mm", "nn", "oo", "pp", "qq", "rr", "ss", "tt", "uu", "vv", "ww", "xx", "yy", "zz"];
@@ -28,6 +30,13 @@ export class PublicationConfiguration {
         this._latex_template = PublicationConfiguration.default_latex_template;
     }
 
+    public get id(): string {
+        return this._id;
+    }
+
+    get project(): ProjectConfiguration {
+        return this._project;
+    }
 
     get footnoteMarkers(): string[] {
         return this._footnoteMarkers;
@@ -86,6 +95,19 @@ export class PublicationConfiguration {
         return this.footnoteMarkers[index % this.footnoteMarkers.length];
     }
 
+    demoChapterHeader(number: string) {
+        return this.chapterHeader.replace('__CHAPTER__', this.project.replaceNumerals(number));
+    }
+
+    demoFootnoteMarkers(howmany: number) {
+        let markers = this.footnoteMarkers;
+        let result = "";
+        for (let i = 0; i < howmany; i++) {
+            result += markers[i % markers.length] + ' ';
+        }
+        return result;
+    }
+
     public toObject(): PublicationConfigurationRow {
         return {
             footnoteMarkers: this._footnoteMarkers,
@@ -97,14 +119,14 @@ export class PublicationConfiguration {
         };
     }
 
-    static fromRow(row: PublicationConfigurationRow, project: ProjectConfiguration): PublicationConfiguration {
-        let pc = new PublicationConfiguration(project);
+    static fromRow(row: PublicationConfigurationRow, id: string, project: ProjectConfiguration): PublicationConfiguration {
+        let pc = new PublicationConfiguration(id, project);
         pc._footnoteMarkers = row.footnoteMarkers || [];
         pc._polyglossiaOtherLanguage = row.polyglossiaOtherLanguage;
         pc._chapterHeader = row.chapterHeader;
         pc.publicationProjectFont = row.publication_project_font;
         pc.publicationBiblicalFont = row.publication_biblical_font;
-        pc.latex_template = row.latex_template;
+        pc.latex_template = row.latex_template || PublicationConfiguration.default_latex_template;
         return pc;
     }
 
