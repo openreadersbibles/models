@@ -1,4 +1,6 @@
+import { ParsingFormat, ParsingFormatId } from './parsing-formats/ParsingFormat';
 import { ProjectConfiguration } from './ProjectConfiguration';
+import { Canon } from './VerseReference';
 
 export interface PublicationConfigurationRow {
     footnoteMarkers: string[];
@@ -7,6 +9,7 @@ export interface PublicationConfigurationRow {
     publication_project_font: string;
     publication_biblical_font: string;
     latex_template: string;
+    parsing_formats: { [key: string]: string };
 }
 
 export class PublicationConfiguration {
@@ -19,6 +22,7 @@ export class PublicationConfiguration {
     private _publication_project_font: string = "Charis SIL";
     private _publication_biblical_font: string = "SBL BibLit";
     private _latex_template: string;
+    private _parsing_formats: Map<Canon, ParsingFormatId> = new Map<Canon, ParsingFormatId>();
 
     constructor(id: string, project: ProjectConfiguration) {
         this._id = id;
@@ -48,6 +52,10 @@ export class PublicationConfiguration {
 
     get chapterHeader(): string {
         return this._chapterHeader;
+    }
+
+    get parsing_formats(): Map<Canon, ParsingFormatId> {
+        return this._parsing_formats;
     }
 
     public get latex_template(): string {
@@ -86,6 +94,14 @@ export class PublicationConfiguration {
         this._chapterHeader = header;
     }
 
+    getParsingFormat(canon: Canon): ParsingFormat | undefined {
+        let parsingFormatId = this._parsing_formats.get(canon);
+        if (parsingFormatId === undefined) {
+            return undefined;
+        }
+        return this._project.getParsingFormat(parsingFormatId)!;
+    }
+
     getChapterHeader(chapter: number): string {
         let str = this.chapterHeader.replace("__CHAPTER__", chapter.toString());
         return this._project.replaceNumerals(str);
@@ -109,13 +125,18 @@ export class PublicationConfiguration {
     }
 
     public toObject(): PublicationConfigurationRow {
+        let parsing_formats: { [key: string]: string } = {};
+        this._parsing_formats.forEach((value, key) => {
+            parsing_formats[key] = value;
+        });
         return {
             footnoteMarkers: this._footnoteMarkers,
             polyglossiaOtherLanguage: this._polyglossiaOtherLanguage,
             chapterHeader: this._chapterHeader,
             publication_project_font: this._publication_project_font,
             publication_biblical_font: this._publication_biblical_font,
-            latex_template: this._latex_template
+            latex_template: this._latex_template,
+            parsing_formats: parsing_formats,
         };
     }
 
@@ -127,6 +148,10 @@ export class PublicationConfiguration {
         pc.publicationProjectFont = row.publication_project_font;
         pc.publicationBiblicalFont = row.publication_biblical_font;
         pc.latex_template = row.latex_template || PublicationConfiguration.default_latex_template;
+        pc._parsing_formats = new Map<Canon, ParsingFormatId>();
+        for (const [key, value] of Object.entries(row.parsing_formats)) {
+            pc._parsing_formats.set(key as Canon, value);
+        }
         return pc;
     }
 

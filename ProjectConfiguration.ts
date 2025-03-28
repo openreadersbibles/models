@@ -242,12 +242,8 @@ export class ProjectConfiguration {
         return ProjectConfiguration.getRepositoryName(this._project_id);
     }
 
-    public repositoryNameForTemplate(templateId: string | undefined): string {
-        if (templateId === undefined) {
-            return this.repositoryName;
-        } else {
-            return `${this.repositoryName}-${templateId}`;
-        }
+    public repositoryNameForConfiguration(id: string): string {
+        return `${this.repositoryName}-${id}`;
     }
 
     static getRepositoryName(project_id: string): string {

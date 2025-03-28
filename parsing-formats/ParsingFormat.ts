@@ -16,7 +16,7 @@ import { OTTemplaticParsingFormat } from "./OTTemplaticParsingFormat";
 export type ParsingFormatId = string;
 
 export interface ParsingFormat {
-    id: string;
+    id: ParsingFormatId;
     template: string;
     canon: Canon;
     nounParsingString(element: any): string;

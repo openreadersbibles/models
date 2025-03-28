@@ -134,7 +134,7 @@ export class PublicationHebrewWordElement extends BaseWordElement implements Pub
     }
 
     getParsingString(ref: VerseReference): string {
-        let parsingFormat = this.request.parsing_formats.get(ref.canon);
+        let parsingFormat = this.request.configuration.getParsingFormat(ref.canon);
         if (parsingFormat === undefined) {
             console.error(`Parsing format not found for ${ref.canon}`);
             throw new Error(`Parsing format not found for ${ref.canon}`);
