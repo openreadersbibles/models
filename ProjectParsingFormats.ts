@@ -16,6 +16,14 @@ export class ProjectParsingFormats {
         return this._settings.get(canon);
     }
 
+    public isEmpty(): boolean {
+        return this._settings.size === 0;
+    }
+
+    public hasFormatForCanon(canon: Canon): boolean {
+        return this._settings.has(canon);
+    }
+
     public getNumberOfConfigurations(canon: Canon): number {
         let settings = this.getSettingsForCanon(canon);
         if (settings === undefined) {

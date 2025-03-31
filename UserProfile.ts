@@ -26,8 +26,13 @@ export class UserProfile {
         for (let row in projects) {
             let projectRow = projects[row];
             if (projectRow) {
-                let project = ProjectConfiguration.fromRow(projectRow);
-                this._projects.set(projectRow.project_id, project);
+                try {
+                    let project = ProjectConfiguration.fromRow(projectRow);
+                    this._projects.set(projectRow.project_id, project);
+                } catch (e) {
+                    console.error("Error parsing project row", projectRow, e);
+                    throw e
+                }
             }
         }
     }
@@ -57,6 +62,10 @@ export class UserProfile {
             return undefined;
         }
         return this._projects.get(position.project_id);
+    }
+
+    replaceProject(project: ProjectConfiguration): void {
+        this._projects.set(project.project_id, project);
     }
 
     static fromUserId(user_id: string): UserProfile {

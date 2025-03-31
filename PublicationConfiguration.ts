@@ -94,6 +94,16 @@ export class PublicationConfiguration {
         this._chapterHeader = header;
     }
 
+    get canonsWithoutParsingFormats(): Canon[] {
+        let canons = this._project.canons.filter(c => !this._parsing_formats.has(c));
+        return canons;
+    }
+
+    get canonsWithParsingFormats(): Canon[] {
+        let canons = this._project.canons.filter(c => this._parsing_formats.has(c));
+        return canons;
+    }
+
     getParsingFormat(canon: Canon): ParsingFormat | undefined {
         let parsingFormatId = this._parsing_formats.get(canon);
         if (parsingFormatId === undefined) {
@@ -149,7 +159,7 @@ export class PublicationConfiguration {
         pc.publicationBiblicalFont = row.publication_biblical_font;
         pc.latex_template = row.latex_template || PublicationConfiguration.default_latex_template;
         pc._parsing_formats = new Map<Canon, ParsingFormatId>();
-        for (const [key, value] of Object.entries(row.parsing_formats)) {
+        for (const [key, value] of Object.entries(row.parsing_formats || [])) {
             pc._parsing_formats.set(key as Canon, value);
         }
         return pc;

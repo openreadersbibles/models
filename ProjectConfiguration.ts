@@ -246,6 +246,10 @@ export class ProjectConfiguration {
         return `${this.repositoryName}-${id}`;
     }
 
+    public deepCopy(): ProjectConfiguration {
+        return ProjectConfiguration.fromRow(this.toObject());
+    }
+
     static getRepositoryName(project_id: string): string {
         return `pub-${project_id}`;
     };
