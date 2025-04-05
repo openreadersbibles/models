@@ -1,6 +1,8 @@
 import { ParsingFormat, ParsingFormatId } from './parsing-formats/ParsingFormat';
 import { ProjectConfiguration } from './ProjectConfiguration';
 import { Canon } from './VerseReference';
+import latexTemplate from './assets/default_latex_template.json';
+import cssTemplate from './assets/style.json';
 
 export interface PublicationConfigurationRow {
     footnoteMarkers: string[];
@@ -10,7 +12,11 @@ export interface PublicationConfigurationRow {
     publication_biblical_font: string;
     latex_template: string;
     parsing_formats: { [key: string]: string };
+    css_template: string;
+    footnote_style: PublicationFootnoteStyle;
 }
+
+export type PublicationFootnoteStyle = "lettered-by-verse" | "numbered-by-page";
 
 export class PublicationConfiguration {
     _project: ProjectConfiguration;
@@ -23,6 +29,8 @@ export class PublicationConfiguration {
     private _publication_biblical_font: string = "SBL BibLit";
     private _latex_template: string;
     private _parsing_formats: Map<Canon, ParsingFormatId> = new Map<Canon, ParsingFormatId>();
+    private _footnote_style: PublicationFootnoteStyle;
+    private _css_template: string;
 
     constructor(id: string, project: ProjectConfiguration) {
         this._id = id;
@@ -31,7 +39,9 @@ export class PublicationConfiguration {
         this._footnoteMarkers = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "aa", "bb", "cc", "dd", "ee", "ff", "gg", "hh", "ii", "jj", "kk", "ll", "mm", "nn", "oo", "pp", "qq", "rr", "ss", "tt", "uu", "vv", "ww", "xx", "yy", "zz"];
         this._polyglossiaOtherLanguage = "english";
         this._chapterHeader = "Chapter __CHAPTER__";
+        this._footnote_style = "lettered-by-verse";
         this._latex_template = PublicationConfiguration.default_latex_template;
+        this._css_template = PublicationConfiguration.default_css_template;
     }
 
     public get id(): string {
@@ -66,12 +76,28 @@ export class PublicationConfiguration {
         return this._publication_project_font;
     }
 
+    public get css_template(): string {
+        return this._css_template;
+    }
+
+    public set css_template(value: string) {
+        this._css_template = value;
+    }
+
     public set publicationProjectFont(font: string) {
         this._publication_project_font = font;
     }
 
     public get publicationBiblicalFont(): string {
         return this._publication_biblical_font;
+    }
+
+    public get footnote_style(): PublicationFootnoteStyle {
+        return this._footnote_style;
+    }
+
+    public set footnote_style(value: PublicationFootnoteStyle) {
+        this._footnote_style = value;
     }
 
     public set publicationBiblicalFont(font: string) {
@@ -147,6 +173,8 @@ export class PublicationConfiguration {
             publication_biblical_font: this._publication_biblical_font,
             latex_template: this._latex_template,
             parsing_formats: parsing_formats,
+            css_template: this._css_template,
+            footnote_style: this._footnote_style,
         };
     }
 
@@ -158,6 +186,8 @@ export class PublicationConfiguration {
         pc.publicationProjectFont = row.publication_project_font;
         pc.publicationBiblicalFont = row.publication_biblical_font;
         pc.latex_template = row.latex_template || PublicationConfiguration.default_latex_template;
+        pc.css_template = row.css_template || PublicationConfiguration.default_css_template;
+        pc.footnote_style = row.footnote_style || "lettered-by-verse";
         pc._parsing_formats = new Map<Canon, ParsingFormatId>();
         for (const [key, value] of Object.entries(row.parsing_formats || [])) {
             pc._parsing_formats.set(key as Canon, value);
@@ -165,20 +195,6 @@ export class PublicationConfiguration {
         return pc;
     }
 
-
-    static default_latex_template = `\\documentclass{openreader}
-\\title{__TITLE__}
-\\date{}
-\\setmainlanguage{__MAINLANGUAGE__}
-\\setmainfont{__MAINLANGUAGEFONT__}
-\\setotherlanguage{__BIBLICALLANGUAGE__}
-__NEWFONTFAMILYCOMMAND__
-\\begin{document}
-\\ORBselectlanguage{__BIBLICALLANGUAGE__}
-\\maketitle
-\\raggedbottom 
-\\fontsize{16pt}{24pt}\\selectfont
-__CONTENT__
-\\end{document}`;
-
+    static default_latex_template = latexTemplate.content;
+    static default_css_template = cssTemplate.content;
 }
