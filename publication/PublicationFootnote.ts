@@ -4,7 +4,6 @@ import { PublicationWordElement } from "./PublicationWordElement";
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss";
 import { generateUUID } from "../../models/generateUUID";
 import { converter } from "../../models/Annotation";
-import { ProjectConfiguration } from "../../models/ProjectConfiguration";
 import { XMLBuilder } from "xmlbuilder2/lib/interfaces";
 import { PublicationRequest } from "../PublicationRequest";
 

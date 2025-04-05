@@ -55,7 +55,6 @@ export const OTBasicEnglish: OTConciseParsingFormatStrings = {
 };
 
 const ZERO_WIDTH_JOINER = '\u200d';
-const ZERO_WIDTH_SPACE = '\u200b';
 const THIN_SPACE = '\u2009';
 const JOINER_PLUS_THIN_SPACE = ZERO_WIDTH_JOINER + THIN_SPACE;
 

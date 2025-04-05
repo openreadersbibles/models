@@ -6,12 +6,10 @@ import { ParsingFormatBase } from "./ParsingFormatBase";
 
 export class NTTemplaticParsingFormat extends ParsingFormatBase implements ParsingFormat {
     private strings: NTTemplaticParsingFormatStrings;
-    private numeralConverter: NumeralConverter;
 
     constructor(id: string, template: string, numeralConverter: NumeralConverter, strings: NTTemplaticParsingFormatStrings = NTTemplaticEnglish) {
         super(id, template, "NT");
         this.strings = strings;
-        this.numeralConverter = numeralConverter;
     }
 
     toObject(): ParsingFormatObject {

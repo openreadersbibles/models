@@ -242,10 +242,6 @@ export class ProjectConfiguration {
         return ProjectConfiguration.getRepositoryName(this._project_id);
     }
 
-    public repositoryNameForConfiguration(id: string): string {
-        return `${this.repositoryName}-${id}`;
-    }
-
     public deepCopy(): ProjectConfiguration {
         return ProjectConfiguration.fromRow(this.toObject());
     }
@@ -268,7 +264,7 @@ export class ProjectConfiguration {
             bookNames[book] = name;
         }
         let roles: ProjectRoleRow[] = [];
-        for (let [userId, role] of this._roles) {
+        for (let role of this._roles.values()) {
             roles.push(role);
         }
         let configurations: { [key: string]: PublicationConfigurationRow } = {};

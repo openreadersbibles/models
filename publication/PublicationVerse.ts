@@ -5,7 +5,6 @@ import { PublicationRequest } from "../../models/PublicationRequest";
 import { PublicationWordElement } from "./PublicationWordElement";
 import { PublicationHebrewWordElementRow } from "./PublicationHebrewWordElementRow";
 import { XMLBuilder } from "xmlbuilder2/lib/interfaces";
-import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss";
 
 export type WordElementCreator = (obj: any, word: PublicationWord, request: PublicationRequest) => PublicationWordElement;
 
@@ -85,7 +84,6 @@ export class PublicationVerse {
 
     public verseXml(parent: XMLBuilder): void {
         let glossCounter = 0;
-        const phrasalGlosses = this.getPhrasalGlosses();
 
         this.words.forEach((word) => {
             const pgs = word.getPhrasalGlosses();
@@ -130,18 +128,6 @@ export class PublicationVerse {
             parent.txt(word.getSeparator());
 
         });
-    }
-
-    private getPhrasalGlosses(): PublicationPhrasalGloss[] {
-        let glosses = new Array<PublicationPhrasalGloss>();
-        this.elements.forEach((element) => {
-            glosses = glosses.concat(element.phrasalGlosses);
-        });
-        return glosses;
-    }
-
-    private getXmlIdForWordElement(wordElement: PublicationWordElement): string {
-        return `${this.reference.xmlId}-${this.elements.indexOf(wordElement)}`;
     }
 
     public get elements(): PublicationWordElement[] {
