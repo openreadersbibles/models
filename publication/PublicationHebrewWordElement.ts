@@ -9,20 +9,10 @@ import { OTGender, OTGrammaticalNumber, OTPartOfSpeech, OTPerson, OTState, OTTen
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss";
 import { VerseReference } from "../../models/VerseReference";
 
-export interface HasReferenceString {
-    reference: string;
-}
-
-export class PublicationHebrewWordElement extends BaseWordElement implements PublicationWordElement {
-    row: PublicationHebrewWordElementRow;
+export class PublicationHebrewWordElement extends BaseWordElement<PublicationHebrewWordElementRow> implements PublicationWordElement {
     static substantives = ["subs", "nmpr", "adjv", "prps", "prde"];
 
-    constructor(obj: PublicationHebrewWordElementRow, word: PublicationWord, request: PublicationRequest) {
-        super(word, request);
-        this.row = obj;
-    }
-
-    static fromWordRow(obj: any, word: PublicationWord, request: PublicationRequest): PublicationWordElement {
+    static fromWordRow(obj: PublicationHebrewWordElementRow, word: PublicationWord, request: PublicationRequest): PublicationWordElement {
         return new PublicationHebrewWordElement(obj, word, request);
     }
 
@@ -134,7 +124,7 @@ export class PublicationHebrewWordElement extends BaseWordElement implements Pub
     }
 
     getParsingString(ref: VerseReference): string {
-        let parsingFormat = this.request.configuration.getParsingFormat(ref.canon);
+        const parsingFormat = this.request.configuration.getParsingFormat(ref.canon);
         if (parsingFormat === undefined) {
             console.error(`Parsing format not found for ${ref.canon}`);
             throw new Error(`Parsing format not found for ${ref.canon}`);

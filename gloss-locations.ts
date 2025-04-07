@@ -1,5 +1,5 @@
 export interface GlossLocation {
-    toObject(): any;
+    toObject(): WordGlossLocationObject | PhraseGlossLocationObject;
     asString(): string;
 }
 
@@ -66,7 +66,7 @@ export class PhraseGlossLocation implements GlossLocation {
     }
 
     static fromString(str: string): PhraseGlossLocation {
-        let parts = str.split('-');
+        const parts = str.split('-');
         return new PhraseGlossLocation(parseInt(parts[0]), parseInt(parts[1]));
     }
 

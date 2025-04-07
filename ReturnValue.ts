@@ -1,17 +1,33 @@
 import { WrappedBody } from "./SavedPostRequest";
 
-export interface IReturnValue {
+export interface HttpReturnValue {
     statusCode: number;
     body: string;
-    headers?: any;
+    headers?: { [key: string]: string | boolean };
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function SuccessValue(payload: any): HttpReturnValue {
+    return { statusCode: 200, body: JSON.stringify(payload), headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true } };
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function InternalFailure(payload: any): HttpReturnValue {
+    return { statusCode: 500, body: JSON.stringify(payload), headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true } };
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function BadRequest(payload: any): HttpReturnValue {
+    return { statusCode: 400, body: JSON.stringify(payload), headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true } };
 }
 
 export const returnValueConfig = {
     hash: ''
 };
 
-export function ReturnValue(payload: any): IReturnValue {
-    let wrappedBody: WrappedBody = {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function ReturnValue(payload: any): HttpReturnValue {
+    const wrappedBody: WrappedBody = {
         body: payload,
         hash: returnValueConfig.hash
     };
@@ -23,8 +39,4 @@ export function ReturnValue(payload: any): IReturnValue {
             'Access-Control-Allow-Credentials': true,
         }
     };
-}
-
-export function ResolvedPromiseReturnValue(payload: any): Promise<IReturnValue> {
-    return Promise.resolve(ReturnValue(payload));
 }

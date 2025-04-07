@@ -14,6 +14,8 @@ export interface CognitoUserInfoResponse {
     username: string;
 }
 
+export interface TimedOauthCredentialsObject { response: CognitoTokenResponse; createdTime: Date };
+
 export class TimedOauthCredentials {
     private _response: CognitoTokenResponse;
     private _createdTime: Date = new Date();
@@ -47,7 +49,7 @@ export class TimedOauthCredentials {
         return this._response.refresh_token;
     }
 
-    toObject(): any {
+    toObject(): TimedOauthCredentialsObject {
         return {
             response: this._response,
             createdTime: this._createdTime,
@@ -58,7 +60,7 @@ export class TimedOauthCredentials {
         return JSON.stringify(this.toObject());
     }
 
-    static fromObject(obj: any): TimedOauthCredentials {
+    static fromObject(obj: TimedOauthCredentialsObject): TimedOauthCredentials {
         const token = new TimedOauthCredentials(obj.response);
         token._createdTime = new Date(obj.createdTime);
         return token;

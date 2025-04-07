@@ -1,3 +1,4 @@
+import { AnnotationJsonObject } from "./Annotation";
 import { GlossRow, PhraseGlossRow } from "./database-input-output";
 
 export type OTGender = "NA" | "f" | "m" | "unknown";
@@ -16,7 +17,7 @@ export interface GetHebrewVerseResponse {
 
 export interface SuggestionRow {
     lex_id: number;
-    suggestions: any[];
+    suggestions: AnnotationJsonObject[];
 }
 
 export interface HebrewWordRow {

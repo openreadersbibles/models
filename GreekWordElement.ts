@@ -17,8 +17,8 @@ export class GreekWordElement extends WordElementBase implements WordElement {
 
         /// votes contains the glosses that have actual votes
         this._glosses = row.votes.map((suggestion: GlossRow) => {
-            let myvote = suggestion.gloss_id === row.myVote ? 1 : 0 as 1 | 0;
-            let location = new WordGlossLocation(row._id, row.lex_id);
+            const myvote = suggestion.gloss_id === row.myVote ? 1 : 0 as 1 | 0;
+            const location = new WordGlossLocation(row._id, row.lex_id);
             return Gloss.fromWordGlossRow(suggestion, location, myvote);
         });
 
@@ -59,7 +59,7 @@ export class GreekWordElement extends WordElementBase implements WordElement {
     }
 
     copyOf(): GreekWordElement {
-        let copy = new GreekWordElement(this._row);
+        const copy = new GreekWordElement(this._row);
         copy._glosses = this._glosses;
         return copy;
     }
@@ -69,7 +69,7 @@ export class GreekWordElement extends WordElementBase implements WordElement {
     }
 
     parsingSummary(): Map<string, string> {
-        let summary = new Map<string, string>();
+        const summary = new Map<string, string>();
 
         summary.set('Headword', this._row.lemma);
         summary.set('English', this._row.englishGloss);

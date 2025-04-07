@@ -1,12 +1,16 @@
 import { Canon, UbsBook, VerseReference } from "./VerseReference";
 
+type CanonNumberLookup = Partial<Record<UbsBook, number>>;
+
+type CanonNumberArrayLookup = Partial<Record<UbsBook, number[]>>;
+
 export class CanonData {
     private _name: Canon;
     private _books: UbsBook[];
-    private _max_chapter: any;
-    private _max_verse: any;
+    private _max_chapter: CanonNumberLookup;
+    private _max_verse: CanonNumberArrayLookup;
 
-    constructor(name: Canon, books: UbsBook[], max_chapter: any, max_verse: any) {
+    constructor(name: Canon, books: UbsBook[], max_chapter: CanonNumberLookup, max_verse: CanonNumberArrayLookup) {
         this._name = name;
         this._books = books;
         this._max_chapter = max_chapter;
@@ -30,7 +34,7 @@ export class CanonData {
     }
 
     nextBook(book: UbsBook): UbsBook {
-        let index = this._books.indexOf(book);
+        const index = this._books.indexOf(book);
         if (index < 0) {
             return 'GEN';
         }
@@ -41,7 +45,7 @@ export class CanonData {
     }
 
     previousBook(book: UbsBook): UbsBook {
-        let index = this._books.indexOf(book);
+        const index = this._books.indexOf(book);
         if (index < 0) {
             return 'GEN';
         }
@@ -56,7 +60,10 @@ export class CanonData {
     }
 
     lastVerse(book: UbsBook, chapter: number): number | undefined {
-        let versesN = this._max_verse[book];
+        const versesN = this._max_verse[book];
+        if (versesN === undefined) {
+            return undefined;
+        }
         if (versesN.length > (chapter - 1)) {
             return versesN[chapter - 1];
         } else {
@@ -66,8 +73,8 @@ export class CanonData {
     }
 
     nextVerse(reference: VerseReference): VerseReference {
-        let returnValue = new VerseReference(reference.ubs_book, reference.chapter, reference.verse + 1, this._name);
-        let lastVerseInChapter = this.lastVerse(returnValue.ubs_book, returnValue.chapter);
+        const returnValue = new VerseReference(reference.ubs_book, reference.chapter, reference.verse + 1, this._name);
+        const lastVerseInChapter = this.lastVerse(returnValue.ubs_book, returnValue.chapter);
         if (lastVerseInChapter === undefined) {
             console.error(`BookNavigator.nextVerse: lastVerseInChapter is null for ${reference.ubs_book} ${reference.chapter}`);
             return reference;
@@ -76,13 +83,13 @@ export class CanonData {
             returnValue.chapter = reference.chapter + 1;
             returnValue.verse = 1;
         }
-        let lastChapter = this.lastChapter(returnValue.ubs_book);
+        const lastChapter = this.lastChapter(returnValue.ubs_book);
         if (lastChapter === undefined) {
             console.error(`BookNavigator.nextVerse: lastChapter is null for ${reference.ubs_book}`);
             return reference;
         }
         if (returnValue.chapter > lastChapter) {
-            let nextBook = this.nextBook(returnValue.ubs_book);
+            const nextBook = this.nextBook(returnValue.ubs_book);
             returnValue.ubs_book = nextBook;
             returnValue.chapter = 1;
             returnValue.verse = 1;
@@ -93,13 +100,13 @@ export class CanonData {
     previousVerse(reference: VerseReference): VerseReference {
         /// the only real wrap-around situation is if we're in 1:1
         if (reference.chapter === 1 && reference.verse === 1) {
-            let previousBook = this.previousBook(reference.ubs_book);
-            let lastChapter = this.lastChapter(previousBook);
+            const previousBook = this.previousBook(reference.ubs_book);
+            const lastChapter = this.lastChapter(previousBook);
             if (lastChapter === undefined) {
                 console.error(`BookNavigator.previousVerse: lastChapter is undefined for ${reference.ubs_book}`);
                 return reference;
             }
-            let lastVerseInChapter = this.lastVerse(previousBook, lastChapter);
+            const lastVerseInChapter = this.lastVerse(previousBook, lastChapter);
             if (lastVerseInChapter === undefined) {
                 console.error(`BookNavigator.previousVerse: lastVerseInChapter is undefined for ${reference.ubs_book} ${reference.chapter}`);
                 return reference;
@@ -107,10 +114,10 @@ export class CanonData {
             return new VerseReference(previousBook, lastChapter, lastVerseInChapter, this._name);
         }
 
-        let returnValue = new VerseReference(reference.ubs_book, reference.chapter, reference.verse - 1, this._name);
+        const returnValue = new VerseReference(reference.ubs_book, reference.chapter, reference.verse - 1, this._name);
         if (returnValue.verse < 1) {
             returnValue.chapter = reference.chapter - 1;
-            let lastVerseInChapter = this.lastVerse(returnValue.ubs_book, returnValue.chapter);
+            const lastVerseInChapter = this.lastVerse(returnValue.ubs_book, returnValue.chapter);
             if (lastVerseInChapter === undefined) {
                 console.error(`BookNavigator.previousVerse: lastVerseInChapter is null for ${reference.ubs_book} ${reference.chapter}`);
                 return reference;
@@ -160,7 +167,7 @@ export const CANONS: CanonData[] = [OT, NT, LXX];
 export const ALL_BOOK_CODES = OT.books.concat(NT.books.concat(LXX.books));
 
 export function canonicalOrderSort(a: UbsBook, b: UbsBook) {
-    let aIndex = ALL_BOOK_CODES.indexOf(a);
-    let bIndex = ALL_BOOK_CODES.indexOf(b);
+    const aIndex = ALL_BOOK_CODES.indexOf(a);
+    const bIndex = ALL_BOOK_CODES.indexOf(b);
     return aIndex - bIndex;
 }

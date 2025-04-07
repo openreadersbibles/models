@@ -10,18 +10,12 @@ import { PublicationWord } from "./PublicationWord";
 import { PublicationWordElement } from "./PublicationWordElement";
 
 
-export class PublicationGreekWordElement extends BaseWordElement implements PublicationWordElement {
-    row: PublicationGreekWordElementRow;
+export class PublicationGreekWordElement extends BaseWordElement<PublicationGreekWordElementRow> implements PublicationWordElement {
 
     private static _substantive_parts_of_speech = ['noun', 'definite-article', 'personal-pronoun', 'relative-pronoun', 'verb', 'adjective', 'demonstrative-pronoun', 'interrogative-indefinite-pronoun']
 
-    static fromWordRow(obj: any, word: PublicationWord, request: PublicationRequest): PublicationWordElement {
+    static fromWordRow(obj: PublicationGreekWordElementRow, word: PublicationWord, request: PublicationRequest): PublicationWordElement {
         return new PublicationGreekWordElement(obj, word, request);
-    }
-
-    constructor(obj: PublicationGreekWordElementRow, word: PublicationWord, request: PublicationRequest) {
-        super(word, request);
-        this.row = obj;
     }
 
     get plaintext(): string {
@@ -79,7 +73,7 @@ export class PublicationGreekWordElement extends BaseWordElement implements Publ
     }
 
     getParsingString(ref: VerseReference): string {
-        let parsingFormat = this.request.configuration.getParsingFormat(ref.canon);
+        const parsingFormat = this.request.configuration.getParsingFormat(ref.canon);
         if (parsingFormat === undefined) {
             console.error(`Parsing format not found for ${ref.canon}`);
             throw new Error(`Parsing format not found for ${ref.canon}`);

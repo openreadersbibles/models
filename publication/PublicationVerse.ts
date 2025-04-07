@@ -5,8 +5,7 @@ import { PublicationRequest } from "../../models/PublicationRequest";
 import { PublicationWordElement } from "./PublicationWordElement";
 import { PublicationHebrewWordElementRow } from "./PublicationHebrewWordElementRow";
 import { XMLBuilder } from "xmlbuilder2/lib/interfaces";
-
-export type WordElementCreator = (obj: any, word: PublicationWord, request: PublicationRequest) => PublicationWordElement;
+import { PublicationGreekWordElementRow } from "./PublicationGreekWordElementRow";
 
 export class PublicationVerse {
     public reference: VerseReference;
@@ -28,7 +27,7 @@ export class PublicationVerse {
     private verseText(): string {
         let text = "";
         let glossCounter = 0;
-        let finalPhrasalGlossMarkers = new Map<number, string[]>();
+        const finalPhrasalGlossMarkers = new Map<number, string[]>();
 
         /// typeset the verse number (in the main text)
         text += `\\MainTextVerseMark{${this.reference.chapter}}{${this.reference.verse}}`;
@@ -40,7 +39,7 @@ export class PublicationVerse {
             /// note that placing these here assumes that phrasal glosses will have lower
             /// marker numbers than simple gloss footnotes (which is visually intuitive)
             pgs.filter((pg) => word.hasWordId(pg.from_word_id)).forEach((pg) => {
-                let marker = this.request.configuration.getFootnoteMarker(glossCounter);
+                const marker = this.request.configuration.getFootnoteMarker(glossCounter);
                 text += `\\MainTextFootnoteMark{${marker}}`;
                 /// keep track of these; we'll add the final markers later
                 if (!finalPhrasalGlossMarkers.has(pg.to_word_id)) {
@@ -64,7 +63,7 @@ export class PublicationVerse {
             }
 
             /// add in the final markers of any phrasal glosses
-            for (let [word_id, markers] of finalPhrasalGlossMarkers.entries()) {
+            for (const [word_id, markers] of finalPhrasalGlossMarkers.entries()) {
                 if (word.hasWordId(word_id)) {
                     markers.forEach((marker) => {
                         text += `\\MainTextFootnoteMark{${marker}}`;
@@ -134,17 +133,17 @@ export class PublicationVerse {
         return this._elements;
     }
 
-    static fromWordElements(
-        rows: any[],
+    static fromWordElements<T extends PublicationGreekWordElementRow | PublicationHebrewWordElementRow>(
+        rows: T[],
         reference: VerseReference,
         request: PublicationRequest,
-        objectCreator: WordElementCreator): PublicationVerse {
-        let v = new PublicationVerse(reference, request);
+        objectCreator: (obj: T, word: PublicationWord, request: PublicationRequest) => PublicationWordElement): PublicationVerse {
+        const v = new PublicationVerse(reference, request);
 
         v.words.push(new PublicationWord(reference));
         for (let i = 0; i < rows.length; i++) {
             const currentWord = v.words[v.words.length - 1];
-            const e = objectCreator(rows[i] as PublicationHebrewWordElementRow, currentWord, request);
+            const e = objectCreator(rows[i], currentWord, request);
 
             v.elements.push(e);
             v.words[v.words.length - 1].addElement(e);

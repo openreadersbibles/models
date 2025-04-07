@@ -1,4 +1,8 @@
-export const OT_VERBS = [
+export interface SimpleStringLookup {
+    [key: string]: string | null;
+}
+
+export const OT_VERBS: SimpleStringLookup[] = [
     {
         "vs": "qal",
         "vt": "perf",
@@ -9560,7 +9564,7 @@ export const OT_VERBS = [
     }
 ];
 
-export const NT_NOUNS = [
+export const NT_NOUNS: SimpleStringLookup[] = [
     {
         "grammatical_case": "nominative",
         "grammatical_number": "singular",
@@ -10019,7 +10023,7 @@ export const NT_NOUNS = [
     }
 ];
 
-export const NT_VERBS = [
+export const NT_VERBS: SimpleStringLookup[] = [
     {
         "person": "3rd",
         "tense": "aorist",
@@ -13388,7 +13392,7 @@ export const NT_VERBS = [
     }
 ];
 
-export const OT_NOUNS = [
+export const OT_NOUNS: SimpleStringLookup[] = [
     {
         "nu": "sg",
         "gn": "f",

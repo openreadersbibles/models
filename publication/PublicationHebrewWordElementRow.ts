@@ -15,7 +15,7 @@ export interface PublicationHebrewWordElementRow {
     ps: OTPerson;
     pdp: OTPartOfSpeech;
     freq_lex: number;
-    gloss: Annotation;
+    gloss: Annotation | null;
     qere_utf8: string;
     kq_hybrid_utf8: string;
     prs_gn: OTGender;

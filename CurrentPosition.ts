@@ -4,6 +4,8 @@ import { Canon, VerseReference } from "./VerseReference";
 
 type CompositeKey = string;
 
+type CurrentPositionJson = { project_id: ProjectId; canon: Canon; positions: Record<ProjectId, Record<Canon, string>> };
+
 export class CurrentPosition {
     private _current_project_id: ProjectId;
     private _current_canon: Canon;
@@ -44,7 +46,7 @@ export class CurrentPosition {
     }
 
     get ref(): VerseReference {
-        let result = this._positions.get(this.currentKey());
+        const result = this._positions.get(this.currentKey());
         if (result) {
             return result;
         } else {
@@ -70,20 +72,20 @@ export class CurrentPosition {
         if (json === undefined || json === null) {
             return undefined;
         }
-        let obj = JSON.parse(json);
+        const obj = JSON.parse(json);
         if (obj.project_id === undefined || obj.canon === undefined || obj.positions === undefined
             || obj.project_id === null || obj.canon === null || obj.positions === null) {
             return undefined;
         }
-        let positions = new Map<CompositeKey, VerseReference>();
-        for (let projectId in obj.positions) {
-            if (obj.positions.hasOwnProperty(projectId)) {
-                for (let canon in obj.positions[projectId]) {
-                    if (obj.positions[projectId].hasOwnProperty(canon)) {
-                        let pid = projectId as ProjectId;
-                        let c = canon as Canon;
-                        let canonData = getCanon(c);
-                        let reference = VerseReference.fromString(obj.positions[projectId][canon]) || canonData.fallbackVerseReference();
+        const positions = new Map<CompositeKey, VerseReference>();
+        for (const projectId in obj.positions) {
+            if (Object.prototype.hasOwnProperty.call(obj.positions, projectId)) {
+                for (const canon in obj.positions[projectId]) {
+                    if (Object.prototype.hasOwnProperty.call(obj.positions[projectId], canon)) {
+                        const pid = projectId as ProjectId;
+                        const c = canon as Canon;
+                        const canonData = getCanon(c);
+                        const reference = VerseReference.fromString(obj.positions[projectId][canon]) || canonData.fallbackVerseReference();
                         positions.set(CurrentPosition.getKey(pid, c), reference);
                     }
                 }
@@ -92,12 +94,12 @@ export class CurrentPosition {
         return new CurrentPosition(obj.project_id, obj.canon, positions);
     }
 
-    toObject(): any {
-        let positions: any = {};
+    toObject(): CurrentPositionJson {
+        const positions: Record<ProjectId, Record<Canon, string>> = {};
         this._positions.forEach((ref, key) => {
-            let [pid, c] = key.split("|");
+            const [pid, c] = key.split("|") as [ProjectId, Canon];
             if (!positions[pid]) {
-                positions[pid] = {};
+                positions[pid] = {} as Record<Canon, string>;
             }
             positions[pid][c] = ref.toString();
         });
@@ -112,11 +114,11 @@ export class CurrentPosition {
         if (projects.length === 0) {
             return undefined;
         }
-        let firstProject = projects[0];
-        let positions = new Map<CompositeKey, VerseReference>();
+        const firstProject = projects[0];
+        const positions = new Map<CompositeKey, VerseReference>();
         projects.forEach(project => {
             project.canons.forEach(canon => {
-                let ref = getCanon(canon).fallbackVerseReference();
+                const ref = getCanon(canon).fallbackVerseReference();
                 positions.set(CurrentPosition.getKey(project.id, canon), ref);
             });
         });

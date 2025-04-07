@@ -1,17 +1,6 @@
 import { AnnotationJsonObject } from "./Annotation";
-import { GlossLocation } from "./gloss-locations";
+import { PhraseGlossLocationObject, WordGlossLocationObject } from "./gloss-locations";
 import { ProjectConfigurationRow } from "./ProjectConfiguration";
-import { Canon } from "./VerseReference";
-
-export interface ServerResponse {
-    status: "success" | "authentication_failure" | "internet_failure" | "internal_failure" | "bad_request_failure";
-    payload?: any;
-}
-
-export const InternetFailure: ServerResponse = { status: "internet_failure" };
-export const AuthenticationFailure: ServerResponse = { status: "authentication_failure" };
-export const InternalFailure: ServerResponse = { status: "internal_failure" };
-export const BadRequestFailure: ServerResponse = { status: "bad_request_failure" };
 
 export interface ProjectPackage {
     project: ProjectConfigurationRow;
@@ -19,7 +8,6 @@ export interface ProjectPackage {
 }
 
 export interface UpdateVerseData {
-    canon_name: Canon;
     word_gloss_updates: GlossSendObject[];
     phrase_gloss_updates: GlossSendObject[];
 }
@@ -43,5 +31,5 @@ export interface GlossSendObject {
     annotationObject: AnnotationJsonObject;
     gloss_id: number;
     myVote: 0 | 1;
-    location: GlossLocation;
+    location: WordGlossLocationObject | PhraseGlossLocationObject;
 }

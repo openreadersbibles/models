@@ -21,5 +21,6 @@ export interface PublicationGreekWordElementRow {
     gender: NTGender;
     degree: NTDegree;
     gloss: Annotation | null;
+    reference: string;
     phrasalGlosses: PublicationPhrasalGloss[];
 }

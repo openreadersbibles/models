@@ -1,24 +1,24 @@
-import { ServerResponse } from "./database-input-output";
+import { HttpReturnValue } from "./ReturnValue";
 
 export interface WrappedBody {
-    body: any;
+    body: unknown;
     hash: string;
 }
 
 export interface ReturnedWrappedBody {
-    body: ServerResponse;
+    body: HttpReturnValue;
     hash: string;
 }
 
 interface SavedPostRequestObject {
     url: string;
-    body: any;
-    hash: any;
+    body: unknown;
+    hash: string;
 }
 
 export class SavedPostRequest {
     private _url!: string;
-    private _body!: any;
+    private _body!: unknown;
     private _hash!: string;
 
     private constructor() {
@@ -28,7 +28,7 @@ export class SavedPostRequest {
         return this._url;
     }
 
-    get body(): any {
+    get body(): unknown {
         return this._body;
     }
 
@@ -36,8 +36,8 @@ export class SavedPostRequest {
         return this._hash;
     }
 
-    static async create(url: string, body: any): Promise<SavedPostRequest> {
-        let r = new SavedPostRequest();
+    static async create(url: string, body: unknown): Promise<SavedPostRequest> {
+        const r = new SavedPostRequest();
         r._url = url;
         r._body = body;
         r._hash = "transaction:" + await SavedPostRequest.createHashFromStrings(url, JSON.stringify(body));
@@ -72,7 +72,7 @@ export class SavedPostRequest {
     }
 
     toString(): string {
-        let obj: SavedPostRequestObject = {
+        const obj: SavedPostRequestObject = {
             url: this._url,
             body: this._body,
             hash: this._hash
@@ -81,11 +81,11 @@ export class SavedPostRequest {
     }
 
     static async fromString(str: string): Promise<SavedPostRequest | undefined> {
-        let obj: SavedPostRequestObject = JSON.parse(str);
+        const obj: SavedPostRequestObject = JSON.parse(str);
         if (obj === undefined) {
             return undefined;
         }
-        let savedPostRequest = await SavedPostRequest.create(obj.url, obj.body);
+        const savedPostRequest = await SavedPostRequest.create(obj.url, obj.body);
         savedPostRequest._hash = obj.hash;
         return savedPostRequest;
     }

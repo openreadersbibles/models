@@ -21,16 +21,16 @@ export class Gloss {
     }
 
     static fromWordGlossRow(row: GlossRow, location: GlossLocation, myvote: 0 | 1): Gloss {
-        let annotation = annotationFromJson(row.jsonContent) || new WordAnnotation("");
-        let other_votes = row.votes - myvote; /// so that we don't count the user's vote twice
-        let gloss_id = row.gloss_id;
+        const annotation = annotationFromJson(row.jsonContent) || new WordAnnotation("");
+        const other_votes = row.votes - myvote; /// so that we don't count the user's vote twice
+        const gloss_id = row.gloss_id;
         return new Gloss(annotation, other_votes, gloss_id, location, myvote);
     }
 
     static fromPhraseGlossRow(row: PhraseGlossRow, location: PhraseGlossLocation, myvote: 0 | 1): Gloss {
-        let annotation = new MarkdownAnnotation(row.markdown);
-        let other_votes = row.votes - myvote; /// so that we don't count the user's vote twice
-        let gloss_id = row.phrase_gloss_id;
+        const annotation = new MarkdownAnnotation(row.markdown);
+        const other_votes = row.votes - myvote; /// so that we don't count the user's vote twice
+        const gloss_id = row.phrase_gloss_id;
         return new Gloss(annotation, other_votes, gloss_id, location, myvote);
     }
 
@@ -85,7 +85,7 @@ export class Gloss {
     }
 
     addVote(): void {
-        let changed = this._myVote === 0;
+        const changed = this._myVote === 0;
         this._myVote = 1;
         if (changed) {
             this._changed = true;
@@ -93,7 +93,7 @@ export class Gloss {
     }
 
     removeVote(): void {
-        let changed = this._myVote === 1;
+        const changed = this._myVote === 1;
         this._myVote = 0;
         if (changed) {
             this._changed = true;
@@ -111,7 +111,7 @@ export class Gloss {
     }
 
     static newGloss(annotation: Annotation, location: GlossLocation, votedFor: boolean): Gloss {
-        let g = new Gloss(annotation, 0, -1, location, 0);
+        const g = new Gloss(annotation, 0, -1, location, 0);
         if (votedFor) {
             g.addVote();
             g.markAsChanged();

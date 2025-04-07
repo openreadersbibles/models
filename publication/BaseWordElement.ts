@@ -1,11 +1,13 @@
 import { PublicationRequest } from "../../models/PublicationRequest";
 import { PublicationWord } from "./PublicationWord";
 
-export class BaseWordElement {
+export class BaseWordElement<T> {
+    row: T;
     request: PublicationRequest;
     word: PublicationWord;
 
-    constructor(word: PublicationWord, request: PublicationRequest) {
+    constructor(obj: T, word: PublicationWord, request: PublicationRequest) {
+        this.row = obj;
         this.word = word;
         this.request = request;
     }

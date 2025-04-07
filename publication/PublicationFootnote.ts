@@ -44,7 +44,7 @@ export class PublicationFootnote {
             this.entries.get(key)?.addMarker(marker)
         } else {
             /// Note that for Greek ketivQereString will always be empty
-            let content = element.ketivQereString + this.footnoteContent(element);
+            const content = element.ketivQereString + this.footnoteContent(element);
             this.entries.set(key, new PublicationFootnoteElement(marker, content));
         }
     }
@@ -66,7 +66,7 @@ export class PublicationFootnote {
             footnoteText += `\\FootnoteSubHeader{${value.markerText()}}${value.text}\\FootnoteSubFooter`;
         });
         if (footnoteText.length > 0) {
-            let footnoteNumber = this.request.project.replaceNumerals(verseNumber.toString());
+            const footnoteNumber = this.request.project.replaceNumerals(verseNumber.toString());
             return `\\VerseFootnote{${footnoteNumber}}{${footnoteText}}`;
         } else {
             return "";

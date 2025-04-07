@@ -1,4 +1,5 @@
 import { GlossRow, PhraseGlossRow } from "./database-input-output";
+import { SuggestionRow } from "./HebrewWordRow";
 
 export type NTPartOfSpeech = 'particle' | 'verb' | 'relative-pronoun' | 'personal-pronoun' | 'interrogative-indefinite-pronoun' | 'demonstrative-pronoun' | 'definite-article' | 'preposition' | 'noun' | 'interjection' | 'adverb' | 'conjunction' | 'adjective';
 export type NTPerson = 'NA' | '1st' | '2nd' | '3rd';
@@ -34,11 +35,6 @@ export interface GreekWordRow {
 
 export interface GetNTVerseResponse {
     words: GreekWordRow[];
-    suggestions: NTSuggestionRow[];
+    suggestions: SuggestionRow[];
     phrase_glosses: PhraseGlossRow[];
-}
-
-export interface NTSuggestionRow {
-    lex_id: number;
-    suggestions: any[];
 }

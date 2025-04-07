@@ -1,12 +1,26 @@
 import { MiniMarkdown } from './MiniMarkdown';
 
-export let converter = new MiniMarkdown();
+export const converter = new MiniMarkdown();
 
 export type AnnotationType = "word" | "markdown" | "wordplusmarkdown" | "null";
 
-export interface AnnotationJsonObject {
-    type: AnnotationType;
-    content: any;
+export type AnnotationJsonObject =
+    | { type: "word"; content: WordAnnotationContent; }
+    | { type: "markdown"; content: MarkdownAnnotationContent; }
+    | { type: "wordplusmarkdown"; content: WordPlusMarkdownAnnotationContent; }
+    | { type: "null"; content: string; };
+
+interface WordAnnotationContent {
+    gloss: string;
+}
+
+export interface MarkdownAnnotationContent {
+    markdown: string;
+}
+
+interface WordPlusMarkdownAnnotationContent {
+    gloss: string;
+    markdown: string;
 }
 
 export interface Annotation {
@@ -30,7 +44,7 @@ export function annotationFromObject(obj: AnnotationJsonObject): Annotation | un
         case "wordplusmarkdown":
             return WordPlusMarkdownAnnotation.fromObject(obj);
         case "null":
-            return NullAnnotation.fromObject(obj);
+            return NullAnnotation.fromObject();
         default:
             return undefined;
     }
@@ -62,6 +76,9 @@ export class WordAnnotation implements Annotation {
     }
 
     static fromObject(obj: AnnotationJsonObject): WordAnnotation {
+        if (obj.type !== "word") {
+            throw new Error("Invalid type for WordAnnotation");
+        }
         return new WordAnnotation(obj.content.gloss);
     }
 }
@@ -92,6 +109,9 @@ export class MarkdownAnnotation implements Annotation {
     }
 
     static fromObject(obj: AnnotationJsonObject): MarkdownAnnotation {
+        if (obj.type !== "markdown") {
+            throw new Error("Invalid type for MarkdownAnnotation");
+        }
         return new MarkdownAnnotation(obj.content.markdown);
     }
 }
@@ -126,6 +146,9 @@ export class WordPlusMarkdownAnnotation implements Annotation {
     }
 
     static fromObject(obj: AnnotationJsonObject): WordPlusMarkdownAnnotation {
+        if (obj.type !== "wordplusmarkdown") {
+            throw new Error("Invalid type for WordPlusMarkdownAnnotation");
+        }
         return new WordPlusMarkdownAnnotation(obj.content.gloss, obj.content.markdown);
     }
 }
@@ -148,11 +171,11 @@ export class NullAnnotation implements Annotation {
     toAnnotationObject(): AnnotationJsonObject {
         return {
             type: "null",
-            content: {}
+            content: ""
         };
     }
 
-    static fromObject(obj: AnnotationJsonObject): NullAnnotation {
+    static fromObject(): NullAnnotation {
         return new NullAnnotation();
     }
-} 
+}
