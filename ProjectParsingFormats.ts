@@ -86,7 +86,7 @@ export class ProjectParsingFormats {
         for (const key in obj) {
             const canon = key as Canon;
             const canonSettings = new Map<string, ParsingFormat>();
-            const canonObj = obj[key];
+            const canonObj = obj[canon];
             for (const key in canonObj) {
                 const settings = canonObj[key] as ParsingFormatObject;
                 canonSettings.set(key, ParsingFormatFactory.createParsingFormat(settings.id, project.replaceNumerals.bind(project), settings.template, settings.translations));
