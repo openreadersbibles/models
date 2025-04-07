@@ -94,3 +94,71 @@ div[dir='ltr'] .gloss:not(:last-child)
 .wd {
     white-space: nowrap;
 }
+
+/* Mostly motivated by the TOC */
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1em;
+}
+
+table.toc {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .toc th, .toc td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+  }
+  
+  .toc th {
+    font-weight: normal;
+  }
+  
+  .toc td {
+    text-align: center;
+  }
+    
+  .toc tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .toc tr:hover {
+    background-color: #e9e9e9;
+  }
+  
+  .toc a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .toc a:hover {
+    text-decoration: underline;
+  }
+  
+  .toc h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .toc {
+      font-size: 14px;
+    }
+  
+    .toc th, .toc td {
+      padding: 10px;
+    }
+  }
