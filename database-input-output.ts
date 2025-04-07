@@ -1,6 +1,7 @@
 import { AnnotationJsonObject } from "./Annotation";
 import { PhraseGlossLocationObject, WordGlossLocationObject } from "./gloss-locations";
 import { ProjectConfigurationRow } from "./ProjectConfiguration";
+import { WorkflowRun } from './publication/WorkflowRun';
 
 export interface ProjectPackage {
     project: ProjectConfigurationRow;
@@ -33,3 +34,11 @@ export interface GlossSendObject {
     myVote: 0 | 1;
     location: WordGlossLocationObject | PhraseGlossLocationObject;
 }
+
+export interface CheckResults {
+    [key: string]: string[];
+}
+
+export type AdHocPublicationResult = { operation_status: 'success' | 'failure', payload: { object: { sha: string } } };
+
+export type AdHocWorkflowRunsResult = { workflow_runs?: WorkflowRun[] };
