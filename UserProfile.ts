@@ -22,12 +22,12 @@ export class UserProfile {
     constructor(row: UserProfileRow) {
         this._user_id = row.user_id;
         this._user_description = row.user_description;
-        let projects = JSON.parse(row.projects) as ProjectConfigurationRow[];
-        for (let row in projects) {
-            let projectRow = projects[row];
+        const projects = JSON.parse(row.projects) as ProjectConfigurationRow[];
+        for (const row in projects) {
+            const projectRow = projects[row];
             if (projectRow) {
                 try {
-                    let project = ProjectConfiguration.fromRow(projectRow);
+                    const project = ProjectConfiguration.fromRow(projectRow);
                     this._projects.set(projectRow.project_id, project);
                 } catch (e) {
                     console.error("Error parsing project row", projectRow, e);

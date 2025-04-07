@@ -21,7 +21,7 @@ export class Verse {
     }
 
     static sortPhraseGlosses(phraseGlosses: Gloss[]): Map<string, Gloss[]> {
-        let mappedPhraseGlosses = new Map<string, Gloss[]>();
+        const mappedPhraseGlosses = new Map<string, Gloss[]>();
         for (const gloss of phraseGlosses) {
             if (!mappedPhraseGlosses.has(gloss.location.asString())) {
                 mappedPhraseGlosses.set(gloss.location.asString(), []);
@@ -74,7 +74,7 @@ export class Verse {
 
     textPortion(from: number, to: number): string {
         let result = '';
-        this.words.forEach((word, index) => {
+        this.words.forEach((word) => {
             if (word.firstId >= from && word.firstId <= to) {
                 result += word.text + this._word_separator;
             }
@@ -86,7 +86,7 @@ export class Verse {
         this.phraseGlosses.push(gloss);
     }
 
-    copyOf(): any {
+    copyOf(): Verse {
         return new Verse(this.reference, this.words, this.language, this.phraseGlosses);
     }
 

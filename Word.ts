@@ -94,7 +94,7 @@ export class Word {
     }
 
     parsingSummary(): Map<string, string>[] {
-        let summary: Map<string, string>[] = [];
+        const summary: Map<string, string>[] = [];
         for (const element of this._elements) {
             summary.push(element.parsingSummary());
         }

@@ -3,6 +3,7 @@ import { ProjectConfiguration } from "./ProjectConfiguration";
 import { Canon } from "./VerseReference";
 
 type CanonParsingFormats = Map<ParsingFormatId, ParsingFormat>;
+export type ProjectParsingFormatsObject = Partial<Record<Canon, Record<ParsingFormatId, ParsingFormatObject>>>;
 
 export class ProjectParsingFormats {
     /// Different canons require different settings
@@ -25,7 +26,7 @@ export class ProjectParsingFormats {
     }
 
     public getNumberOfConfigurations(canon: Canon): number {
-        let settings = this.getSettingsForCanon(canon);
+        const settings = this.getSettingsForCanon(canon);
         if (settings === undefined) {
             return 0;
         } else {
@@ -34,7 +35,7 @@ export class ProjectParsingFormats {
     }
 
     public getParsingFormat(canon: Canon, key: ParsingFormatId): ParsingFormat | undefined {
-        let settings = this.getSettingsForCanon(canon);
+        const settings = this.getSettingsForCanon(canon);
         if (settings) {
             return settings.get(key);
         }
@@ -42,8 +43,8 @@ export class ProjectParsingFormats {
     }
 
     public getParsingFormatFromId(key: ParsingFormatId): ParsingFormat | undefined {
-        for (let canonSettings of this._settings.values()) {
-            let format = canonSettings.get(key);
+        for (const canonSettings of this._settings.values()) {
+            const format = canonSettings.get(key);
             if (format) {
                 return format;
             }
@@ -61,33 +62,33 @@ export class ProjectParsingFormats {
     }
 
     public removeParsingFormat(c: Canon, key: string) {
-        let settings = this.getSettingsForCanon(c);
+        const settings = this.getSettingsForCanon(c);
         if (settings) {
             settings.delete(key);
         }
     }
 
-    toObject(): any {
-        let obj: any = {};
+    toObject(): ProjectParsingFormatsObject {
+        const obj: ProjectParsingFormatsObject = {};
         this._settings.forEach((value: CanonParsingFormats, canon: Canon) => {
-            if (!obj.hasOwnProperty(canon)) {
+            if (!Object.prototype.hasOwnProperty.call(obj, canon)) {
                 obj[canon] = {};
             }
             value.forEach((value, key) => {
-                obj[canon][key] = value.toObject();
+                obj[canon]![key] = value.toObject();
             });
         });
         return obj;
     }
 
-    static fromObject(obj: any, project: ProjectConfiguration): ProjectParsingFormats {
-        let settings = new ProjectParsingFormats();
-        for (let key in obj) {
-            let canon = key as Canon;
-            let canonSettings = new Map<string, ParsingFormat>();
-            let canonObj = obj[key];
-            for (let key in canonObj) {
-                let settings = canonObj[key] as ParsingFormatObject;
+    static fromObject(obj: ProjectParsingFormatsObject, project: ProjectConfiguration): ProjectParsingFormats {
+        const settings = new ProjectParsingFormats();
+        for (const key in obj) {
+            const canon = key as Canon;
+            const canonSettings = new Map<string, ParsingFormat>();
+            const canonObj = obj[key];
+            for (const key in canonObj) {
+                const settings = canonObj[key] as ParsingFormatObject;
                 canonSettings.set(key, ParsingFormatFactory.createParsingFormat(settings.id, project.replaceNumerals.bind(project), settings.template, settings.translations));
             }
             settings.addCanonSettings(canon, canonSettings);

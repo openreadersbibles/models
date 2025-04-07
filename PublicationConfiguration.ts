@@ -121,17 +121,17 @@ export class PublicationConfiguration {
     }
 
     get canonsWithoutParsingFormats(): Canon[] {
-        let canons = this._project.canons.filter(c => !this._parsing_formats.has(c));
+        const canons = this._project.canons.filter(c => !this._parsing_formats.has(c));
         return canons;
     }
 
     get canonsWithParsingFormats(): Canon[] {
-        let canons = this._project.canons.filter(c => this._parsing_formats.has(c));
+        const canons = this._project.canons.filter(c => this._parsing_formats.has(c));
         return canons;
     }
 
     getParsingFormat(canon: Canon): ParsingFormat | undefined {
-        let parsingFormatId = this._parsing_formats.get(canon);
+        const parsingFormatId = this._parsing_formats.get(canon);
         if (parsingFormatId === undefined) {
             return undefined;
         }
@@ -139,7 +139,7 @@ export class PublicationConfiguration {
     }
 
     getChapterHeader(chapter: number): string {
-        let str = this.chapterHeader.replace("__CHAPTER__", chapter.toString());
+        const str = this.chapterHeader.replace("__CHAPTER__", chapter.toString());
         return this._project.replaceNumerals(str);
     }
 
@@ -152,7 +152,7 @@ export class PublicationConfiguration {
     }
 
     demoFootnoteMarkers(howmany: number) {
-        let markers = this.footnoteMarkers;
+        const markers = this.footnoteMarkers;
         let result = "";
         for (let i = 0; i < howmany; i++) {
             result += markers[i % markers.length] + ' ';
@@ -161,7 +161,7 @@ export class PublicationConfiguration {
     }
 
     public toObject(): PublicationConfigurationRow {
-        let parsing_formats: { [key: string]: string } = {};
+        const parsing_formats: { [key: string]: string } = {};
         this._parsing_formats.forEach((value, key) => {
             parsing_formats[key] = value;
         });
@@ -179,7 +179,7 @@ export class PublicationConfiguration {
     }
 
     static fromRow(row: PublicationConfigurationRow, id: string, project: ProjectConfiguration): PublicationConfiguration {
-        let pc = new PublicationConfiguration(id, project);
+        const pc = new PublicationConfiguration(id, project);
         pc._footnoteMarkers = row.footnoteMarkers || [];
         pc._polyglossiaOtherLanguage = row.polyglossiaOtherLanguage;
         pc._chapterHeader = row.chapterHeader;

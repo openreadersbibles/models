@@ -13,7 +13,7 @@ export interface WordElement {
     get myVote(): number | null;
     get word_id(): number;
     get lex_id(): number;
-    copyOf(): any;
+    copyOf(): WordElement;
     markGlossesAsUnchanged(): void;
     location(): GlossLocation;
     parsingSummary(): Map<string, string>;
@@ -22,7 +22,7 @@ export interface WordElement {
 }
 
 export interface GlossContainer {
-    copyOf(): any;
+    copyOf(): GlossContainer;
     setVote(gloss: Gloss): void;
 }
 

@@ -3,7 +3,7 @@ import { UserId } from "./UserProfile";
 import { Canon, UbsBook, VerseReference } from "./VerseReference";
 import { ParsingFormat } from "./parsing-formats/ParsingFormat";
 import { PublicationConfiguration, PublicationConfigurationRow } from "./PublicationConfiguration";
-import { ProjectParsingFormats } from "./ProjectParsingFormats";
+import { ProjectParsingFormats, ProjectParsingFormatsObject } from "./ProjectParsingFormats";
 
 interface ThresholdObject {
     [key: string]: number;
@@ -37,15 +37,15 @@ export interface ProjectConfigurationRow {
     project_title: string;
     project_description: string;
     layout_direction: LayoutDirection;
-    frequency_thresholds: any;
-    bookNames: any;
-    canons: any;
+    frequency_thresholds: ThresholdObject;
+    bookNames: BooknamesObject;
+    canons: Canon[];
     roles: ProjectRoleRow[];
     allow_joins: boolean;
     font_families: string;
     font_size: number | undefined;
-    parsing_formats: any;
-    publication_configurations: any;
+    parsing_formats: ProjectParsingFormatsObject;
+    publication_configurations: { [key: string]: PublicationConfigurationRow };
     numerals: string[];
 }
 
@@ -255,19 +255,19 @@ export class ProjectConfiguration {
     }
 
     public toObject(): ProjectConfigurationRow {
-        let thresholds: ThresholdObject = {};
-        for (let [canon, threshold] of this._frequency_thresholds) {
+        const thresholds: ThresholdObject = {};
+        for (const [canon, threshold] of this._frequency_thresholds) {
             thresholds[canon] = threshold;
         }
-        let bookNames: BooknamesObject = {};
-        for (let [book, name] of this._bookNames) {
+        const bookNames: BooknamesObject = {};
+        for (const [book, name] of this._bookNames) {
             bookNames[book] = name;
         }
-        let roles: ProjectRoleRow[] = [];
-        for (let role of this._roles.values()) {
+        const roles: ProjectRoleRow[] = [];
+        for (const role of this._roles.values()) {
             roles.push(role);
         }
-        let configurations: { [key: string]: PublicationConfigurationRow } = {};
+        const configurations: { [key: string]: PublicationConfigurationRow } = {};
         this._publication_configurations.forEach((value, key) => {
             configurations[key] = value.toObject();
         });
@@ -291,7 +291,7 @@ export class ProjectConfiguration {
     }
 
     static fromRow(row: ProjectConfigurationRow): ProjectConfiguration {
-        let pc = new ProjectConfiguration(row.project_id);
+        const pc = new ProjectConfiguration(row.project_id);
         pc._project_title = row.project_title;
         pc._project_description = row.project_description;
         pc._layout_direction = row.layout_direction;
@@ -300,22 +300,22 @@ export class ProjectConfiguration {
         pc._font_size = row.font_size;
         pc._numerals = row.numerals || [];
         pc._parsingFormats = ProjectParsingFormats.fromObject(row.parsing_formats, pc);
-        for (let canon in row.frequency_thresholds) {
-            if (row.frequency_thresholds.hasOwnProperty(canon)) {
+        for (const canon in row.frequency_thresholds) {
+            if (Object.prototype.hasOwnProperty.call(row.frequency_thresholds, canon)) {
                 pc._frequency_thresholds.set(canon as Canon, row.frequency_thresholds[canon]);
             }
         }
-        for (let code in row.bookNames) {
-            if (row.bookNames.hasOwnProperty(code)) {
+        for (const code in row.bookNames) {
+            if (Object.prototype.hasOwnProperty.call(row.bookNames, code)) {
                 pc._bookNames.set(code as UbsBook, row.bookNames[code])
             }
         }
         pc._canons = row.canons as Canon[];
-        for (let role of row.roles) {
+        for (const role of row.roles) {
             pc._roles.set(role.user_id, role);
         }
-        for (let key in row.publication_configurations) {
-            if (row.publication_configurations.hasOwnProperty(key)) {
+        for (const key in row.publication_configurations) {
+            if (Object.prototype.hasOwnProperty.call(row.publication_configurations, key)) {
                 pc.publicationConfigurations.set(key, PublicationConfiguration.fromRow(row.publication_configurations[key], key, pc));
             }
         }

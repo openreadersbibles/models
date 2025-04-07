@@ -1,17 +1,19 @@
 import { NumeralConverter } from "../NumeralConverter";
 import { NTConciseParsingFormat } from "./NTConciseParsingFormat";
-import { NTConciseEnglish } from "./NTConciseParsingFormatStrings";
+import { NTConciseEnglish, NTConciseParsingFormatStrings } from "./NTConciseParsingFormatStrings";
 import { NTVerboseParsingFormat } from "./NTVerboseParsingFormat";
-import { NTVerboseEnglish, NTVerboseStringLabels } from "./NTVerboseParsingFormatStrings";
+import { NTVerboseEnglish, NTVerboseParsingFormatStrings, NTVerboseStringLabels } from "./NTVerboseParsingFormatStrings";
 import { OTConciseParsingFormat } from "./OTConciseParsingFormat";
-import { OTBasicEnglish, OTConciseStringLabels } from "./OTConciseParsingFormatStrings";
+import { OTBasicEnglish, OTConciseParsingFormatStrings, OTConciseStringLabels } from "./OTConciseParsingFormatStrings";
 import { OTVerboseParsingFormat } from "./OTVerboseParsingFormat";
 import { Canon } from "../VerseReference";
-import { OTVerboseEnglish, OTVerboseStringLabels } from "./OTVerboseParsingFormatStrings";
-import { NTTemplaticEnglish, NTTemplativeStringLabels } from "./NTTemplaticParsingFormatStrings";
+import { OTVerboseEnglish, OTVerboseParsingFormatStrings, OTVerboseStringLabels } from "./OTVerboseParsingFormatStrings";
+import { NTTemplaticEnglish, NTTemplaticParsingFormatStrings, NTTemplativeStringLabels } from "./NTTemplaticParsingFormatStrings";
 import { NTTemplaticParsingFormat } from "./NTTemplaticParsingFormat";
-import { OTTemplaticEnglish, OTTemplativeStringLabels } from "./OTTemplaticParsingFormatStrings";
+import { OTTemplaticEnglish, OTTemplaticParsingFormatStrings, OTTemplativeStringLabels } from "./OTTemplaticParsingFormatStrings";
 import { OTTemplaticParsingFormat } from "./OTTemplaticParsingFormat";
+import { PublicationGreekWordElement } from "../publication/PublicationGreekWordElement";
+import { PublicationHebrewWordElement } from "../publication/PublicationHebrewWordElement";
 
 export type ParsingFormatId = string;
 
@@ -19,8 +21,8 @@ export interface ParsingFormat {
     id: ParsingFormatId;
     template: string;
     canon: Canon;
-    nounParsingString(element: any): string;
-    verbParsingString(element: any): string;
+    nounParsingString(element: PublicationGreekWordElement | PublicationHebrewWordElement): string;
+    verbParsingString(element: PublicationGreekWordElement | PublicationHebrewWordElement): string;
     toObject(): ParsingFormatObject;
     /// the requirement here is that 
     getString(key: string): string | undefined;
@@ -29,7 +31,7 @@ export interface ParsingFormat {
 export interface ParsingFormatObject {
     id: string;
     template: string;
-    translations: any;
+    translations: StringLookup;
 }
 
 export interface ParsingFormatTemplate {
@@ -37,8 +39,8 @@ export interface ParsingFormatTemplate {
     name: string;
     canon: Canon;
     description: string;
-    strings: any;
-    placeholders?: any;
+    strings: StringLookup;
+    placeholders?: StringLookup;
 }
 
 export interface StringLookup {
@@ -107,20 +109,20 @@ export const PARSING_FORMAT_TEMPLATES: ParsingFormatTemplate[] =
     ];
 
 export class ParsingFormatFactory {
-    static createParsingFormat(id: string, numeralConverter: NumeralConverter, templateId: string, translations: any): ParsingFormat {
+    static createParsingFormat(id: string, numeralConverter: NumeralConverter, templateId: string, translations: StringLookup): ParsingFormat {
         switch (templateId) {
             case 'nt-verbose':
-                return new NTVerboseParsingFormat(id, templateId, numeralConverter, translations);
+                return new NTVerboseParsingFormat(id, templateId, numeralConverter, translations as NTVerboseParsingFormatStrings);
             case 'ot-concise':
-                return new OTConciseParsingFormat(id, templateId, numeralConverter, translations);
+                return new OTConciseParsingFormat(id, templateId, numeralConverter, translations as OTConciseParsingFormatStrings);
             case 'nt-concise':
-                return new NTConciseParsingFormat(id, templateId, numeralConverter, translations);
+                return new NTConciseParsingFormat(id, templateId, numeralConverter, translations as NTConciseParsingFormatStrings);
             case 'ot-verbose':
-                return new OTVerboseParsingFormat(id, templateId, numeralConverter, translations);
+                return new OTVerboseParsingFormat(id, templateId, numeralConverter, translations as OTVerboseParsingFormatStrings);
             case 'nt-templatic':
-                return new NTTemplaticParsingFormat(id, templateId, numeralConverter, translations);
+                return new NTTemplaticParsingFormat(id, templateId, numeralConverter, translations as NTTemplaticParsingFormatStrings);
             case 'ot-templatic':
-                return new OTTemplaticParsingFormat(id, templateId, numeralConverter, translations);
+                return new OTTemplaticParsingFormat(id, templateId, numeralConverter, translations as OTTemplaticParsingFormatStrings);
             default:
                 throw new Error(`Unknown parsing format template: ${templateId}`);
         }
