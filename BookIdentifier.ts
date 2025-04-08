@@ -1,5 +1,10 @@
 import { Canon, UbsBook } from "./VerseReference";
 
+export interface BookIdentifierJson {
+    book: UbsBook,
+    canon: Canon
+}
+
 export class BookIdentifier {
     book: UbsBook;
     canon: Canon;
@@ -26,7 +31,14 @@ export class BookIdentifier {
         return undefined;
     }
 
-    static fromObject(obj: { book: UbsBook, canon: Canon }): BookIdentifier {
+    static fromObject(obj: BookIdentifierJson): BookIdentifier {
         return new BookIdentifier(obj.book, obj.canon);
+    }
+
+    toObject(): BookIdentifierJson {
+        return {
+            book: this.book,
+            canon: this.canon
+        };
     }
 }

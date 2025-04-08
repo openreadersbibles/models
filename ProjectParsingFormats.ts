@@ -83,6 +83,7 @@ export class ProjectParsingFormats {
 
     static fromObject(obj: ProjectParsingFormatsObject, project: ProjectConfiguration): ProjectParsingFormats {
         const settings = new ProjectParsingFormats();
+        /// for each canon, create a map of parsing formats
         for (const key in obj) {
             const canon = key as Canon;
             const canonSettings = new Map<string, ParsingFormat>();

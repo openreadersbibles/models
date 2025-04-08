@@ -229,11 +229,6 @@ export class ProjectConfiguration {
         return str;
     }
 
-    /// 2025-03-21: I can't figure how why this would ever be a good funciton to use (with the fallback canon)
-    getParsingFormat(key: string): ParsingFormat | undefined {
-        return this.parsingFormats.getParsingFormat(this.fallbackCanon(), key);
-    }
-
     setParsingFormat(value: ParsingFormat) {
         this.parsingFormats.setParsingFormat(value.canon, value.id, value);
     }

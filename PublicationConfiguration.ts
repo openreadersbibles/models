@@ -135,7 +135,7 @@ export class PublicationConfiguration {
         if (parsingFormatId === undefined) {
             return undefined;
         }
-        return this._project.getParsingFormat(parsingFormatId)!;
+        return this._project.parsingFormats.getParsingFormatFromId(parsingFormatId);
     }
 
     getChapterHeader(chapter: number): string {
