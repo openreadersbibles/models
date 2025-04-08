@@ -237,6 +237,10 @@ export class ProjectConfiguration {
         return ProjectConfiguration.getRepositoryName(this._project_id);
     }
 
+    get publicationUrl(): string {
+        return `https://openreadersbibles.github.io/${this.repositoryName}`;
+    }
+
     public deepCopy(): ProjectConfiguration {
         return ProjectConfiguration.fromRow(this.toObject());
     }
