@@ -1,6 +1,6 @@
-import { Gloss } from "./Gloss";
-import { GlossLocation } from "./gloss-locations";
-import { BiblicalLanguage } from "./Verse";
+import { Gloss } from "./Gloss.js";
+import { GlossLocation } from "./gloss-locations.js";
+import { BiblicalLanguage } from "./Verse.js";
 
 export interface WordElement {
     get text(): string;

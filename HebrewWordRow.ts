@@ -1,5 +1,5 @@
-import { AnnotationJsonObject } from "./Annotation";
-import { GlossRow, PhraseGlossRow } from "./database-input-output";
+import { AnnotationJsonObject } from "./Annotation.js";
+import { GlossRow, PhraseGlossRow } from "./database-input-output.js";
 
 export type OTGender = "NA" | "f" | "m" | "unknown";
 export type OTGrammaticalNumber = "NA" | "sg" | "pl" | "unknown" | "du";

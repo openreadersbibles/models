@@ -1,11 +1,11 @@
-import { PublicationFootnote } from "./PublicationFootnote";
-import { PublicationWord } from "./PublicationWord";
-import { VerseReference } from "../../models/VerseReference";
-import { PublicationRequest } from "../../models/PublicationRequest";
-import { PublicationWordElement } from "./PublicationWordElement";
-import { PublicationHebrewWordElementRow } from "./PublicationHebrewWordElementRow";
-import { XMLBuilder } from "xmlbuilder2/lib/interfaces";
-import { PublicationGreekWordElementRow } from "./PublicationGreekWordElementRow";
+import { PublicationFootnote } from "./PublicationFootnote.js";
+import { PublicationWord } from "./PublicationWord.js";
+import { VerseReference } from "../../models/VerseReference.js";
+import { PublicationRequest } from "../../models/PublicationRequest.js";
+import { PublicationWordElement } from "./PublicationWordElement.js";
+import { PublicationHebrewWordElementRow } from "./PublicationHebrewWordElementRow.js";
+import { XMLBuilder } from "xmlbuilder2/lib/interfaces.js";
+import { PublicationGreekWordElementRow } from "./PublicationGreekWordElementRow.js";
 
 export class PublicationVerse {
     public reference: VerseReference;

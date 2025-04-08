@@ -1,4 +1,4 @@
-import { HttpReturnValue } from "./ReturnValue";
+import { HttpReturnValue } from "./ReturnValue.js";
 
 export interface WrappedBody {
     body: unknown;

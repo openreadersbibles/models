@@ -1,11 +1,11 @@
-import { PublicationVerse } from "./PublicationVerse";
-import { PublicationFootnoteElement } from "./PublicationFootnoteElement";
-import { PublicationWordElement } from "./PublicationWordElement";
-import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss";
-import { generateUUID } from "../../models/generateUUID";
-import { converter } from "../../models/Annotation";
-import { XMLBuilder } from "xmlbuilder2/lib/interfaces";
-import { PublicationRequest } from "../PublicationRequest";
+import { PublicationVerse } from "./PublicationVerse.js";
+import { PublicationFootnoteElement } from "./PublicationFootnoteElement.js";
+import { PublicationWordElement } from "./PublicationWordElement.js";
+import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
+import { generateUUID } from "../../models/generateUUID.js";
+import { converter } from "../../models/Annotation.js";
+import { XMLBuilder } from "xmlbuilder2/lib/interfaces.js";
+import { PublicationRequest } from "../PublicationRequest.js";
 
 export enum PublicationFootnoteType { None, Parsing, Gloss, ParsingGloss }
 

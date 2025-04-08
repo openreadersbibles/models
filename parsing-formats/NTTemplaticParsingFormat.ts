@@ -1,8 +1,8 @@
-import { PublicationGreekWordElement } from "../publication/PublicationGreekWordElement";
-import { NumeralConverter } from "../NumeralConverter";
-import { NTTemplaticEnglish, NTTemplaticParsingFormatStrings } from "./NTTemplaticParsingFormatStrings";
-import { ParsingFormat, ParsingFormatObject } from "./ParsingFormat";
-import { ParsingFormatBase } from "./ParsingFormatBase";
+import { PublicationGreekWordElement } from "../publication/PublicationGreekWordElement.js";
+import { NumeralConverter } from "../NumeralConverter.js";
+import { NTTemplaticEnglish, NTTemplaticParsingFormatStrings } from "./NTTemplaticParsingFormatStrings.js";
+import { ParsingFormat, ParsingFormatObject } from "./ParsingFormat.js";
+import { ParsingFormatBase } from "./ParsingFormatBase.js";
 
 export class NTTemplaticParsingFormat extends ParsingFormatBase implements ParsingFormat {
     private strings: NTTemplaticParsingFormatStrings;

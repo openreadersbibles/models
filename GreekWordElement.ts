@@ -1,10 +1,10 @@
-import { Annotation } from "./Annotation";
-import { GlossRow } from "./database-input-output";
-import { Gloss } from "./Gloss";
-import { GlossLocation, WordGlossLocation } from "./gloss-locations";
-import { GreekWordRow } from "./GreekWordRow";
-import { BiblicalLanguage } from "./Verse";
-import { WordElementBase, WordElement } from "./WordElement";
+import { Annotation } from "./Annotation.js";
+import { GlossRow } from "./database-input-output.js";
+import { Gloss } from "./Gloss.js";
+import { GlossLocation, WordGlossLocation } from "./gloss-locations.js";
+import { GreekWordRow } from "./GreekWordRow.js";
+import { BiblicalLanguage } from "./Verse.js";
+import { WordElementBase, WordElement } from "./WordElement.js";
 
 export class GreekWordElement extends WordElementBase implements WordElement {
     private _row: GreekWordRow;

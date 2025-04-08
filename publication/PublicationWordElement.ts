@@ -1,7 +1,7 @@
-import { Annotation } from "../../models/Annotation";
-import { VerseReference } from "../../models/VerseReference";
-import { PublicationFootnoteType } from "./PublicationFootnote";
-import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss";
+import { Annotation } from "../../models/Annotation.js";
+import { VerseReference } from "../../models/VerseReference.js";
+import { PublicationFootnoteType } from "./PublicationFootnote.js";
+import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 
 export interface PublicationWordElement {
     plaintext: string;

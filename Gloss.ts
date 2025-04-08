@@ -1,7 +1,6 @@
-import { Annotation, annotationFromJson, AnnotationType, MarkdownAnnotation, WordAnnotation } from "./Annotation";
-import { GlossRow, GlossSendObject, PhraseGlossRow } from "./database-input-output";
-
-import { GlossLocation, PhraseGlossLocation } from "./gloss-locations";
+import { Annotation, annotationFromJson, AnnotationType, MarkdownAnnotation, WordAnnotation } from "./Annotation.js";
+import { GlossRow, GlossSendObject, PhraseGlossRow } from "./database-input-output.js";
+import { GlossLocation, PhraseGlossLocation } from "./gloss-locations.js";
 
 export class Gloss {
     private _annotation: Annotation;

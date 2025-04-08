@@ -1,5 +1,5 @@
-import { PublicationRequest } from "../../models/PublicationRequest";
-import { PublicationWord } from "./PublicationWord";
+import { PublicationRequest } from "../../models/PublicationRequest.js";
+import { PublicationWord } from "./PublicationWord.js";
 
 export class BaseWordElement<T> {
     row: T;

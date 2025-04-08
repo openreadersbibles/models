@@ -1,4 +1,4 @@
-import { StringLookup } from "./ParsingFormat";
+import { StringLookup } from "./ParsingFormat.js";
 
 export interface OTVerboseParsingFormatStrings extends StringLookup {
     noun: string;

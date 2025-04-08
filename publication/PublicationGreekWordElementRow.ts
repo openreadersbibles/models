@@ -1,7 +1,7 @@
 
-import { Annotation } from "../../models/Annotation";
-import { NTCase, NTDegree, NTGender, NTMood, NTNumber, NTPartOfSpeech, NTPerson, NTTense, NTVoice } from "../../models/GreekWordRow";
-import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss";
+import { Annotation } from "../../models/Annotation.js";
+import { NTCase, NTDegree, NTGender, NTMood, NTNumber, NTPartOfSpeech, NTPerson, NTTense, NTVoice } from "../../models/GreekWordRow.js";
+import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 
 export interface PublicationGreekWordElementRow {
     _id: number;

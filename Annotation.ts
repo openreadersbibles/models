@@ -1,4 +1,4 @@
-import { MiniMarkdown } from './MiniMarkdown';
+import { MiniMarkdown } from './MiniMarkdown.js';
 
 export const converter = new MiniMarkdown();
 

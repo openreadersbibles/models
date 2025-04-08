@@ -1,19 +1,19 @@
-import { NumeralConverter } from "../NumeralConverter";
-import { NTConciseParsingFormat } from "./NTConciseParsingFormat";
-import { NTConciseEnglish, NTConciseParsingFormatStrings } from "./NTConciseParsingFormatStrings";
-import { NTVerboseParsingFormat } from "./NTVerboseParsingFormat";
-import { NTVerboseEnglish, NTVerboseParsingFormatStrings, NTVerboseStringLabels } from "./NTVerboseParsingFormatStrings";
-import { OTConciseParsingFormat } from "./OTConciseParsingFormat";
-import { OTBasicEnglish, OTConciseParsingFormatStrings, OTConciseStringLabels } from "./OTConciseParsingFormatStrings";
-import { OTVerboseParsingFormat } from "./OTVerboseParsingFormat";
-import { Canon } from "../VerseReference";
-import { OTVerboseEnglish, OTVerboseParsingFormatStrings, OTVerboseStringLabels } from "./OTVerboseParsingFormatStrings";
-import { NTTemplaticEnglish, NTTemplaticParsingFormatStrings, NTTemplativeStringLabels } from "./NTTemplaticParsingFormatStrings";
-import { NTTemplaticParsingFormat } from "./NTTemplaticParsingFormat";
-import { OTTemplaticEnglish, OTTemplaticParsingFormatStrings, OTTemplativeStringLabels } from "./OTTemplaticParsingFormatStrings";
-import { OTTemplaticParsingFormat } from "./OTTemplaticParsingFormat";
-import { PublicationGreekWordElement } from "../publication/PublicationGreekWordElement";
-import { PublicationHebrewWordElement } from "../publication/PublicationHebrewWordElement";
+import { NumeralConverter } from "../NumeralConverter.js";
+import { NTConciseParsingFormat } from "./NTConciseParsingFormat.js";
+import { NTConciseEnglish, NTConciseParsingFormatStrings } from "./NTConciseParsingFormatStrings.js";
+import { NTVerboseParsingFormat } from "./NTVerboseParsingFormat.js";
+import { NTVerboseEnglish, NTVerboseParsingFormatStrings, NTVerboseStringLabels } from "./NTVerboseParsingFormatStrings.js";
+import { OTConciseParsingFormat } from "./OTConciseParsingFormat.js";
+import { OTBasicEnglish, OTConciseParsingFormatStrings, OTConciseStringLabels } from "./OTConciseParsingFormatStrings.js";
+import { OTVerboseParsingFormat } from "./OTVerboseParsingFormat.js";
+import { Canon } from "../VerseReference.js";
+import { OTVerboseEnglish, OTVerboseParsingFormatStrings, OTVerboseStringLabels } from "./OTVerboseParsingFormatStrings.js";
+import { NTTemplaticEnglish, NTTemplaticParsingFormatStrings, NTTemplativeStringLabels } from "./NTTemplaticParsingFormatStrings.js";
+import { NTTemplaticParsingFormat } from "./NTTemplaticParsingFormat.js";
+import { OTTemplaticEnglish, OTTemplaticParsingFormatStrings, OTTemplativeStringLabels } from "./OTTemplaticParsingFormatStrings.js";
+import { OTTemplaticParsingFormat } from "./OTTemplaticParsingFormat.js";
+import { PublicationGreekWordElement } from "../publication/PublicationGreekWordElement.js";
+import { PublicationHebrewWordElement } from "../publication/PublicationHebrewWordElement.js";
 
 export type ParsingFormatId = string;
 

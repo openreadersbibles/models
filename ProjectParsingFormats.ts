@@ -1,6 +1,6 @@
-import { ParsingFormat, ParsingFormatFactory, ParsingFormatId, ParsingFormatObject } from "./parsing-formats/ParsingFormat";
-import { ProjectConfiguration } from "./ProjectConfiguration";
-import { Canon } from "./VerseReference";
+import { ParsingFormat, ParsingFormatFactory, ParsingFormatId, ParsingFormatObject } from "./parsing-formats/ParsingFormat.js";
+import { ProjectConfiguration } from "./ProjectConfiguration.js";
+import { Canon } from "./VerseReference.js";
 
 type CanonParsingFormats = Map<ParsingFormatId, ParsingFormat>;
 export type ProjectParsingFormatsObject = Partial<Record<Canon, Record<ParsingFormatId, ParsingFormatObject>>>;

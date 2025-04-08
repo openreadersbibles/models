@@ -1,13 +1,13 @@
-import { PublicationWord } from "./PublicationWord";
-import { PublicationFootnoteType } from "./PublicationFootnote";
-import { PublicationRequest } from "../../models/PublicationRequest";
-import { Annotation } from "../../models/Annotation";
-import { PublicationWordElement } from "./PublicationWordElement";
-import { PublicationHebrewWordElementRow } from "./PublicationHebrewWordElementRow";
-import { BaseWordElement } from "./BaseWordElement";
-import { OTGender, OTGrammaticalNumber, OTPartOfSpeech, OTPerson, OTState, OTTense, OTVerbStem } from "../../models/HebrewWordRow";
-import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss";
-import { VerseReference } from "../../models/VerseReference";
+import { PublicationWord } from "./PublicationWord.js";
+import { PublicationFootnoteType } from "./PublicationFootnote.js";
+import { PublicationRequest } from "../../models/PublicationRequest.js";
+import { Annotation } from "../../models/Annotation.js";
+import { PublicationWordElement } from "./PublicationWordElement.js";
+import { PublicationHebrewWordElementRow } from "./PublicationHebrewWordElementRow.js";
+import { BaseWordElement } from "./BaseWordElement.js";
+import { OTGender, OTGrammaticalNumber, OTPartOfSpeech, OTPerson, OTState, OTTense, OTVerbStem } from "../../models/HebrewWordRow.js";
+import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
+import { VerseReference } from "../../models/VerseReference.js";
 
 export class PublicationHebrewWordElement extends BaseWordElement<PublicationHebrewWordElementRow> implements PublicationWordElement {
     static substantives = ["subs", "nmpr", "adjv", "prps", "prde"];

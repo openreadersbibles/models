@@ -1,4 +1,4 @@
-import { Canon, UbsBook, VerseReference } from "./VerseReference";
+import { Canon, UbsBook, VerseReference } from "./VerseReference.js";
 
 type CanonNumberLookup = Partial<Record<UbsBook, number>>;
 

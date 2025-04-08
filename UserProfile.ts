@@ -1,5 +1,5 @@
-import { CurrentPosition } from "./CurrentPosition";
-import { ProjectConfiguration, ProjectConfigurationRow, ProjectId } from "./ProjectConfiguration";
+import { CurrentPosition } from "./CurrentPosition.js";
+import { ProjectConfiguration, ProjectConfigurationRow, ProjectId } from "./ProjectConfiguration.js";
 
 export interface UserProfileRow {
     user_id: string;

@@ -1,7 +1,7 @@
-import { Word } from "./Word";
-import { VerseReference } from "./VerseReference";
-import { Gloss } from "./Gloss";
-import { Annotation } from "./Annotation";
+import { Word } from "./Word.js";
+import { VerseReference } from "./VerseReference.js";
+import { Gloss } from "./Gloss.js";
+import { Annotation } from "./Annotation.js";
 
 export type BiblicalLanguage = 'hebrew' | 'greek' | 'aramaic';
 

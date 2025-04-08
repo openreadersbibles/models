@@ -1,6 +1,6 @@
-import { Annotation } from "../../models/Annotation";
-import { OTGender, OTGrammaticalNumber, OTState, OTTense, OTVerbStem, OTPerson, OTPartOfSpeech } from "../../models/HebrewWordRow";
-import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss";
+import { Annotation } from "../../models/Annotation.js";
+import { OTGender, OTGrammaticalNumber, OTState, OTTense, OTVerbStem, OTPerson, OTPartOfSpeech } from "../../models/HebrewWordRow.js";
+import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 
 export interface PublicationHebrewWordElementRow {
     _id: number;

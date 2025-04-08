@@ -1,10 +1,10 @@
-import { Annotation } from './Annotation';
-import { GlossRow } from './database-input-output';
-import { Gloss } from './Gloss';
-import { WordGlossLocation, GlossLocation } from './gloss-locations';
-import { HebrewWordRow, OTGender, OTGrammaticalNumber, OTState, OTTense, OTVerbStem, OTPerson, OTPartOfSpeech, OTGenderToEnglish, OTGrammaticalNumberToEnglish, OTStateToEnglish, OTTenseToEnglish, OTVerbStemToEnglish, OTPersonToEnglish, OTPartOfSpeechToEnglish } from './HebrewWordRow';
-import { BiblicalLanguage } from './Verse';
-import { WordElement, WordElementBase } from './WordElement';
+import { Annotation } from './Annotation.js';
+import { GlossRow } from './database-input-output.js';
+import { Gloss } from './Gloss.js';
+import { WordGlossLocation, GlossLocation } from './gloss-locations.js';
+import { HebrewWordRow, OTGender, OTGrammaticalNumber, OTState, OTTense, OTVerbStem, OTPerson, OTPartOfSpeech, OTGenderToEnglish, OTGrammaticalNumberToEnglish, OTStateToEnglish, OTTenseToEnglish, OTVerbStemToEnglish, OTPersonToEnglish, OTPartOfSpeechToEnglish } from './HebrewWordRow.js';
+import { BiblicalLanguage } from './Verse.js';
+import { WordElement, WordElementBase } from './WordElement.js';
 
 export class HebrewWordElement extends WordElementBase implements WordElement {
     private _row: HebrewWordRow;

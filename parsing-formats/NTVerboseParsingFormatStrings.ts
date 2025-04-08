@@ -1,4 +1,4 @@
-import { StringLookup } from "./ParsingFormat";
+import { StringLookup } from "./ParsingFormat.js";
 
 export interface NTVerboseParsingFormatStrings extends StringLookup {
     nominative: string;

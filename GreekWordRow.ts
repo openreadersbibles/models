@@ -1,5 +1,5 @@
-import { GlossRow, PhraseGlossRow } from "./database-input-output";
-import { SuggestionRow } from "./HebrewWordRow";
+import { GlossRow, PhraseGlossRow } from "./database-input-output.js";
+import { SuggestionRow } from "./HebrewWordRow.js";
 
 export type NTPartOfSpeech = 'particle' | 'verb' | 'relative-pronoun' | 'personal-pronoun' | 'interrogative-indefinite-pronoun' | 'demonstrative-pronoun' | 'definite-article' | 'preposition' | 'noun' | 'interjection' | 'adverb' | 'conjunction' | 'adjective';
 export type NTPerson = 'NA' | '1st' | '2nd' | '3rd';

@@ -1,4 +1,4 @@
-import { WrappedBody } from "./SavedPostRequest";
+import { WrappedBody } from "./SavedPostRequest.js";
 
 export interface HttpReturnValue {
     statusCode: number;

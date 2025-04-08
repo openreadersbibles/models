@@ -1,8 +1,8 @@
-import { Annotation } from "./Annotation";
-import { Gloss } from "./Gloss";
-import { BiblicalLanguage } from "./Verse";
-import { VerseReference } from "./VerseReference";
-import { WordElement } from "./WordElement";
+import { Annotation } from "./Annotation.js";
+import { Gloss } from "./Gloss.js";
+import { BiblicalLanguage } from "./Verse.js";
+import { VerseReference } from "./VerseReference.js";
+import { WordElement } from "./WordElement.js";
 
 export class Word {
     private _elements: WordElement[] = new Array<WordElement>();

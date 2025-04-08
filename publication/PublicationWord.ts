@@ -1,7 +1,7 @@
-import { VerseReference } from "../../models/VerseReference";
-import { PublicationFootnoteType } from "./PublicationFootnote";
-import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss";
-import { PublicationWordElement } from "./PublicationWordElement";
+import { VerseReference } from "../../models/VerseReference.js";
+import { PublicationFootnoteType } from "./PublicationFootnote.js";
+import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
+import { PublicationWordElement } from "./PublicationWordElement.js";
 
 export class PublicationWord {
     public elements = new Array<PublicationWordElement>();

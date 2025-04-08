@@ -1,7 +1,7 @@
-import { AnnotationJsonObject } from "./Annotation";
-import { PhraseGlossLocationObject, WordGlossLocationObject } from "./gloss-locations";
-import { ProjectConfigurationRow } from "./ProjectConfiguration";
-import { WorkflowRun } from './publication/WorkflowRun';
+import { AnnotationJsonObject } from "./Annotation.js";
+import { PhraseGlossLocationObject, WordGlossLocationObject } from "./gloss-locations.js";
+import { ProjectConfigurationRow } from "./ProjectConfiguration.js";
+import { WorkflowRun } from './publication/WorkflowRun.js';
 
 export interface ProjectPackage {
     project: ProjectConfigurationRow;

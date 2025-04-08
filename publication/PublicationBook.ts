@@ -1,14 +1,14 @@
 import { create } from 'xmlbuilder2';
-import { PublicationVerse } from "./PublicationVerse";
-import { PublicationRequest } from "./../PublicationRequest";
-import { UbsBook, Canon, VerseReference } from "./../VerseReference";
-import { BookHopper, ChapterHopper } from "./../ProjectDump";
-import { PublicationGreekWordElementRow } from './PublicationGreekWordElementRow';
-import { PublicationHebrewWordElementRow } from './PublicationHebrewWordElementRow';
-import { PublicationGreekWordElement } from './PublicationGreekWordElement';
-import { PublicationHebrewWordElement } from './PublicationHebrewWordElement';
-import { PublicationWord } from './PublicationWord';
-import { PublicationWordElement } from './PublicationWordElement';
+import { PublicationVerse } from "./PublicationVerse.js";
+import { PublicationRequest } from "./../PublicationRequest.js";
+import { UbsBook, Canon, VerseReference } from "./../VerseReference.js";
+import { BookHopper, ChapterHopper } from "./../ProjectDump.js";
+import { PublicationGreekWordElementRow } from './PublicationGreekWordElementRow.js';
+import { PublicationHebrewWordElementRow } from './PublicationHebrewWordElementRow.js';
+import { PublicationGreekWordElement } from './PublicationGreekWordElement.js';
+import { PublicationHebrewWordElement } from './PublicationHebrewWordElement.js';
+import { PublicationWord } from './PublicationWord.js';
+import { PublicationWordElement } from './PublicationWordElement.js';
 
 export interface BookDumpJson<T extends PublicationGreekWordElementRow | PublicationHebrewWordElementRow> {
     book_id: UbsBook;
