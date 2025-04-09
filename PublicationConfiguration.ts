@@ -14,8 +14,8 @@ export interface PublicationConfigurationRow {
     publication_biblical_font: string;
     latex_template: string;
     parsing_formats: { [key: string]: string };
-    css_template: string;
-    footnote_style: PublicationFootnoteStyle;
+    css_template?: string;
+    footnote_style?: PublicationFootnoteStyle;
 }
 
 export type PublicationFootnoteStyle = "lettered-by-verse" | "numbered-by-page";

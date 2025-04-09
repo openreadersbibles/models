@@ -26,9 +26,8 @@ export interface HebrewWordRow {
     g_word_utf8: string;
     trailer_utf8: string;
     lex_id: number;
-    gloss: string;
     votes: GlossRow[];
-    myVote: number | null;
+    myVote: number | null; /// NB: this is a gloss_id
 
     gn: OTGender;
     nu: OTGrammaticalNumber;

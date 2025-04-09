@@ -1,7 +1,13 @@
 import { Word } from "./Word.js";
 import { VerseReference } from "./VerseReference.js";
 import { Gloss } from "./Gloss.js";
-import { Annotation } from "./Annotation.js";
+import { Annotation, annotationFromObject } from "./Annotation.js";
+import { GetHebrewVerseResponse, SuggestionRow } from "./HebrewWordRow.js";
+import { PhraseGlossRow } from "./database-input-output.js";
+import { PhraseGlossLocation } from "./gloss-locations.js";
+import { HebrewWordElement } from "./HebrewWordElement.js";
+import { GetNTVerseResponse } from "./GreekWordRow.js";
+import { GreekWordElement } from "./GreekWordElement.js";
 
 export type BiblicalLanguage = 'hebrew' | 'greek' | 'aramaic';
 
@@ -115,5 +121,49 @@ export class Verse {
 
     wordsRemainingToGloss(frequencyThreshold: number): number {
         return this.words.filter((word: Word) => word.needsGlossAndHasNoVote(frequencyThreshold)).length;
+    }
+
+    static fromHebrewVerseResponse(ref: VerseReference, data: GetHebrewVerseResponse): Verse {
+        const words = new Array<Word>();
+        words.push(new Word(ref));
+        for (const word of data.words) {
+            let suggestions: Annotation[] = [];
+            const matchingThisLexicalId = data.suggestions.filter((suggestion: SuggestionRow) => suggestion.lex_id === word.lex_id);
+            if (matchingThisLexicalId.length > 0) {
+                suggestions = matchingThisLexicalId[0].suggestions
+                    .map(s => annotationFromObject(s))
+                    .filter(s => s !== undefined) as Annotation[];
+            }
+
+            words[words.length - 1].addElement(new HebrewWordElement(word, suggestions));
+            if (word.trailer_utf8.length > 0) {
+                words.push(new Word(ref));
+            }
+        }
+        if (words[words.length - 1].elementCount === 0) {
+            words.pop();
+        }
+        const phraseGlosses = data.phrase_glosses.map((row: PhraseGlossRow) => Gloss.fromPhraseGlossRow(row, new PhraseGlossLocation(row.from_word_id, row.to_word_id), row.phrase_gloss_id === row.myVote ? 1 : 0));
+
+        return new Verse(ref, words, 'hebrew', phraseGlosses);
+    }
+
+    static fromNTVerseResponse(ref: VerseReference, data: GetNTVerseResponse): Verse {
+        const words = new Array<Word>();
+
+        for (const word of data.words) {
+            words.push(new Word(ref));
+            let suggestions: Annotation[] = [];
+            const matchingThisLexicalId = data.suggestions.filter((suggestion: SuggestionRow) => suggestion.lex_id === word.lex_id);
+            if (matchingThisLexicalId.length > 0) {
+                suggestions = matchingThisLexicalId[0].suggestions
+                    .map(s => annotationFromObject(s))
+                    .filter(s => s !== undefined) as Annotation[];
+            }
+
+            words[words.length - 1].addElement(new GreekWordElement(word, suggestions));
+        }
+        const phraseGlosses = data.phrase_glosses.map((row: PhraseGlossRow) => Gloss.fromPhraseGlossRow(row, new PhraseGlossLocation(row.from_word_id, row.to_word_id), row.phrase_gloss_id === row.myVote ? 1 : 0));
+        return new Verse(ref, words, 'greek', phraseGlosses);
     }
 }

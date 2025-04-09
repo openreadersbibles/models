@@ -45,7 +45,7 @@ export interface ProjectConfigurationRow {
     font_families: string;
     font_size: number | undefined;
     parsing_formats: ProjectParsingFormatsObject;
-    publication_configurations: { [key: string]: PublicationConfigurationRow };
+    publication_configurations?: { [key: string]: PublicationConfigurationRow };
     numerals: string[];
 }
 
@@ -313,9 +313,11 @@ export class ProjectConfiguration {
         for (const role of row.roles) {
             pc._roles.set(role.user_id, role);
         }
-        for (const key in row.publication_configurations) {
-            if (Object.prototype.hasOwnProperty.call(row.publication_configurations, key)) {
-                pc.publicationConfigurations.set(key, PublicationConfiguration.fromRow(row.publication_configurations[key], key, pc));
+        if (row.publication_configurations) {
+            for (const key in row.publication_configurations) {
+                if (Object.prototype.hasOwnProperty.call(row.publication_configurations, key)) {
+                    pc.publicationConfigurations.set(key, PublicationConfiguration.fromRow(row.publication_configurations[key], key, pc));
+                }
             }
         }
         return pc;

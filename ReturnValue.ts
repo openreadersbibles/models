@@ -6,27 +6,27 @@ export interface HttpReturnValue {
     headers?: { [key: string]: string | boolean };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function SuccessValue(payload: any): HttpReturnValue {
+export function SuccessValue(payload: unknown): HttpReturnValue {
     return { statusCode: 200, body: JSON.stringify(payload), headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true } };
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function InternalFailure(payload: any): HttpReturnValue {
-    return { statusCode: 500, body: JSON.stringify(payload), headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true } };
+export function InternalFailure(payload: unknown) {
+    return Promise.reject({ statusCode: 500, body: JSON.stringify(payload), headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true } });
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function BadRequest(payload: any): HttpReturnValue {
-    return { statusCode: 400, body: JSON.stringify(payload), headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true } };
+export function BadRequest(payload: unknown) {
+    return Promise.reject({ statusCode: 400, body: JSON.stringify(payload), headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true } });
+}
+
+export function Failure(statusCode: number, payload: unknown) {
+    return Promise.reject({ statusCode: statusCode, body: JSON.stringify(payload), headers: { 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Credentials': true } });
 }
 
 export const returnValueConfig = {
     hash: ''
 };
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function ReturnValue(payload: any): HttpReturnValue {
+export function ReturnValue(payload: unknown): HttpReturnValue {
     const wrappedBody: WrappedBody = {
         body: payload,
         hash: returnValueConfig.hash

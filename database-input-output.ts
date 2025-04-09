@@ -1,12 +1,6 @@
 import { AnnotationJsonObject } from "./Annotation.js";
 import { PhraseGlossLocationObject, WordGlossLocationObject } from "./gloss-locations.js";
-import { ProjectConfigurationRow } from "./ProjectConfiguration.js";
 import { WorkflowRun } from './publication/WorkflowRun.js';
-
-export interface ProjectPackage {
-    project: ProjectConfigurationRow;
-    new_project: boolean;
-}
 
 export interface UpdateVerseData {
     word_gloss_updates: GlossSendObject[];
@@ -25,7 +19,7 @@ export interface PhraseGlossRow {
     to_word_id: number;
     markdown: string;
     votes: number;
-    myVote: number;
+    myVote: number | null; /// NB: this is a gloss_id
 }
 
 export interface GlossSendObject {
