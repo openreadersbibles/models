@@ -1,164 +1,164 @@
 export const cssTemplate = `body {
-    font - family: __BIBLICAL_FONT__, Georgia, serif;
-    line - height: 1.5;
+    font-family: __BIBLICAL_FONT__, Georgia, serif;
+    line-height: 1.5;
     margin: 2rem;
-    max - width: 800px;
-    margin - left: auto;
-    margin - right: auto;
-    font - size: 2rem;
-    user - select: none;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 2rem;
+    user-select: none;
 }
 
-html[lang = 'hbo'] {
+html[lang='hbo'] {
     direction: rtl;
 }
 
-html[lang = 'grc'] {
+html[lang='grc'] {
     direction: ltr;
 }
 .chapter {
-    margin - bottom: 1rem;
+    margin-bottom: 1rem;
 }
-.chapter - number {
-    font - family: __PROJECT_FONT__;
-    font - weight: bold;
-    margin - right: 0.5rem;
+.chapter-number {
+    font-family: __PROJECT_FONT__;
+    font-weight: bold;
+    margin-right: 0.5rem;
     color: #444;
 }
 .verse {
     display: inline;
 }
-.verse - number {
-    font - family: __PROJECT_FONT__;
-    font - size: 1.5rem;
+.verse-number {
+    font-family: __PROJECT_FONT__;
+    font-size: 1.5rem;
     color: black;
-    vertical - align: top;
-    margin - left: 0.3rem;
+    vertical-align: top;
+    margin-left: 0.3rem;
 }
-.annotation - toggle {
-    font - family: __PROJECT_FONT__;
+.annotation-toggle {
+    font-family: __PROJECT_FONT__;
     cursor: pointer;
     color: gray;
-    text - decoration: none;
-    vertical - align: super;
-    font - size: 1.5rem;
+    text-decoration: none;
+    vertical-align: super;
+    font-size: 1.5rem;
     position: relative;
-    display: inline - block;
+    display: inline-block;
 }
 
 .annotation {
-    font - family: __PROJECT_FONT__;
+    font-family: __PROJECT_FONT__;
 
     color: black;
     display: block;
     position: absolute;
-    left: 50 %;
-    transform: translateX(-50 %); /* Adjust for centering */
-    background - color: #f9f9f9;
+    left: 50%;
+    transform: translateX(-50%); /* Adjust for centering */
+    background-color: #f9f9f9;
     border: 1px solid #ccc;
     padding: 0.5rem;
-    z - index: 10;
-
-    white - space: normal; /* Allow wrapping */
-    word - wrap: break-word; /* Ensure long words wrap */
-    max - width: 100vw; /* Prevent width from exceeding the viewport */
-    box - sizing: border - box; /* Include padding and border in width calculation */
-    overflow - wrap: break-word; /* Break long words if necessary */
+    z-index: 10;
+    
+    white-space: normal; /* Allow wrapping */
+    word-wrap: break-word; /* Ensure long words wrap */
+    max-width: 100vw; /* Prevent width from exceeding the viewport */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    overflow-wrap: break-word; /* Break long words if necessary */
 }
 .annotation.hidden {
     display: none;
 }
 
-div[dir = 'rtl'].parsing: not(: last - child),
-    div[dir = 'rtl'].lexical - form: not(: last - child),
-        div[dir = 'rtl'].gloss: not(: last - child)
+div[dir='rtl'] .parsing:not(:last-child), 
+div[dir='rtl'] .lexical-form:not(:last-child), 
+div[dir='rtl'] .gloss:not(:last-child) 
 {
-    margin - left: 0.5rem;
+    margin-left: 0.5rem;
 }
 
-div[dir = 'ltr'].parsing: not(: last - child),
-    div[dir = 'ltr'].lexical - form: not(: last - child),
-        div[dir = 'ltr'].gloss: not(: last - child)
+div[dir='ltr'] .parsing:not(:last-child), 
+div[dir='ltr'] .lexical-form:not(:last-child), 
+div[dir='ltr'] .gloss:not(:last-child) 
 {
-    margin - right: 0.5rem;
+    margin-right: 0.5rem;
 }
 
 .gloss {
-    font - style: italic;
+    font-style: italic;
 }
 
-.lexical - form {
-    font - family: __BIBLICAL_FONT__, Georgia, serif;
+.lexical-form {
+    font-family: __BIBLICAL_FONT__, Georgia, serif;
 }
 
 .wd {
-    white - space: nowrap;
+    white-space: nowrap;
 }
 
 /* Mostly motivated by the TOC */
 h1 {
-    font - size: 1.5em;
+    font-size: 1.5em;
 }
 
 h2 {
-    font - size: 1em;
+    font-size: 1em;
 }
 
 table.toc {
-    width: 100 %;
-    border - collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
     margin: 20px 0;
-    font - size: 16px;
-    text - align: left;
-    background - color: #f9f9f9;
+    font-size: 16px;
+    text-align: left;
+    background-color: #f9f9f9;
     border: 1px solid #ddd;
-    box - shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
   
   .toc th, .toc td {
     padding: 12px 15px;
     border: 1px solid #ddd;
-}
+  }
   
   .toc th {
-    font - weight: normal;
-}
+    font-weight: normal;
+  }
   
   .toc td {
-    text - align: center;
-}
+    text-align: center;
+  }
     
-  .toc tr: nth - child(even) {
-    background - color: #f2f2f2;
-}
+  .toc tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
   
   .toc tr:hover {
-    background - color: #e9e9e9;
-}
+    background-color: #e9e9e9;
+  }
   
   .toc a {
     color: #007bff;
-    text - decoration: none;
-    font - weight: bold;
-}
+    text-decoration: none;
+    font-weight: bold;
+  }
   
   .toc a:hover {
-    text - decoration: underline;
-}
+    text-decoration: underline;
+  }
   
   .toc h2 {
-    font - size: 20px;
-    margin - bottom: 10px;
+    font-size: 20px;
+    margin-bottom: 10px;
     color: #333;
-}
-
-/* Responsive Design */
-@media(max - width: 600px) {
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
     .toc {
-        font - size: 14px;
+      font-size: 14px;
     }
   
     .toc th, .toc td {
-        padding: 10px;
+      padding: 10px;
     }
-}`;
+  }`;

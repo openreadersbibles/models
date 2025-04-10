@@ -33,6 +33,11 @@ export interface CheckResults {
     [key: string]: string[];
 }
 
-export type AdHocPublicationResult = { operation_status: 'success' | 'failure', payload: { object: { sha: string } } };
+export type AdHocPublicationResult = {
+    node_id: string,
+    ref: string,
+    url: string,
+    object: { sha: string, type: string, url: string }
+};
 
-export type AdHocWorkflowRunsResult = { workflow_runs?: WorkflowRun[] };
+export type AdHocWorkflowRunsResult = { total_count: number, workflow_runs: WorkflowRun[] };
