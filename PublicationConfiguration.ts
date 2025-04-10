@@ -1,10 +1,8 @@
 import { ParsingFormat, ParsingFormatId } from './parsing-formats/ParsingFormat.js';
 import { ProjectConfiguration } from './ProjectConfiguration.js';
 import { Canon } from './VerseReference.js';
-// import latexTemplate from './assets/default_latex_template.json' with { type: "json" };
-// import cssTemplate from './assets/style.json' with { type: "json" };
-import latexTemplate from './assets/default_latex_template.json';
-import cssTemplate from './assets/style.json';
+import { latexTemplate } from './assets/default_latex_template.js';
+import { cssTemplate } from './assets/style.js';
 
 export interface PublicationConfigurationRow {
     footnoteMarkers: string[];
@@ -197,6 +195,6 @@ export class PublicationConfiguration {
         return pc;
     }
 
-    static default_latex_template = latexTemplate.content;
-    static default_css_template = cssTemplate.content;
+    static default_latex_template = latexTemplate;
+    static default_css_template = cssTemplate;
 }
