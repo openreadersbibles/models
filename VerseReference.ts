@@ -78,6 +78,15 @@ export class VerseReference {
             const chapter = parseInt(match[3]);
             const verse = parseInt(match[4]);
 
+            const canonData = getCanon(canon);
+            if (!canonData) {
+                return undefined;
+            }
+
+            if (!canonData.getIsValid(canon, ubs_book, chapter, verse)) {
+                return undefined;
+            }
+
             return new VerseReference(ubs_book, chapter, verse, canon);
         }
 

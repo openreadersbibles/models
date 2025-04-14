@@ -126,6 +126,30 @@ export class CanonData {
         }
         return returnValue;
     }
+
+    getIsValid(canon: Canon, book: UbsBook, chapter: number, verse: number): boolean {
+        if (this._name !== canon) {
+            console.error(`CanonData.getIsValid: canon mismatch ${this._name} ${canon}`);
+            return false;
+        }
+        if (this._books.indexOf(book) == -1) {
+            return false;
+        }
+        const lastChapter = this.lastChapter(book);
+        if (lastChapter === undefined) {
+            console.error(`CanonData.getIsValid: max_chapter is undefined for ${book}`);
+            return false;
+        }
+        if (chapter < 1 || chapter > lastChapter) {
+            return false;
+        }
+        const lastVerse = this.lastVerse(book, chapter);
+        if (lastVerse === undefined) {
+            console.error(`CanonData.getIsValid: lastVerse is null for ${book} ${chapter}`);
+            return false;
+        }
+        return verse >= 1 && verse <= lastVerse;
+    }
 }
 
 export const NT = new CanonData(
