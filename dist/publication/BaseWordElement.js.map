@@ -1,1 +1,0 @@
-{"version":3,"file":"BaseWordElement.js","sourceRoot":"","sources":["../../publication/BaseWordElement.ts"],"names":[],"mappings":"AAGA,MAAM,OAAO,eAAe;IAKxB,YAAY,GAAM,EAAE,IAAqB,EAAE,OAA2B;QAClE,IAAI,CAAC,GAAG,GAAG,GAAG,CAAC;QACf,IAAI,CAAC,IAAI,GAAG,IAAI,CAAC;QACjB,IAAI,CAAC,OAAO,GAAG,OAAO,CAAC;IAC3B,CAAC;CAEJ"}
