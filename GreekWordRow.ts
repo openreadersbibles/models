@@ -1,5 +1,4 @@
-import { GlossRow, PhraseGlossRow } from "./database-input-output.js";
-import { SuggestionRow } from "./HebrewWordRow.js";
+import { GlossRow } from "./database-input-output.js";
 
 export type NTPartOfSpeech = 'particle' | 'verb' | 'relative-pronoun' | 'personal-pronoun' | 'interrogative-indefinite-pronoun' | 'demonstrative-pronoun' | 'definite-article' | 'preposition' | 'noun' | 'interjection' | 'adverb' | 'conjunction' | 'adjective';
 export type NTPerson = 'NA' | '1st' | '2nd' | '3rd';
@@ -31,10 +30,4 @@ export interface GreekWordRow {
     languageISO: 'hbo' | 'arc' | 'grc';
     votes: GlossRow[];
     englishGloss: string;
-}
-
-export interface GetNTVerseResponse {
-    words: GreekWordRow[];
-    suggestions: SuggestionRow[];
-    phrase_glosses: PhraseGlossRow[];
 }

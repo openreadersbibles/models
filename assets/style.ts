@@ -161,4 +161,14 @@ table.toc {
     .toc th, .toc td {
       padding: 10px;
     }
-  }`;
+  }
+
+ul.chapters > li {
+	list-style: none;
+}
+
+ul.chapters > li > a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+}`;

@@ -1,5 +1,5 @@
 import { AnnotationJsonObject } from "./Annotation.js";
-import { GlossRow, PhraseGlossRow } from "./database-input-output.js";
+import { GlossRow } from "./database-input-output.js";
 
 export type OTGender = "NA" | "f" | "m" | "unknown";
 export type OTGrammaticalNumber = "NA" | "sg" | "pl" | "unknown" | "du";
@@ -8,12 +8,6 @@ export type OTState = "NA" | "a" | "c" | "e";
 export type OTTense = "NA" | "perf" | "ptca" | "wayq" | "impf" | "infc" | "impv" | "infa" | "ptcp";
 export type OTVerbStem = "NA" | "qal" | "piel" | "hif" | "nif" | "pual" | "hit" | "hof" | "hsht" | "pasq" | "hotp" | "nit" | "poal" | "poel" | "htpo" | "peal" | "tif" | "etpa" | "pael" | "haf" | "htpe" | "htpa" | "peil" | "etpe" | "afel" | "shaf";
 export type OTPartOfSpeech = "prep" | "subs" | "verb" | "art" | "conj" | "advb" | "adjv" | "intj" | "prde" | "nmpr" | "nega" | "prps" | "prin" | "inrg";
-
-export interface GetHebrewVerseResponse {
-    words: HebrewWordRow[];
-    suggestions: SuggestionRow[];
-    phrase_glosses: PhraseGlossRow[];
-}
 
 export interface SuggestionRow {
     lex_id: number;

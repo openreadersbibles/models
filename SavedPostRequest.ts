@@ -1,12 +1,5 @@
-import { HttpReturnValue } from "./ReturnValue.js";
-
-export interface WrappedBody {
-    body: unknown;
-    hash: string;
-}
-
-export interface ReturnedWrappedBody {
-    body: HttpReturnValue;
+export interface WrappedBody<T> {
+    body: T;
     hash: string;
 }
 

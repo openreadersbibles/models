@@ -4,7 +4,7 @@ import { ProjectConfiguration, ProjectConfigurationRow, ProjectId } from "./Proj
 export interface UserProfileRow {
     user_id: string;
     user_description: string;
-    projects: string;
+    projects: ProjectConfigurationRow[];
 }
 
 export interface UserUpdateObject {
@@ -22,19 +22,15 @@ export class UserProfile {
     constructor(row: UserProfileRow) {
         this._user_id = row.user_id;
         this._user_description = row.user_description;
-        const projects = JSON.parse(row.projects) as ProjectConfigurationRow[];
-        for (const row in projects) {
-            const projectRow = projects[row];
-            if (projectRow) {
-                try {
-                    const project = ProjectConfiguration.fromRow(projectRow);
-                    this._projects.set(projectRow.project_id, project);
-                } catch (e) {
-                    console.error("Error parsing project row", projectRow, e);
-                    throw e
-                }
+        row.projects.forEach((projectRow) => {
+            try {
+                const project = ProjectConfiguration.fromRow(projectRow);
+                this._projects.set(projectRow.project_id, project);
+            } catch (e) {
+                console.error("Error parsing project row", projectRow, e);
+                throw e
             }
-        }
+        });
     }
 
     get user_id(): UserId {
@@ -71,7 +67,7 @@ export class UserProfile {
     static fromUserId(user_id: string): UserProfile {
         return new UserProfile({
             user_id: user_id,
-            projects: "[]",
+            projects: [],
             user_description: ""
         });
     }

@@ -2,14 +2,20 @@ import { Word } from "./Word.js";
 import { VerseReference } from "./VerseReference.js";
 import { Gloss } from "./Gloss.js";
 import { Annotation, annotationFromObject } from "./Annotation.js";
-import { GetHebrewVerseResponse, SuggestionRow } from "./HebrewWordRow.js";
+import { HebrewWordRow, SuggestionRow } from "./HebrewWordRow.js";
 import { PhraseGlossRow } from "./database-input-output.js";
 import { PhraseGlossLocation } from "./gloss-locations.js";
 import { HebrewWordElement } from "./HebrewWordElement.js";
-import { GetNTVerseResponse } from "./GreekWordRow.js";
+import { GreekWordRow } from "./GreekWordRow.js";
 import { GreekWordElement } from "./GreekWordElement.js";
 
 export type BiblicalLanguage = 'hebrew' | 'greek' | 'aramaic';
+
+export interface VerseResponse<T> {
+    words: T[];
+    suggestions: SuggestionRow[];
+    phrase_glosses: PhraseGlossRow[];
+}
 
 export class Verse {
     reference: VerseReference;
@@ -123,7 +129,7 @@ export class Verse {
         return this.words.filter((word: Word) => word.needsGlossAndHasNoVote(frequencyThreshold)).length;
     }
 
-    static fromHebrewVerseResponse(ref: VerseReference, data: GetHebrewVerseResponse): Verse {
+    static fromHebrewVerseResponse(ref: VerseReference, data: VerseResponse<HebrewWordRow>): Verse {
         const words = new Array<Word>();
         words.push(new Word(ref));
         for (const word of data.words) {
@@ -148,7 +154,7 @@ export class Verse {
         return new Verse(ref, words, 'hebrew', phraseGlosses);
     }
 
-    static fromNTVerseResponse(ref: VerseReference, data: GetNTVerseResponse): Verse {
+    static fromNTVerseResponse(ref: VerseReference, data: VerseResponse<GreekWordRow>): Verse {
         const words = new Array<Word>();
 
         for (const word of data.words) {
