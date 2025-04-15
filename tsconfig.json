@@ -10,6 +10,9 @@
     "resolveJsonModule": true,
     "sourceMap": true, // Enable source maps,
     "outDir": "./dist",
+    "paths": {
+      "@models/*": ["./*"]
+    }
   },
   "exclude": [
     "node_modules",
