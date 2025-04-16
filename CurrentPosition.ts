@@ -1,6 +1,7 @@
+import { Canon } from "./Canon.js";
 import { CanonData, getCanon } from "./Canons.js";
 import { ProjectConfiguration, ProjectId } from "./ProjectConfiguration.js";
-import { Canon, VerseReference } from "./VerseReference.js";
+import { VerseReference } from "./VerseReference.js";
 
 type CompositeKey = string;
 

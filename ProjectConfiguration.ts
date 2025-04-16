@@ -1,9 +1,11 @@
 import { CANONS } from "./Canons.js";
 import { UserId } from "./UserProfile.js";
-import { Canon, UbsBook, VerseReference } from "./VerseReference.js";
+import { VerseReference } from "./VerseReference.js";
 import { ParsingFormat } from "./parsing-formats/ParsingFormat.js";
 import { PublicationConfiguration, PublicationConfigurationRow } from "./PublicationConfiguration.js";
 import { ProjectParsingFormats, ProjectParsingFormatsObject } from "./ProjectParsingFormats.js";
+import { Canon } from "./Canon.js";
+import { UbsBook } from "./UbsBook.js";
 
 interface ThresholdObject {
     [key: string]: number;

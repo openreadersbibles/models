@@ -1,4 +1,5 @@
-import { Canon, UbsBook } from "./VerseReference.js";
+import { Canon } from "./Canon.js";
+import { UbsBook } from "./UbsBook.js";
 
 export interface BookIdentifierJson {
     book: UbsBook,

@@ -6,7 +6,7 @@ import { NTVerboseEnglish, NTVerboseParsingFormatStrings, NTVerboseStringLabels 
 import { OTConciseParsingFormat } from "./OTConciseParsingFormat.js";
 import { OTBasicEnglish, OTConciseParsingFormatStrings, OTConciseStringLabels } from "./OTConciseParsingFormatStrings.js";
 import { OTVerboseParsingFormat } from "./OTVerboseParsingFormat.js";
-import { Canon } from "../VerseReference.js";
+import { Canon } from "../Canon.js";
 import { OTVerboseEnglish, OTVerboseParsingFormatStrings, OTVerboseStringLabels } from "./OTVerboseParsingFormatStrings.js";
 import { NTTemplaticEnglish, NTTemplaticParsingFormatStrings, NTTemplativeStringLabels } from "./NTTemplaticParsingFormatStrings.js";
 import { NTTemplaticParsingFormat } from "./NTTemplaticParsingFormat.js";

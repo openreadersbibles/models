@@ -1,6 +1,6 @@
 import { ParsingFormat, ParsingFormatId } from './parsing-formats/ParsingFormat.js';
 import { ProjectConfiguration } from './ProjectConfiguration.js';
-import { Canon } from './VerseReference.js';
+import { Canon } from './Canon.js';
 import { latexTemplate } from './assets/default_latex_template.js';
 import { cssTemplate } from './assets/style.js';
 

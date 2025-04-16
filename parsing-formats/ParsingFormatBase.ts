@@ -1,4 +1,4 @@
-import { Canon } from "../VerseReference.js";
+import { Canon } from "../Canon.js";
 
 export class ParsingFormatBase {
     private _id: string;

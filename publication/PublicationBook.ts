@@ -1,7 +1,7 @@
 import { create } from 'xmlbuilder2';
 import { PublicationVerse } from "./PublicationVerse.js";
 import { PublicationRequest } from "./../PublicationRequest.js";
-import { UbsBook, Canon, VerseReference } from "./../VerseReference.js";
+import { VerseReference } from "./../VerseReference.js";
 import { BookHopper, ChapterHopper } from "./../ProjectDump.js";
 import { PublicationGreekWordElementRow } from './PublicationGreekWordElementRow.js';
 import { PublicationHebrewWordElementRow } from './PublicationHebrewWordElementRow.js';
@@ -9,6 +9,8 @@ import { PublicationGreekWordElement } from './PublicationGreekWordElement.js';
 import { PublicationHebrewWordElement } from './PublicationHebrewWordElement.js';
 import { PublicationWord } from './PublicationWord.js';
 import { PublicationWordElement } from './PublicationWordElement.js';
+import { Canon } from '@models/Canon.js';
+import { UbsBook } from '@models/UbsBook.js';
 
 export interface BookDumpJson<T extends PublicationGreekWordElementRow | PublicationHebrewWordElementRow> {
     book_id: UbsBook;

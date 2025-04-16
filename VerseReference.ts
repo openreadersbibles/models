@@ -1,12 +1,9 @@
+import { Canon } from "./Canon.js";
 import { CANONS, CanonData, getCanon } from "./Canons.js";
-
-export type UbsBook = 'GEN' | 'EXO' | 'LEV' | 'NUM' | 'DEU' | 'JOS' | 'JDG' | 'RUT' | '1SA' | '2SA' | '1KI' | '2KI' | '1CH' | '2CH' | 'EZR' | 'NEH' | 'EST' | 'JOB' | 'PSA' | 'PRO' | 'ECC' | 'SNG' | 'ISA' | 'JER' | 'LAM' | 'EZK' | 'DAN' | 'HOS' | 'JOL' | 'AMO' | 'OBA' | 'JON' | 'MIC' | 'NAM' | 'HAB' | 'ZEP' | 'HAG' | 'ZEC' | 'MAL' | 'MAT' | 'MRK' | 'LUK' | 'JHN' | 'ACT' | 'ROM' | '1CO' | '2CO' | 'GAL' | 'EPH' | 'PHP' | 'COL' | '1TH' | '2TH' | '1TI' | '2TI' | 'TIT' | 'PHM' | 'HEB' | 'JAS' | '1PE' | '2PE' | '1JN' | '2JN' | '3JN' | 'JUD' | 'REV';
-export type OTBook = 'GEN' | 'EXO' | 'LEV' | 'NUM' | 'DEU' | 'JOS' | 'JDG' | 'RUT' | '1SA' | '2SA' | '1KI' | '2KI' | '1CH' | '2CH' | 'EZR' | 'NEH' | 'EST' | 'JOB' | 'PSA' | 'PRO' | 'ECC' | 'SNG' | 'ISA' | 'JER' | 'LAM' | 'EZK' | 'DAN' | 'HOS' | 'JOL' | 'AMO' | 'OBA' | 'JON' | 'MIC' | 'NAM' | 'HAB' | 'ZEP' | 'HAG' | 'ZEC' | 'MAL';
-export type NTBook = 'MAT' | 'MRK' | 'LUK' | 'JHN' | 'ACT' | 'ROM' | '1CO' | '2CO' | 'GAL' | 'EPH' | 'PHP' | 'COL' | '1TH' | '2TH' | '1TI' | '2TI' | 'TIT' | 'PHM' | 'HEB' | 'JAS' | '1PE' | '2PE' | '1JN' | '2JN' | '3JN' | 'JUD' | 'REV';
-export type LatinBook = 'Genesis' | 'Exodus' | 'Leviticus' | 'Numeri' | 'Deuteronomium' | 'Josua' | 'Judices' | 'Ruth' | 'Samuel_I' | 'Samuel_II' | 'Reges_I' | 'Reges_II' | 'Chronica_I' | 'Chronica_II' | 'Esra' | 'Nehemia' | 'Esther' | 'Iob' | 'Psalmi' | 'Proverbia' | 'Ecclesiastes' | 'Canticum' | 'Jesaia' | 'Jeremia' | 'Threni' | 'Ezechiel' | 'Daniel' | 'Hosea' | 'Joel' | 'Amos' | 'Obadia' | 'Jona' | 'Micha' | 'Nahum' | 'Habakuk' | 'Zephania' | 'Haggai' | 'Sacharia' | 'Maleachi' | 'secundum Matthæum' | 'secundum Marcum' | 'secundum Lucam' | 'secundum Ioannem' | 'Actus' | 'ad Romanos' | '1 ad Corinthios' | '2 ad Corinthios' | 'ad Galatas' | 'ad Ephesios' | 'ad Philippenses' | 'ad Colossenses' | '1 ad Thessalonicenses' | '2 ad Thessalonicenses' | '1 ad Timotheum' | '2 ad Timotheum' | 'ad Titum' | 'ad Philemonem' | 'ad Hebræos' | 'Iacobi' | '1 Petri' | '2 Petri' | '1 Ioannis' | '2 Ioannis' | '3 Ioannis' | 'Iudæ' | 'Apocalypsis';
-export type EnglishBook = 'Genesis' | 'Exodus' | 'Leviticus' | 'Numbers' | 'Deuteronomy' | 'Joshua' | 'Judges' | 'Ruth' | '1 Samuel' | '2 Samuel' | '1 Kings' | '2 Kings' | '1 Chronicles' | '2 Chronicles' | 'Ezra' | 'Nehemiah' | 'Esther' | 'Job' | 'Psalms' | 'Proverbs' | 'Ecclesiastes' | 'Song of Solomon' | 'Isaiah' | 'Jeremiah' | 'Lamentations' | 'Ezekiel' | 'Daniel' | 'Hosea' | 'Joel' | 'Amos' | 'Obadiah' | 'Jonah' | 'Micah' | 'Nahum' | 'Habakkuk' | 'Zephaniah' | 'Haggai' | 'Zechariah' | 'Malachi' | 'Matthew' | 'Mark' | 'Luke' | 'John' | 'Acts' | 'Romans' | '1 Corinthians' | '2 Corinthians' | 'Galatians' | 'Ephesians' | 'Philippians' | 'Colossians' | '1 Thessalonians' | '2 Thessalonians' | '1 Timothy' | '2 Timothy' | 'Titus' | 'Philemon' | 'Hebrews' | 'James' | '1 Peter' | '2 Peter' | '1 John' | '2 John' | '3 John' | 'Jude' | 'Revelation';
-
-export type Canon = 'OT' | 'NT' | 'LXX';
+import { EnglishBook } from "./EnglishBook.js";
+import { LatinBook } from "./LatinBook.js";
+import { UbsBook } from "./UbsBook.js";
+import { VerseReferenceJson } from "./VerseReferenceJson.js";
 
 export type VerseReferenceString = string;
 
@@ -60,6 +57,32 @@ export class VerseReference {
         return `${this.canon}-${this.ubs_book}-${this.chapter}-${this.verse}`;
     }
 
+    validate(): VerseReference | undefined {
+        const canonData = getCanon(this.canon);
+        if (!canonData) {
+            return undefined;
+        }
+
+        if (!canonData.getIsValid(this.canon, this.ubs_book, this.chapter, this.verse)) {
+            return undefined;
+        }
+
+        return this;
+    }
+
+    toJson(): VerseReferenceJson {
+        return {
+            ubs_book: this.ubs_book,
+            chapter: this.chapter,
+            verse: this.verse,
+            canon: this.canon
+        };
+    }
+
+    static fromJson(json: VerseReferenceJson): VerseReference | undefined {
+        return new VerseReference(json.ubs_book, json.chapter, json.verse, json.canon).validate();
+    }
+
     toString(): VerseReferenceString {
         return `${this.canon} ${this.ubs_book} ${this.chapter}:${this.verse}`;
     }
@@ -77,17 +100,7 @@ export class VerseReference {
             const ubs_book = match[2] as UbsBook;
             const chapter = parseInt(match[3]);
             const verse = parseInt(match[4]);
-
-            const canonData = getCanon(canon);
-            if (!canonData) {
-                return undefined;
-            }
-
-            if (!canonData.getIsValid(canon, ubs_book, chapter, verse)) {
-                return undefined;
-            }
-
-            return new VerseReference(ubs_book, chapter, verse, canon);
+            return new VerseReference(ubs_book, chapter, verse, canon).validate();
         }
 
         return undefined;
