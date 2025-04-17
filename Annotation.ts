@@ -4,27 +4,6 @@ import { AnnotationJsonObject, AnnotationJsonObjectSchema, AnnotationType, Annot
 
 export const converter = new MiniMarkdown();
 
-// export type AnnotationType = "word" | "markdown" | "wordplusmarkdown" | "null";
-
-// export type AnnotationJsonObject =
-//     | { type: "word"; content: WordAnnotationContent; }
-//     | { type: "markdown"; content: MarkdownAnnotationContent; }
-//     | { type: "wordplusmarkdown"; content: WordPlusMarkdownAnnotationContent; }
-//     | { type: "null"; content: string; };
-
-// interface WordAnnotationContent {
-//     gloss: string;
-// }
-
-// export interface MarkdownAnnotationContent {
-//     markdown: string;
-// }
-
-// interface WordPlusMarkdownAnnotationContent {
-//     gloss: string;
-//     markdown: string;
-// }
-
 // Define the Annotation schema
 export const AnnotationSchema = z.object({
     type: AnnotationTypeSchema,
@@ -33,13 +12,6 @@ export const AnnotationSchema = z.object({
     toAnnotationObject: z.function().returns(AnnotationJsonObjectSchema),
 });
 export type Annotation = z.infer<typeof AnnotationSchema>;
-
-// export interface Annotation {
-//     type: AnnotationType;
-//     html: string;
-//     tex: string;
-//     toAnnotationObject: () => AnnotationJsonObject;
-// }
 
 export function annotationFromJson(json: string): Annotation | undefined {
     const obj = JSON.parse(json) as AnnotationJsonObject;
