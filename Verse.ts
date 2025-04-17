@@ -10,6 +10,7 @@ import { GreekWordElement } from "./GreekWordElement.js";
 import { SuggestionRow } from "./SuggestionRow.js";
 import { PhraseGlossRow } from "./PhraseGlossRow.js";
 import { UserId } from "./UserProfile.js";
+import { GlossContainer } from "./WordElement.js";
 
 export type BiblicalLanguage = 'hebrew' | 'greek' | 'aramaic';
 
@@ -19,7 +20,7 @@ export interface VerseResponse<T> {
     phrase_glosses: PhraseGlossRow[];
 }
 
-export class Verse {
+export class Verse implements GlossContainer {
     reference: VerseReference;
     words: Word[];
     phraseGlosses: Gloss[] = [];

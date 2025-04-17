@@ -3,7 +3,7 @@ import { GlossLocation } from "./gloss-locations.js";
 import { BiblicalLanguage } from "./Verse.js";
 import { UserId } from "./UserProfile.js";
 
-export interface WordElement {
+export interface WordElement extends GlossContainer {
     get text(): string;
     get frequency(): number;
     get glossSuggestions(): Gloss[];
