@@ -1,11 +1,9 @@
+import { PhraseGlossLocationObject } from "./PhraseGlossLocationObject";
+import { WordGlossLocationObject } from "./WordGlossLocationObject";
+
 export interface GlossLocation {
     toObject(): WordGlossLocationObject | PhraseGlossLocationObject;
     asString(): string;
-}
-
-export interface WordGlossLocationObject {
-    word_id: number;
-    lex_id: number;
 }
 
 export class WordGlossLocation implements GlossLocation {
@@ -81,9 +79,4 @@ export class PhraseGlossLocation implements GlossLocation {
     static firstFromString(str: string): number {
         return parseInt(str.split('-')[0]);
     }
-}
-
-export interface PhraseGlossLocationObject {
-    from_word_id: number;
-    to_word_id: number;
 }

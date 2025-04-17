@@ -1,8 +1,8 @@
 import { Annotation, annotationFromJson, MarkdownAnnotation, WordAnnotation } from "./Annotation.js";
 import { AnnotationType } from "./AnnotationJsonObject.js";
-import { GlossSendObject } from "./database-input-output.js";
 import { GlossLocation, PhraseGlossLocation } from "./gloss-locations.js";
 import { GlossRow } from "./GlossRow.js";
+import { GlossSendObject } from "./GlossSendObject.js";
 import { PhraseGlossRow } from "./PhraseGlossRow.js";
 import { UserId } from "./UserProfile.js";
 
@@ -61,6 +61,10 @@ export class Gloss {
         return this._changed;
     }
 
+    get annotation(): Annotation {
+        return this._annotation;
+    }
+
     markAsUnchanged(): void {
         this._changed = false;
     }
@@ -111,6 +115,10 @@ export class Gloss {
         } else {
             return this._gloss_id === other._gloss_id;
         }
+    }
+
+    replaceAnnotation(newAnnotation: Annotation): Gloss {
+        return new Gloss(newAnnotation, this._gloss_id, this._location, this._votes);
     }
 
     static newGloss(annotation: Annotation, location: GlossLocation, voter?: UserId): Gloss {

@@ -1,8 +1,3 @@
-export interface WrappedBody<T> {
-    body: T;
-    hash: string;
-}
-
 interface SavedPostRequestObject {
     url: string;
     body: unknown;

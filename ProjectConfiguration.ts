@@ -255,6 +255,11 @@ export class ProjectConfiguration {
         return this._publication_configurations;
     }
 
+    public isPowerUser(user_id: UserId): boolean {
+        const role = this._roles.get(user_id);
+        return role ? role.power_user === 1 : false;
+    }
+
     public toObject(): ProjectConfigurationRow {
         const thresholds: ThresholdObject = {};
         for (const [canon, threshold] of this._frequency_thresholds) {
