@@ -1,42 +1,67 @@
-import { AnnotationJsonObject } from "./Annotation.js";
-import { GlossRow } from "./database-input-output.js";
+import { z } from "zod";
+import { GlossRowSchema } from "./GlossRow";
 
-export type OTGender = "NA" | "f" | "m" | "unknown";
-export type OTGrammaticalNumber = "NA" | "sg" | "pl" | "unknown" | "du";
-export type OTPerson = "NA" | "p1" | "p2" | "p3" | "unknown";
-export type OTState = "NA" | "a" | "c" | "e";
-export type OTTense = "NA" | "perf" | "ptca" | "wayq" | "impf" | "infc" | "impv" | "infa" | "ptcp";
-export type OTVerbStem = "NA" | "qal" | "piel" | "hif" | "nif" | "pual" | "hit" | "hof" | "hsht" | "pasq" | "hotp" | "nit" | "poal" | "poel" | "htpo" | "peal" | "tif" | "etpa" | "pael" | "haf" | "htpe" | "htpa" | "peil" | "etpe" | "afel" | "shaf";
-export type OTPartOfSpeech = "prep" | "subs" | "verb" | "art" | "conj" | "advb" | "adjv" | "intj" | "prde" | "nmpr" | "nega" | "prps" | "prin" | "inrg";
+// Define OTGender schema
+export const OTGenderSchema = z.enum(["NA", "f", "m", "unknown"]);
+export type OTGender = z.infer<typeof OTGenderSchema>;
 
-export interface SuggestionRow {
-    lex_id: number;
-    suggestions: AnnotationJsonObject[];
-}
+// Define OTGrammaticalNumber schema
+export const OTGrammaticalNumberSchema = z.enum(["NA", "sg", "pl", "unknown", "du"]);
+export type OTGrammaticalNumber = z.infer<typeof OTGrammaticalNumberSchema>;
 
-export interface HebrewWordRow {
-    _id: number;
-    freq_lex: number;
-    g_word_utf8: string;
-    trailer_utf8: string;
-    lex_id: number;
-    votes: GlossRow[];
-    myVote: number | null; /// NB: this is a gloss_id
+// Define OTPerson schema
+export const OTPersonSchema = z.enum(["NA", "p1", "p2", "p3", "unknown"]);
+export type OTPerson = z.infer<typeof OTPersonSchema>;
 
-    gn: OTGender;
-    nu: OTGrammaticalNumber;
-    st: OTState;
-    vt: OTTense;
-    vs: OTVerbStem;
-    ps: OTPerson;
-    pdp: OTPartOfSpeech;
-    englishGloss: string;
-    prs_gn: OTGender;
-    prs_nu: OTGrammaticalNumber;
-    prs_ps: OTPerson;
-    voc_lex_utf8: string;
-    languageISO: 'hbo' | 'arc' | 'grc';
-}
+// Define OTState schema
+export const OTStateSchema = z.enum(["NA", "a", "c", "e"]);
+export type OTState = z.infer<typeof OTStateSchema>;
+
+// Define OTTense schema
+export const OTTenseSchema = z.enum([
+    "NA", "perf", "ptca", "wayq", "impf", "infc", "impv", "infa", "ptcp"
+]);
+export type OTTense = z.infer<typeof OTTenseSchema>;
+
+// Define OTVerbStem schema
+export const OTVerbStemSchema = z.enum([
+    "NA", "qal", "piel", "hif", "nif", "pual", "hit", "hof", "hsht", "pasq",
+    "hotp", "nit", "poal", "poel", "htpo", "peal", "tif", "etpa", "pael",
+    "haf", "htpe", "htpa", "peil", "etpe", "afel", "shaf"
+]);
+export type OTVerbStem = z.infer<typeof OTVerbStemSchema>;
+
+// Define OTPartOfSpeech schema
+export const OTPartOfSpeechSchema = z.enum([
+    "prep", "subs", "verb", "art", "conj", "advb", "adjv", "intj", "prde",
+    "nmpr", "nega", "prps", "prin", "inrg"
+]);
+export type OTPartOfSpeech = z.infer<typeof OTPartOfSpeechSchema>;
+
+// HebrewWordRow schema
+export const HebrewWordRowSchema = z.object({
+    _id: z.number(),
+    freq_lex: z.number(),
+    g_word_utf8: z.string(),
+    trailer_utf8: z.string(),
+    lex_id: z.number(),
+    votes: z.array(GlossRowSchema),
+
+    gn: OTGenderSchema,
+    nu: OTGrammaticalNumberSchema,
+    st: OTStateSchema,
+    vt: OTTenseSchema,
+    vs: OTVerbStemSchema,
+    ps: OTPersonSchema,
+    pdp: OTPartOfSpeechSchema,
+    englishGloss: z.string(),
+    prs_gn: OTGenderSchema,
+    prs_nu: OTGrammaticalNumberSchema,
+    prs_ps: OTPersonSchema,
+    voc_lex_utf8: z.string(),
+    languageISO: z.enum(["hbo", "arc", "grc"]),
+});
+export type HebrewWordRow = z.infer<typeof HebrewWordRowSchema>;
 
 export function OTGenderToEnglish(gender: OTGender) {
     switch (gender) {

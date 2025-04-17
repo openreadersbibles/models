@@ -1,5 +1,5 @@
 import { Annotation } from "./Annotation.js";
-import { GlossRow } from "./database-input-output.js";
+import { GlossRow } from "./GlossRow.js";
 import { Gloss } from "./Gloss.js";
 import { GlossLocation, WordGlossLocation } from "./gloss-locations.js";
 import { GreekWordRow } from "./GreekWordRow.js";
@@ -17,16 +17,15 @@ export class GreekWordElement extends WordElementBase implements WordElement {
 
         /// votes contains the glosses that have actual votes
         this._glosses = row.votes.map((suggestion: GlossRow) => {
-            const myvote = suggestion.gloss_id === row.myVote ? 1 : 0 as 1 | 0;
             const location = new WordGlossLocation(row._id, row.lex_id);
-            return Gloss.fromWordGlossRow(suggestion, location, myvote);
+            return Gloss.fromWordGlossRow(suggestion, location);
         });
 
         /// suggestions is just an array of strings. If a string is
         /// not already represented in the _glosses member, it should be added
         suggestions?.forEach((value: Annotation) => {
             if (this._glosses.find(g => g.html === value.html) !== undefined) return;
-            this._glosses.push(Gloss.newGloss(value, this.location(), false));
+            this._glosses.push(Gloss.newGloss(value, this.location()));
         });
     }
 
@@ -44,10 +43,6 @@ export class GreekWordElement extends WordElementBase implements WordElement {
 
     get frequency(): number {
         return this._row.freq_lex;
-    }
-
-    get myVote(): number | null {
-        return this._row.myVote;
     }
 
     get word_id(): number {

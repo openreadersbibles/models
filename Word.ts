@@ -1,5 +1,6 @@
 import { Annotation } from "./Annotation.js";
 import { Gloss } from "./Gloss.js";
+import { UserId } from "./UserProfile.js";
 import { BiblicalLanguage } from "./Verse.js";
 import { VerseReference } from "./VerseReference.js";
 import { WordElement } from "./WordElement.js";
@@ -69,10 +70,10 @@ export class Word {
         }
     }
 
-    addGlossForLexId(lexId: number, annotation: Annotation) {
+    addGlossForLexId(lexId: number, annotation: Annotation, user_id: UserId) {
         for (const element of this._elements) {
             if (element.lex_id === lexId) {
-                element.addNewGloss(Gloss.newGloss(annotation, element.location(), false), false);
+                element.addNewGloss(Gloss.newGloss(annotation, element.location()), false, user_id);
             }
         }
     }
@@ -89,8 +90,10 @@ export class Word {
         return this._elements.some(element => element.frequency < frequencyThreshold);
     }
 
-    needsGlossAndHasNoVote(frequencyThreshold: number): boolean {
-        return this._elements.some(element => element.frequency < frequencyThreshold && element.myVote === null);
+    needsGlossAndHasNoVote(frequencyThreshold: number, user_id: UserId): boolean {
+        return this._elements.some((element: WordElement) => {
+            return element.frequency < frequencyThreshold && !element.userHasVoted(user_id);
+        });
     }
 
     parsingSummary(): Map<string, string>[] {

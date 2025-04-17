@@ -1,34 +1,45 @@
+import { z } from "zod";
 import { MiniMarkdown } from './MiniMarkdown.js';
+import { AnnotationJsonObject, AnnotationJsonObjectSchema, AnnotationType, AnnotationTypeSchema } from "./AnnotationJsonObject.js";
 
 export const converter = new MiniMarkdown();
 
-export type AnnotationType = "word" | "markdown" | "wordplusmarkdown" | "null";
+// export type AnnotationType = "word" | "markdown" | "wordplusmarkdown" | "null";
 
-export type AnnotationJsonObject =
-    | { type: "word"; content: WordAnnotationContent; }
-    | { type: "markdown"; content: MarkdownAnnotationContent; }
-    | { type: "wordplusmarkdown"; content: WordPlusMarkdownAnnotationContent; }
-    | { type: "null"; content: string; };
+// export type AnnotationJsonObject =
+//     | { type: "word"; content: WordAnnotationContent; }
+//     | { type: "markdown"; content: MarkdownAnnotationContent; }
+//     | { type: "wordplusmarkdown"; content: WordPlusMarkdownAnnotationContent; }
+//     | { type: "null"; content: string; };
 
-interface WordAnnotationContent {
-    gloss: string;
-}
+// interface WordAnnotationContent {
+//     gloss: string;
+// }
 
-export interface MarkdownAnnotationContent {
-    markdown: string;
-}
+// export interface MarkdownAnnotationContent {
+//     markdown: string;
+// }
 
-interface WordPlusMarkdownAnnotationContent {
-    gloss: string;
-    markdown: string;
-}
+// interface WordPlusMarkdownAnnotationContent {
+//     gloss: string;
+//     markdown: string;
+// }
 
-export interface Annotation {
-    type: AnnotationType;
-    html: string;
-    tex: string;
-    toAnnotationObject: () => AnnotationJsonObject;
-}
+// Define the Annotation schema
+export const AnnotationSchema = z.object({
+    type: AnnotationTypeSchema,
+    html: z.string(),
+    tex: z.string(),
+    toAnnotationObject: z.function().returns(AnnotationJsonObjectSchema),
+});
+export type Annotation = z.infer<typeof AnnotationSchema>;
+
+// export interface Annotation {
+//     type: AnnotationType;
+//     html: string;
+//     tex: string;
+//     toAnnotationObject: () => AnnotationJsonObject;
+// }
 
 export function annotationFromJson(json: string): Annotation | undefined {
     const obj = JSON.parse(json) as AnnotationJsonObject;

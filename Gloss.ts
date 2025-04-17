@@ -1,36 +1,36 @@
-import { Annotation, annotationFromJson, AnnotationType, MarkdownAnnotation, WordAnnotation } from "./Annotation.js";
-import { GlossRow, GlossSendObject, PhraseGlossRow } from "./database-input-output.js";
+import { Annotation, annotationFromJson, MarkdownAnnotation, WordAnnotation } from "./Annotation.js";
+import { AnnotationType } from "./AnnotationJsonObject.js";
+import { GlossSendObject } from "./database-input-output.js";
 import { GlossLocation, PhraseGlossLocation } from "./gloss-locations.js";
+import { GlossRow } from "./GlossRow.js";
+import { PhraseGlossRow } from "./PhraseGlossRow.js";
+import { UserId } from "./UserProfile.js";
 
 export class Gloss {
     private _annotation: Annotation;
-    private _other_votes: number;
     private _gloss_id: number;
     private _changed: boolean;
-    private _myVote: 0 | 1;
     private _location: GlossLocation;
+    private _votes: UserId[];
 
-    constructor(annotation: Annotation, other_votes: number, gloss_id: number, location: GlossLocation, myvote: 0 | 1) {
+    constructor(annotation: Annotation, gloss_id: number, location: GlossLocation, votes: UserId[]) {
         this._annotation = annotation;
         this._location = location;
-        this._myVote = myvote;
-        this._other_votes = other_votes;
         this._gloss_id = gloss_id;
         this._changed = false;
+        this._votes = votes;
     }
 
-    static fromWordGlossRow(row: GlossRow, location: GlossLocation, myvote: 0 | 1): Gloss {
+    static fromWordGlossRow(row: GlossRow, location: GlossLocation): Gloss {
         const annotation = annotationFromJson(row.jsonContent) || new WordAnnotation("");
-        const other_votes = row.votes - myvote; /// so that we don't count the user's vote twice
         const gloss_id = row.gloss_id;
-        return new Gloss(annotation, other_votes, gloss_id, location, myvote);
+        return new Gloss(annotation, gloss_id, location, row.votes);
     }
 
-    static fromPhraseGlossRow(row: PhraseGlossRow, location: PhraseGlossLocation, myvote: 0 | 1): Gloss {
+    static fromPhraseGlossRow(row: PhraseGlossRow, location: PhraseGlossLocation): Gloss {
         const annotation = new MarkdownAnnotation(row.markdown);
-        const other_votes = row.votes - myvote; /// so that we don't count the user's vote twice
         const gloss_id = row.phrase_gloss_id;
-        return new Gloss(annotation, other_votes, gloss_id, location, myvote);
+        return new Gloss(annotation, gloss_id, location, row.votes);
     }
 
     get location(): GlossLocation {
@@ -42,7 +42,7 @@ export class Gloss {
     }
 
     get votes(): number {
-        return this._other_votes + this._myVote;
+        return this._votes.length;
     }
 
     get gloss_id(): number {
@@ -65,12 +65,16 @@ export class Gloss {
         this._changed = false;
     }
 
-    get isMyVote(): boolean {
-        return this._myVote === 1;
+    isUsersVote(user_id: UserId): boolean {
+        return this._votes.includes(user_id);
     }
 
-    toggleGloss(): void {
-        this._myVote = this._myVote === 0 ? 1 : 0;
+    toggleGloss(user_id: UserId): void {
+        if (this.isUsersVote(user_id)) {
+            this.removeVote(user_id);
+        } else {
+            this.addVote(user_id);
+        }
         this._changed = true;
     }
 
@@ -78,23 +82,23 @@ export class Gloss {
         return {
             annotationObject: this._annotation.toAnnotationObject(),
             gloss_id: this._gloss_id,
-            myVote: this._myVote,
+            votes: this._votes,
             location: this._location.toObject()
         };
     }
 
-    addVote(): void {
-        const changed = this._myVote === 0;
-        this._myVote = 1;
+    addVote(user_id: UserId): void {
+        const changed = !this.isUsersVote(user_id);
         if (changed) {
+            this._votes.push(user_id);
             this._changed = true;
         }
     }
 
-    removeVote(): void {
-        const changed = this._myVote === 1;
-        this._myVote = 0;
+    removeVote(user_id: UserId): void {
+        const changed = this.isUsersVote(user_id);
         if (changed) {
+            this._votes = this._votes.filter(vote => vote !== user_id);
             this._changed = true;
         }
     }
@@ -109,10 +113,10 @@ export class Gloss {
         }
     }
 
-    static newGloss(annotation: Annotation, location: GlossLocation, votedFor: boolean): Gloss {
-        const g = new Gloss(annotation, 0, -1, location, 0);
-        if (votedFor) {
-            g.addVote();
+    static newGloss(annotation: Annotation, location: GlossLocation, voter?: UserId): Gloss {
+        const g = new Gloss(annotation, -1, location, []);
+        if (voter) {
+            g.addVote(voter);
             g.markAsChanged();
         }
         return g;

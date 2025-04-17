@@ -2,12 +2,14 @@ import { Word } from "./Word.js";
 import { VerseReference } from "./VerseReference.js";
 import { Gloss } from "./Gloss.js";
 import { Annotation, annotationFromObject } from "./Annotation.js";
-import { HebrewWordRow, SuggestionRow } from "./HebrewWordRow.js";
-import { PhraseGlossRow } from "./database-input-output.js";
+import { HebrewWordRow } from "./HebrewWordRow.js";
 import { PhraseGlossLocation } from "./gloss-locations.js";
 import { HebrewWordElement } from "./HebrewWordElement.js";
 import { GreekWordRow } from "./GreekWordRow.js";
 import { GreekWordElement } from "./GreekWordElement.js";
+import { SuggestionRow } from "./SuggestionRow.js";
+import { PhraseGlossRow } from "./PhraseGlossRow.js";
+import { UserId } from "./UserProfile.js";
 
 export type BiblicalLanguage = 'hebrew' | 'greek' | 'aramaic';
 
@@ -78,9 +80,9 @@ export class Verse {
         }
     }
 
-    addGlossForLexId(lexId: number, annotation: Annotation) {
+    addGlossForLexId(lexId: number, annotation: Annotation, user_id: UserId) {
         for (const word of this.words) {
-            word.addGlossForLexId(lexId, annotation);
+            word.addGlossForLexId(lexId, annotation, user_id);
         }
     }
 
@@ -102,31 +104,31 @@ export class Verse {
         return new Verse(this.reference, this.words, this.language, this.phraseGlosses);
     }
 
-    setVote(gloss: Gloss): void {
+    setVote(gloss: Gloss, user_id: UserId): void {
         /// See WordElement.setVote for logic
 
         /// if the gloss is now the user's vote, we need to update the other glosses
         /// to make sure that only one gloss is the user's vote
-        if (gloss.isMyVote) {
+        if (gloss.isUsersVote(user_id)) {
             this.phraseGlosses.forEach(g => {
                 if (g.gloss_id === gloss.gloss_id) {
-                    g.addVote();
+                    g.addVote(user_id);
                 } else {
-                    g.removeVote();
+                    g.removeVote(user_id);
                 }
             });
         } else { /// if we're taking away a vote, we don't change other glosses
             this.phraseGlosses.forEach(g => {
                 if (g.gloss_id === gloss.gloss_id) {
-                    g.removeVote();
+                    g.removeVote(user_id);
                 }
             });
 
         }
     }
 
-    wordsRemainingToGloss(frequencyThreshold: number): number {
-        return this.words.filter((word: Word) => word.needsGlossAndHasNoVote(frequencyThreshold)).length;
+    wordsRemainingToGloss(frequencyThreshold: number, user_id: UserId): number {
+        return this.words.filter((word: Word) => word.needsGlossAndHasNoVote(frequencyThreshold, user_id)).length;
     }
 
     static fromHebrewVerseResponse(ref: VerseReference, data: VerseResponse<HebrewWordRow>): Verse {
@@ -149,7 +151,7 @@ export class Verse {
         if (words[words.length - 1].elementCount === 0) {
             words.pop();
         }
-        const phraseGlosses = data.phrase_glosses.map((row: PhraseGlossRow) => Gloss.fromPhraseGlossRow(row, new PhraseGlossLocation(row.from_word_id, row.to_word_id), row.phrase_gloss_id === row.myVote ? 1 : 0));
+        const phraseGlosses = data.phrase_glosses.map((row: PhraseGlossRow) => Gloss.fromPhraseGlossRow(row, new PhraseGlossLocation(row.from_word_id, row.to_word_id)));
 
         return new Verse(ref, words, 'hebrew', phraseGlosses);
     }
@@ -169,7 +171,7 @@ export class Verse {
 
             words[words.length - 1].addElement(new GreekWordElement(word, suggestions));
         }
-        const phraseGlosses = data.phrase_glosses.map((row: PhraseGlossRow) => Gloss.fromPhraseGlossRow(row, new PhraseGlossLocation(row.from_word_id, row.to_word_id), row.phrase_gloss_id === row.myVote ? 1 : 0));
+        const phraseGlosses = data.phrase_glosses.map((row: PhraseGlossRow) => Gloss.fromPhraseGlossRow(row, new PhraseGlossLocation(row.from_word_id, row.to_word_id)));
         return new Verse(ref, words, 'greek', phraseGlosses);
     }
 }
