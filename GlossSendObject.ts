@@ -7,7 +7,6 @@ import { WordGlossLocationObjectSchema } from "./WordGlossLocationObject";
 
 export const GlossSendObjectSchema = z.object({
     annotationObject: AnnotationJsonObjectSchema,
-    gloss_id: z.number(),
     votes: z.array(z.custom<UserId>()),
     location: z.union([
         PhraseGlossLocationObjectSchema,

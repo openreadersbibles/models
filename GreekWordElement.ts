@@ -1,57 +1,8 @@
-import { Annotation } from "./Annotation.js";
-import { GlossRow } from "./GlossRow.js";
-import { Gloss } from "./Gloss.js";
-import { GlossLocation, WordGlossLocation } from "./gloss-locations.js";
 import { GreekWordRow } from "./GreekWordRow.js";
-import { BiblicalLanguage } from "./Verse.js";
-import { WordElementBase, WordElement } from "./WordElement.js";
+import { WordElement } from "./WordElement.js";
+import { WordElementBase } from "./WordElementBase.js";
 
-export class GreekWordElement extends WordElementBase implements WordElement {
-    private _row: GreekWordRow;
-
-    constructor(row: GreekWordRow, suggestions?: Annotation[]) {
-        super();
-
-        this._row = row;
-
-
-        /// votes contains the glosses that have actual votes
-        this._glosses = row.votes.map((suggestion: GlossRow) => {
-            const location = new WordGlossLocation(row._id, row.lex_id);
-            return Gloss.fromWordGlossRow(suggestion, location);
-        });
-
-        /// suggestions is just an array of strings. If a string is
-        /// not already represented in the _glosses member, it should be added
-        suggestions?.forEach((value: Annotation) => {
-            if (this._glosses.find(g => g.html === value.html) !== undefined) return;
-            this._glosses.push(Gloss.newGloss(value, this.location()));
-        });
-    }
-
-    get language(): BiblicalLanguage {
-        switch (this._row.languageISO) {
-            case 'hbo': return 'hebrew';
-            case 'arc': return 'aramaic';
-            case 'grc': return 'greek';
-        }
-    }
-
-    get text(): string {
-        return this._row.punctuated_text;
-    }
-
-    get frequency(): number {
-        return this._row.freq_lex;
-    }
-
-    get word_id(): number {
-        return this._row._id;
-    }
-
-    get lex_id(): number {
-        return this._row.lex_id;
-    }
+export class GreekWordElement extends WordElementBase<GreekWordRow> implements WordElement {
 
     copyOf(): GreekWordElement {
         const copy = new GreekWordElement(this._row);
@@ -59,8 +10,8 @@ export class GreekWordElement extends WordElementBase implements WordElement {
         return copy;
     }
 
-    location(): GlossLocation {
-        return new WordGlossLocation(this._row._id, this._row.lex_id);
+    get text(): string {
+        return this._row.punctuated_text;
     }
 
     parsingSummary(): Map<string, string> {

@@ -78,6 +78,23 @@ export class Word {
         }
     }
 
+    removeGlossForLexId(lexId: number, gloss: Gloss) {
+        for (const element of this._elements) {
+            if (element.lex_id === lexId) {
+                element.removeGloss(gloss);
+            }
+        }
+    }
+
+    replaceGlossForLexId(lexId: number, gloss: Gloss) {
+        for (const element of this._elements) {
+            if (element.lex_id === lexId) {
+                element.replaceGloss(gloss);
+            }
+        }
+    }
+
+
     get firstId(): number {
         return this._elements[0].word_id;
     }

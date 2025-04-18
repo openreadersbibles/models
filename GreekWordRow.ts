@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { GlossRowSchema } from "./GlossRow.js";
+import { WordRow } from "./WordRow.js";
+import { LanguageIsoSchema } from "./LanguageIso.js";
 
 // Define NTPartOfSpeech schema
 export const NTPartOfSpeechSchema = z.enum([
@@ -90,8 +92,8 @@ export const GreekWordRowSchema = z.object({
     grammatical_number: NTNumberSchema,
     gender: NTGenderSchema,
     degree: NTDegreeSchema,
-    languageISO: z.enum(["hbo", "arc", "grc"]),
+    languageISO: LanguageIsoSchema,
     votes: z.array(GlossRowSchema),
     englishGloss: z.string(),
 });
-export type GreekWordRow = z.infer<typeof GreekWordRowSchema>;
+export type GreekWordRow = z.infer<typeof GreekWordRowSchema> & WordRow;

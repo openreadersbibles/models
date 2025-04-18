@@ -26,18 +26,22 @@ export type WordPlusMarkdownAnnotationContent = z.infer<typeof WordPlusMarkdownA
 // Define the AnnotationJsonObject schema
 export const AnnotationJsonObjectSchema = z.discriminatedUnion("type", [
     z.object({
+        gloss_id: z.number(),
         type: z.literal("word"),
         content: WordAnnotationContentSchema,
     }),
     z.object({
+        gloss_id: z.number(),
         type: z.literal("markdown"),
         content: MarkdownAnnotationContentSchema,
     }),
     z.object({
+        gloss_id: z.number(),
         type: z.literal("wordplusmarkdown"),
         content: WordPlusMarkdownAnnotationContentSchema,
     }),
     z.object({
+        gloss_id: z.number(),
         type: z.literal("null"),
         content: z.string(),
     }),

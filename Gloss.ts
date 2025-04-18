@@ -1,4 +1,4 @@
-import { Annotation, annotationFromJson, MarkdownAnnotation, WordAnnotation } from "./Annotation.js";
+import { Annotation, annotationFromObject, MarkdownAnnotation, WordAnnotation } from "./Annotation.js";
 import { AnnotationType } from "./AnnotationJsonObject.js";
 import { GlossLocation, PhraseGlossLocation } from "./gloss-locations.js";
 import { GlossRow } from "./GlossRow.js";
@@ -22,13 +22,13 @@ export class Gloss {
     }
 
     static fromWordGlossRow(row: GlossRow, location: GlossLocation): Gloss {
-        const annotation = annotationFromJson(row.jsonContent) || new WordAnnotation("");
+        const annotation = annotationFromObject(row.annotationObject) || new WordAnnotation("", row.gloss_id);
         const gloss_id = row.gloss_id;
         return new Gloss(annotation, gloss_id, location, row.votes);
     }
 
     static fromPhraseGlossRow(row: PhraseGlossRow, location: PhraseGlossLocation): Gloss {
-        const annotation = new MarkdownAnnotation(row.markdown);
+        const annotation = new MarkdownAnnotation(row.markdown, row.phrase_gloss_id);
         const gloss_id = row.phrase_gloss_id;
         return new Gloss(annotation, gloss_id, location, row.votes);
     }
@@ -85,7 +85,6 @@ export class Gloss {
     toGlossSendObject(): GlossSendObject {
         return {
             annotationObject: this._annotation.toAnnotationObject(),
-            gloss_id: this._gloss_id,
             votes: this._votes,
             location: this._location.toObject()
         };
@@ -121,6 +120,9 @@ export class Gloss {
         return new Gloss(newAnnotation, this._gloss_id, this._location, this._votes);
     }
 
+    /// NB: This should be used to create a Gloss object that is not yet in the database.
+    /// It will have a gloss_id of -1.
+    /// TODO: How can I make it harder to misuse this method?
     static newGloss(annotation: Annotation, location: GlossLocation, voter?: UserId): Gloss {
         const g = new Gloss(annotation, -1, location, []);
         if (voter) {

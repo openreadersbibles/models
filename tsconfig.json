@@ -11,12 +11,14 @@
     "sourceMap": true, // Enable source maps,
     "outDir": "./dist",
     "paths": {
-      "@models/*": ["./*"]
+      "@models/*": [
+        "./*"
+      ]
     }
   },
   "exclude": [
     "node_modules",
-    "build.js"
+    "./build.js"
   ],
   "types": [
     "node",

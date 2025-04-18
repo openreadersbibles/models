@@ -1,32 +1,8 @@
-import { Annotation } from './Annotation.js';
-import { Gloss } from './Gloss.js';
-import { WordGlossLocation, GlossLocation } from './gloss-locations.js';
 import { HebrewWordRow, OTGender, OTGrammaticalNumber, OTState, OTTense, OTVerbStem, OTPerson, OTPartOfSpeech, OTGenderToEnglish, OTGrammaticalNumberToEnglish, OTStateToEnglish, OTTenseToEnglish, OTVerbStemToEnglish, OTPersonToEnglish, OTPartOfSpeechToEnglish } from './HebrewWordRow.js';
-import { BiblicalLanguage } from './Verse.js';
-import { WordElement, WordElementBase } from './WordElement.js';
-import { GlossRow } from './GlossRow.js';
+import { WordElement } from './WordElement.js';
+import { WordElementBase } from './WordElementBase.js';
 
-export class HebrewWordElement extends WordElementBase implements WordElement {
-    private _row: HebrewWordRow;
-
-    constructor(row: HebrewWordRow, suggestions?: Annotation[]) {
-        super();
-
-        this._row = row;
-
-        /// votes contains the glosses that have actual votes
-        this._glosses = row.votes.map((suggestion: GlossRow) => {
-            const location = new WordGlossLocation(row._id, row.lex_id);
-            return Gloss.fromWordGlossRow(suggestion, location);
-        });
-
-        /// suggestions is just an array of strings. If a string is
-        /// not already represented in the _glosses member, it should be added
-        suggestions?.forEach((value: Annotation) => {
-            if (this._glosses.find(g => g.html === value.html) !== undefined) return;
-            this._glosses.push(Gloss.newGloss(value, this.location()));
-        });
-    }
+export class HebrewWordElement extends WordElementBase<HebrewWordRow> implements WordElement {
 
     copyOf(): HebrewWordElement {
         const copy = new HebrewWordElement(this._row);
@@ -34,28 +10,8 @@ export class HebrewWordElement extends WordElementBase implements WordElement {
         return copy;
     }
 
-    get language(): BiblicalLanguage {
-        switch (this._row.languageISO) {
-            case 'hbo': return 'hebrew';
-            case 'arc': return 'aramaic';
-            case 'grc': return 'greek';
-        }
-    }
-
     get text(): string {
         return this._row.g_word_utf8 + this._row.trailer_utf8;
-    }
-
-    get frequency(): number {
-        return this._row.freq_lex;
-    }
-
-    get lex_id(): number {
-        return this._row.lex_id;
-    }
-
-    get word_id(): number {
-        return this._row._id;
     }
 
     get gender(): OTGender {
@@ -104,10 +60,6 @@ export class HebrewWordElement extends WordElementBase implements WordElement {
 
     get voc_lex_utf8(): string {
         return this._row.voc_lex_utf8;
-    }
-
-    location(): GlossLocation {
-        return new WordGlossLocation(this._row._id, this._row.lex_id);
     }
 
     parsingSummary(): Map<string, string> {

@@ -1,5 +1,7 @@
 import { z } from "zod";
 import { GlossRowSchema } from "./GlossRow";
+import { WordRow } from "./WordRow";
+import { LanguageIsoSchema } from "./LanguageIso";
 
 // Define OTGender schema
 export const OTGenderSchema = z.enum(["NA", "f", "m", "unknown"]);
@@ -59,9 +61,9 @@ export const HebrewWordRowSchema = z.object({
     prs_nu: OTGrammaticalNumberSchema,
     prs_ps: OTPersonSchema,
     voc_lex_utf8: z.string(),
-    languageISO: z.enum(["hbo", "arc", "grc"]),
+    languageISO: LanguageIsoSchema,
 });
-export type HebrewWordRow = z.infer<typeof HebrewWordRowSchema>;
+export type HebrewWordRow = z.infer<typeof HebrewWordRowSchema> & WordRow;
 
 export function OTGenderToEnglish(gender: OTGender) {
     switch (gender) {

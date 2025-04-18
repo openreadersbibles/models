@@ -10,7 +10,7 @@ import { GreekWordElement } from "./GreekWordElement.js";
 import { SuggestionRow } from "./SuggestionRow.js";
 import { PhraseGlossRow } from "./PhraseGlossRow.js";
 import { UserId } from "./UserProfile.js";
-import { GlossContainer } from "./WordElement.js";
+import { GlossContainer } from "./GlossContainer.js";
 
 export type BiblicalLanguage = 'hebrew' | 'greek' | 'aramaic';
 
@@ -87,6 +87,18 @@ export class Verse implements GlossContainer {
         }
     }
 
+    removeGlossForLexId(lexId: number, gloss: Gloss) {
+        for (const word of this.words) {
+            word.removeGlossForLexId(lexId, gloss);
+        }
+    }
+
+    replaceGlossForLexId(lexId: number, gloss: Gloss) {
+        for (const word of this.words) {
+            word.replaceGlossForLexId(lexId, gloss);
+        }
+    }
+
     textPortion(from: number, to: number): string {
         let result = '';
         this.words.forEach((word) => {
@@ -98,6 +110,15 @@ export class Verse implements GlossContainer {
     }
 
     addPhraseGloss(gloss: Gloss) {
+        this.phraseGlosses.push(gloss);
+    }
+
+    removeGloss(gloss: Gloss): void {
+        this.phraseGlosses = this.phraseGlosses.filter(g => g.gloss_id !== gloss.gloss_id);
+    }
+
+    replaceGloss(gloss: Gloss): void {
+        this.phraseGlosses = this.phraseGlosses.filter(g => g.gloss_id !== gloss.gloss_id);
         this.phraseGlosses.push(gloss);
     }
 
@@ -169,7 +190,6 @@ export class Verse implements GlossContainer {
                     .map(s => annotationFromObject(s))
                     .filter(s => s !== undefined) as Annotation[];
             }
-
             words[words.length - 1].addElement(new GreekWordElement(word, suggestions));
         }
         const phraseGlosses = data.phrase_glosses.map((row: PhraseGlossRow) => Gloss.fromPhraseGlossRow(row, new PhraseGlossLocation(row.from_word_id, row.to_word_id)));

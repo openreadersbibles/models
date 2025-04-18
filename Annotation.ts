@@ -6,6 +6,8 @@ export const converter = new MiniMarkdown();
 
 // Define the Annotation schema
 export const AnnotationSchema = z.object({
+    /// NB: this could be the _id from the gloss table or the _id from the phrase_gloss table
+    gloss_id: z.number(),
     type: AnnotationTypeSchema,
     html: z.string(),
     tex: z.string(),
@@ -27,17 +29,28 @@ export function annotationFromObject(obj: AnnotationJsonObject): Annotation | un
         case "wordplusmarkdown":
             return WordPlusMarkdownAnnotation.fromObject(obj);
         case "null":
-            return NullAnnotation.fromObject();
+            return NullAnnotation.fromObject(obj);
         default:
             return undefined;
     }
 }
 
-export class WordAnnotation implements Annotation {
-    private _gloss: string;
-    public type: AnnotationType = "word";
+class AnnotationBase {
+    public type: AnnotationType;
+    /// NB: this could be the _id from the gloss table or the _id from the phrase_gloss table
+    public gloss_id: number;
 
-    constructor(gloss: string) {
+    constructor(type: AnnotationType, gloss_id: number) {
+        this.type = type;
+        this.gloss_id = gloss_id;
+    }
+}
+
+export class WordAnnotation extends AnnotationBase implements Annotation {
+    private _gloss: string;
+
+    constructor(gloss: string, gloss_id: number) {
+        super("word", gloss_id);
         this._gloss = gloss;
     }
 
@@ -52,6 +65,7 @@ export class WordAnnotation implements Annotation {
     toAnnotationObject(): AnnotationJsonObject {
         return {
             type: "word",
+            gloss_id: this.gloss_id,
             content: {
                 gloss: this._gloss
             }
@@ -62,15 +76,15 @@ export class WordAnnotation implements Annotation {
         if (obj.type !== "word") {
             throw new Error("Invalid type for WordAnnotation");
         }
-        return new WordAnnotation(obj.content.gloss);
+        return new WordAnnotation(obj.content.gloss, obj.gloss_id);
     }
 }
 
-export class MarkdownAnnotation implements Annotation {
+export class MarkdownAnnotation extends AnnotationBase implements Annotation {
     private _markdown: string;
-    public type: AnnotationType = "markdown";
 
-    constructor(markdown: string) {
+    constructor(markdown: string, gloss_id: number) {
+        super("markdown", gloss_id);
         this._markdown = markdown;
     }
 
@@ -85,6 +99,7 @@ export class MarkdownAnnotation implements Annotation {
     toAnnotationObject(): AnnotationJsonObject {
         return {
             type: "markdown",
+            gloss_id: this.gloss_id,
             content: {
                 markdown: this._markdown
             }
@@ -95,17 +110,17 @@ export class MarkdownAnnotation implements Annotation {
         if (obj.type !== "markdown") {
             throw new Error("Invalid type for MarkdownAnnotation");
         }
-        return new MarkdownAnnotation(obj.content.markdown);
+        return new MarkdownAnnotation(obj.content.markdown, obj.gloss_id);
     }
 }
 
 
-export class WordPlusMarkdownAnnotation implements Annotation {
+export class WordPlusMarkdownAnnotation extends AnnotationBase implements Annotation {
     private _gloss: string;
     private _markdown: string;
-    public type: AnnotationType = "wordplusmarkdown";
 
-    constructor(gloss: string, markdown: string) {
+    constructor(gloss: string, markdown: string, gloss_id: number) {
+        super("wordplusmarkdown", gloss_id);
         this._gloss = gloss;
         this._markdown = markdown;
     }
@@ -121,6 +136,7 @@ export class WordPlusMarkdownAnnotation implements Annotation {
     toAnnotationObject(): AnnotationJsonObject {
         return {
             type: "wordplusmarkdown",
+            gloss_id: this.gloss_id,
             content: {
                 gloss: this._gloss,
                 markdown: this._markdown
@@ -132,15 +148,14 @@ export class WordPlusMarkdownAnnotation implements Annotation {
         if (obj.type !== "wordplusmarkdown") {
             throw new Error("Invalid type for WordPlusMarkdownAnnotation");
         }
-        return new WordPlusMarkdownAnnotation(obj.content.gloss, obj.content.markdown);
+        return new WordPlusMarkdownAnnotation(obj.content.gloss, obj.content.markdown, obj.gloss_id);
     }
 }
 
 
-export class NullAnnotation implements Annotation {
-    public type: AnnotationType = "null";
-
-    constructor() {
+export class NullAnnotation extends AnnotationBase implements Annotation {
+    constructor(gloss_id: number) {
+        super("null", gloss_id);
     }
 
     get html(): string {
@@ -154,11 +169,12 @@ export class NullAnnotation implements Annotation {
     toAnnotationObject(): AnnotationJsonObject {
         return {
             type: "null",
+            gloss_id: this.gloss_id,
             content: ""
         };
     }
 
-    static fromObject(): NullAnnotation {
-        return new NullAnnotation();
+    static fromObject(obj: AnnotationJsonObject): NullAnnotation {
+        return new NullAnnotation(obj.gloss_id);
     }
 }

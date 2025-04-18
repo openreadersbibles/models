@@ -1,9 +1,10 @@
 import { z } from "zod";
+import { AnnotationJsonObjectSchema } from "./AnnotationJsonObject";
 
 export const GlossRowSchema = z.object({
-    jsonContent: z.string(), /// TODO this doesn't check the format of the JSON
+    annotationObject: AnnotationJsonObjectSchema,
     gloss_id: z.number(),
-    votes: z.array(z.string()), /// TODO this doesn't check the format of the JSON
+    votes: z.array(z.string()),
 });
 
 export type GlossRow = z.infer<typeof GlossRowSchema>;
