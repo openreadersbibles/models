@@ -62,6 +62,10 @@ export class WordAnnotation extends AnnotationBase implements Annotation {
         return this._gloss;
     }
 
+    get gloss(): string {
+        return this._gloss;
+    }
+
     toAnnotationObject(): AnnotationJsonObject {
         return {
             type: "word",
