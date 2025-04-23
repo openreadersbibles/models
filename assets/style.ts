@@ -164,7 +164,7 @@ table.toc {
   }
 
 ul.chapters {
-  direction: __BIBLICAL_FONT__;
+  direction: __LAYOUT_DIRECTION__;
 }
 
 ul.chapters > li {
