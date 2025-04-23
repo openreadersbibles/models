@@ -1,7 +1,8 @@
-import { ParsingFormat, ParsingFormatFactory, ParsingFormatId, ParsingFormatObject } from "./parsing-formats/ParsingFormat.js";
+import { ParsingFormat, ParsingFormatFactory, ParsingFormatId } from "./parsing-formats/ParsingFormat.js";
 import { ProjectConfiguration } from "./ProjectConfiguration.js";
 import { Canon } from "./Canon.js";
 import { ProjectParsingFormatsObject } from "./ProjectParsingFormatsObject.js";
+import { ParsingFormatObject } from "./ParsingFormatObject.js";
 
 type CanonParsingFormats = Map<ParsingFormatId, ParsingFormat>;
 

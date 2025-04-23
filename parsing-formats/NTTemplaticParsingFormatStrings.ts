@@ -1,5 +1,5 @@
 import { NTVerboseEnglish, NTVerboseParsingFormatStrings, NTVerbosePersian, NTVerboseStringLabels } from "./NTVerboseParsingFormatStrings.js";
-import { StringLookup } from "./ParsingFormat.js";
+import { StringLookup } from "@models/ParsingFormatObject";
 
 export interface NTTemplaticParsingFormatStrings extends StringLookup, NTVerboseParsingFormatStrings {
     noun_template: string;

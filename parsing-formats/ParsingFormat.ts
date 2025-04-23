@@ -14,6 +14,7 @@ import { OTTemplaticEnglish, OTTemplaticParsingFormatStrings, OTTemplativeString
 import { OTTemplaticParsingFormat } from "./OTTemplaticParsingFormat.js";
 import { PublicationGreekWordElement } from "../publication/PublicationGreekWordElement.js";
 import { PublicationHebrewWordElement } from "../publication/PublicationHebrewWordElement.js";
+import { ParsingFormatObject, StringLookup } from "@models/ParsingFormatObject.js";
 
 export type ParsingFormatId = string;
 
@@ -28,12 +29,6 @@ export interface ParsingFormat {
     getString(key: string): string | undefined;
 }
 
-export interface ParsingFormatObject {
-    id: string;
-    template: string;
-    translations: StringLookup;
-}
-
 export interface ParsingFormatTemplate {
     id: ParsingFormatId;
     name: string;
@@ -41,10 +36,6 @@ export interface ParsingFormatTemplate {
     description: string;
     strings: StringLookup;
     placeholders?: StringLookup;
-}
-
-export interface StringLookup {
-    [key: string]: string;
 }
 
 export function parsingFormatFromId(id: ParsingFormatId): ParsingFormatTemplate | undefined {

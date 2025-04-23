@@ -1,8 +1,9 @@
 import { PublicationHebrewWordElement } from "../publication/PublicationHebrewWordElement.js";
-import { ParsingFormat, ParsingFormatObject } from "./ParsingFormat.js";
+import { ParsingFormat } from "./ParsingFormat.js";
 import { ParsingFormatBase } from "./ParsingFormatBase.js";
 import { NumeralConverter } from "../NumeralConverter.js";
 import { OTVerboseEnglish, OTVerboseParsingFormatStrings } from "./OTVerboseParsingFormatStrings.js";
+import { ParsingFormatObject } from "@models/ParsingFormatObject.js";
 
 export class OTVerboseParsingFormat extends ParsingFormatBase implements ParsingFormat {
     private strings: OTVerboseParsingFormatStrings;

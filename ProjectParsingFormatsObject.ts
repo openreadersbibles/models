@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { CanonSchema } from "@models/Canon.js";
-import { ParsingFormatObjectSchema } from "./ProjectConfigurationRow";
+import { ParsingFormatObjectSchema } from "./ParsingFormatObject";
 
 const ParsingFormatIdSchema = z.string(); // Assuming ParsingFormatId is a string
 

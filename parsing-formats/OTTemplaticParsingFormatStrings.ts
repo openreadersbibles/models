@@ -1,5 +1,5 @@
 import { OTVerboseEnglish, OTVerboseParsingFormatStrings, OTVerboseStringLabels } from "./OTVerboseParsingFormatStrings.js";
-import { StringLookup } from "./ParsingFormat.js";
+import { StringLookup } from "@models/ParsingFormatObject";
 
 export interface OTTemplaticParsingFormatStrings extends StringLookup, OTVerboseParsingFormatStrings {
     noun_template: string;
