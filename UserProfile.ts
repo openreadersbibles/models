@@ -1,16 +1,7 @@
 import { CurrentPosition } from "./CurrentPosition.js";
-import { ProjectConfiguration, ProjectConfigurationRow, ProjectId } from "./ProjectConfiguration.js";
-
-export interface UserProfileRow {
-    user_id: string;
-    user_description: string;
-    projects: ProjectConfigurationRow[];
-}
-
-export interface UserUpdateObject {
-    user_id: string;
-    user_description: string;
-}
+import { ProjectConfiguration, ProjectId } from "./ProjectConfiguration.js";
+import { UserProfileRow } from "./UserProfileRow.js";
+import { UserUpdateObject } from "./UserUpdateObject.js";
 
 export type UserId = string;
 

@@ -1,9 +1,9 @@
 import { ParsingFormat, ParsingFormatFactory, ParsingFormatId, ParsingFormatObject } from "./parsing-formats/ParsingFormat.js";
 import { ProjectConfiguration } from "./ProjectConfiguration.js";
 import { Canon } from "./Canon.js";
+import { ProjectParsingFormatsObject } from "./ProjectParsingFormatsObject.js";
 
 type CanonParsingFormats = Map<ParsingFormatId, ParsingFormat>;
-export type ProjectParsingFormatsObject = Partial<Record<Canon, Record<ParsingFormatId, ParsingFormatObject>>>;
 
 export class ProjectParsingFormats {
     /// Different canons require different settings
@@ -13,7 +13,7 @@ export class ProjectParsingFormats {
         this._settings.set(canon, settings);
     }
 
-    public getSettingsForCanon(canon: Canon): CanonParsingFormats | undefined {
+    public getParsingFormatsForCanon(canon: Canon): CanonParsingFormats | undefined {
         return this._settings.get(canon);
     }
 
@@ -26,7 +26,7 @@ export class ProjectParsingFormats {
     }
 
     public getNumberOfConfigurations(canon: Canon): number {
-        const settings = this.getSettingsForCanon(canon);
+        const settings = this.getParsingFormatsForCanon(canon);
         if (settings === undefined) {
             return 0;
         } else {
@@ -35,7 +35,7 @@ export class ProjectParsingFormats {
     }
 
     public getParsingFormat(canon: Canon, key: ParsingFormatId): ParsingFormat | undefined {
-        const settings = this.getSettingsForCanon(canon);
+        const settings = this.getParsingFormatsForCanon(canon);
         if (settings) {
             return settings.get(key);
         }
@@ -53,7 +53,7 @@ export class ProjectParsingFormats {
     }
 
     public setParsingFormat(canon: Canon, key: ParsingFormatId, format: ParsingFormat) {
-        let settings = this.getSettingsForCanon(canon);
+        let settings = this.getParsingFormatsForCanon(canon);
         if (settings === undefined) {
             settings = new Map<ParsingFormatId, ParsingFormat>();
             this.addCanonSettings(canon, settings);
@@ -62,7 +62,7 @@ export class ProjectParsingFormats {
     }
 
     public removeParsingFormat(c: Canon, key: string) {
-        const settings = this.getSettingsForCanon(c);
+        const settings = this.getParsingFormatsForCanon(c);
         if (settings) {
             settings.delete(key);
         }

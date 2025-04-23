@@ -3,20 +3,7 @@ import { ProjectConfiguration } from './ProjectConfiguration.js';
 import { Canon } from './Canon.js';
 import { latexTemplate } from './assets/default_latex_template.js';
 import { cssTemplate } from './assets/style.js';
-
-export interface PublicationConfigurationRow {
-    footnoteMarkers: string[];
-    polyglossiaOtherLanguage: string;
-    chapterHeader: string;
-    publication_project_font: string;
-    publication_biblical_font: string;
-    latex_template: string;
-    parsing_formats: { [key: string]: string };
-    css_template?: string;
-    footnote_style?: PublicationFootnoteStyle;
-}
-
-export type PublicationFootnoteStyle = "lettered-by-verse" | "numbered-by-page";
+import { PublicationConfigurationRow, PublicationFootnoteStyle } from './PublicationConfigurationRow.js';
 
 export class PublicationConfiguration {
     _project: ProjectConfiguration;
@@ -182,7 +169,7 @@ export class PublicationConfiguration {
         const pc = new PublicationConfiguration(id, project);
         pc._footnoteMarkers = row.footnoteMarkers || [];
         pc._polyglossiaOtherLanguage = row.polyglossiaOtherLanguage;
-        pc._chapterHeader = row.chapterHeader;
+        pc._chapterHeader = row.chapterHeader || "Chapter __CHAPTER__";
         pc.publicationProjectFont = row.publication_project_font;
         pc.publicationBiblicalFont = row.publication_biblical_font;
         pc.latex_template = row.latex_template || PublicationConfiguration.default_latex_template;

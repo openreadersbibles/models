@@ -2,10 +2,12 @@ import { CANONS } from "./Canons.js";
 import { UserId } from "./UserProfile.js";
 import { VerseReference } from "./VerseReference.js";
 import { ParsingFormat } from "./parsing-formats/ParsingFormat.js";
-import { PublicationConfiguration, PublicationConfigurationRow } from "./PublicationConfiguration.js";
-import { ProjectParsingFormats, ProjectParsingFormatsObject } from "./ProjectParsingFormats.js";
+import { PublicationConfiguration } from "./PublicationConfiguration.js";
+import { ProjectParsingFormats } from "./ProjectParsingFormats.js";
 import { Canon } from "./Canon.js";
 import { UbsBook } from "./UbsBook.js";
+import { LayoutDirection, ProjectConfigurationRow, ProjectRole, ProjectRoleRow } from "./ProjectConfigurationRow.js";
+import { PublicationConfigurationRow } from "./PublicationConfigurationRow.js";
 
 interface ThresholdObject {
     [key: string]: number;
@@ -15,41 +17,9 @@ interface BooknamesObject {
     [key: string]: string;
 }
 
-export type ProjectRole = 'admin' | 'member' | 'disabled';
 export const PROJECT_ROLES: ProjectRole[] = ['admin', 'member', 'disabled'];
 
-export interface ProjectRoleRow {
-    user_id: string,
-    user_role: ProjectRole;
-    power_user: 1 | 0;
-}
-
-export interface ProjectDescription {
-    project_id: ProjectId;
-    project_title: string;
-    project_description: string;
-    allow_joins: boolean;
-}
-
 export type ProjectId = string;
-export type LayoutDirection = "ltr" | "rtl";
-
-export interface ProjectConfigurationRow {
-    project_id: ProjectId;
-    project_title: string;
-    project_description: string;
-    layout_direction: LayoutDirection;
-    frequency_thresholds: ThresholdObject;
-    bookNames: BooknamesObject;
-    canons: Canon[];
-    roles: ProjectRoleRow[];
-    allow_joins: boolean;
-    font_families: string;
-    font_size: number | undefined;
-    parsing_formats: ProjectParsingFormatsObject;
-    publication_configurations?: { [key: string]: PublicationConfigurationRow };
-    numerals: string[];
-}
 
 export class ProjectConfiguration {
     static Default = "default";
@@ -111,6 +81,10 @@ export class ProjectConfiguration {
         return this._project_id;
     }
 
+    /// alias
+    get project_id(): ProjectId {
+        return this._project_id;
+    }
     get canons(): Canon[] {
         return this._canons;
     }
