@@ -163,6 +163,10 @@ table.toc {
     }
   }
 
+ul.chapters {
+  direction: __BIBLICAL_FONT__;
+}
+
 ul.chapters > li {
 	list-style: none;
 }
