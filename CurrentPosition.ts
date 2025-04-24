@@ -55,6 +55,15 @@ export class CurrentPosition {
         }
     }
 
+    getReferenceFor(id: ProjectId, c: Canon): VerseReference {
+        const result = this._positions.get(CurrentPosition.getKey(id, c));
+        if (result) {
+            return result;
+        } else {
+            return this.canonData.fallbackVerseReference();
+        }
+    }
+
     setCurrentReference(projectID: ProjectId, reference: VerseReference) {
         this._current_project_id = projectID;
         this._current_canon = reference.canon;
