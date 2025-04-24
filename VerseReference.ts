@@ -1,3 +1,4 @@
+import { BookIdentifier } from "./BookIdentifier.js";
 import { Canon } from "./Canon.js";
 import { CANONS, CanonData, getCanon } from "./Canons.js";
 import { EnglishBook } from "./EnglishBook.js";
@@ -55,6 +56,10 @@ export class VerseReference {
 
     get xmlId(): string {
         return `${this.canon}-${this.ubs_book}-${this.chapter}-${this.verse}`;
+    }
+
+    get bookIdentifier(): BookIdentifier {
+        return new BookIdentifier(this.ubs_book, this.canon);
     }
 
     validate(): VerseReference | undefined {
