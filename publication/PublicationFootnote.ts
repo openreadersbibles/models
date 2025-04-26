@@ -79,8 +79,7 @@ export class PublicationFootnote {
                 return `\\FnParse{${element.getParsingString(this.verse.reference)}}`;
             case PublicationFootnoteType.ParsingGloss:
                 if (element.gloss === null) {
-                    console.error("Gloss expected, but 'gloss' is null.");
-                    // console.error(element);
+                    console.error(`Gloss expected, but 'gloss' is null. (Word Element: ${element.id}}, ${this.verse.reference.toString()})`);
                     return '';
                 } else {
                     if (element.gloss.tex == null) {
@@ -108,7 +107,7 @@ export class PublicationFootnote {
                 break;
             case PublicationFootnoteType.ParsingGloss:
                 if (element.gloss == null) {
-                    console.error("Gloss expected, but 'gloss' is null.");
+                    console.error(`Gloss expected, but 'gloss' is null. (Word Element: ${element.id}}, ${verse.reference.toString()})`);
                     // console.error(element);
                 } else if (element.gloss.tex == null) {
                     console.error("Gloss expected, but 'gloss.tex' is null.");
@@ -127,7 +126,7 @@ export class PublicationFootnote {
                 break;
             case PublicationFootnoteType.Gloss:
                 if (element.gloss === null) {
-                    console.error("Gloss expected, but 'gloss' is null.");
+                    console.error(`Gloss expected, but 'gloss' is null. (Word Element: ${element.id}}, ${verse.reference.toString()})`);
                     // console.error(element);
                 } else if (element.gloss.tex === null || element.gloss.tex === undefined) {
                     console.error("Gloss expected, but 'gloss.tex' is null.");
