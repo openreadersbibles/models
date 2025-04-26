@@ -18,69 +18,6 @@ export class PublicationVerse {
         this.request = request;
     }
 
-    public text(): string {
-        // return this.verseText() + this.footnoteText();
-        /// put the footnote first so it stays with the front of the verse at least
-        return this.footnoteText() + this.verseText();
-    }
-
-    private verseText(): string {
-        let text = "";
-        let glossCounter = 0;
-        const finalPhrasalGlossMarkers = new Map<number, string[]>();
-
-        /// typeset the verse number (in the main text)
-        text += `\\MainTextVerseMark{${this.reference.chapter}}{${this.reference.verse}}`;
-
-        this.words.forEach((word) => {
-            const pgs = word.getPhrasalGlosses();
-
-            /// add in the initial markers of any phrasal glosses
-            /// note that placing these here assumes that phrasal glosses will have lower
-            /// marker numbers than simple gloss footnotes (which is visually intuitive)
-            pgs.filter((pg) => word.hasWordId(pg.from_word_id)).forEach((pg) => {
-                const marker = this.request.configuration.getFootnoteMarker(glossCounter);
-                text += `\\MainTextFootnoteMark{${marker}}`;
-                /// keep track of these; we'll add the final markers later
-                if (!finalPhrasalGlossMarkers.has(pg.to_word_id)) {
-                    finalPhrasalGlossMarkers.set(pg.to_word_id, []);
-                }
-                finalPhrasalGlossMarkers.get(pg.to_word_id)?.push(marker);
-                glossCounter++;
-            });
-
-            /// add the text of the word
-            text += word.getText();
-
-            /// if there is only one gloss, add a footnote marker
-            const gc = word.getNumberOfGlosses();
-            if (gc == 1) {
-                text += `\\MainTextFootnoteMark{${this.request.configuration.getFootnoteMarker(glossCounter)}}`;
-                glossCounter++;
-            } else if (gc > 1) {
-                console.error("More than one gloss for a word:");
-                console.error(word);
-            }
-
-            /// add in the final markers of any phrasal glosses
-            for (const [word_id, markers] of finalPhrasalGlossMarkers.entries()) {
-                if (word.hasWordId(word_id)) {
-                    markers.forEach((marker) => {
-                        text += `\\MainTextFootnoteMark{${marker}}`;
-                    });
-                }
-            }
-
-            text += word.getSeparator();
-        });
-        return text;
-    }
-
-    private footnoteText(): string {
-        const fn = new PublicationFootnote(this, this.request);
-        return fn.text();
-    }
-
     public verseXml(parent: XMLBuilder): void {
         let glossCounter = 0;
 
@@ -120,8 +57,10 @@ export class PublicationVerse {
 
                 glossCounter++;
             } else if (gc > 1) {
-                console.error("More than one gloss for a word:");
-                console.error(word);
+                console.error(`More than one gloss for a word in ${this.reference.toString()}`);
+                word.glossableElements().forEach((element) => {
+                    console.error(`${element.id} ${element.gloss?.html} ${element.requiredFootnoteType(this.reference)}`);
+                });
             }
 
             parent.txt(word.getSeparator());
