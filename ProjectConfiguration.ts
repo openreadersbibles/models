@@ -8,6 +8,7 @@ import { Canon } from "./Canon.js";
 import { UbsBook } from "./UbsBook.js";
 import { LayoutDirection, ProjectConfigurationRow, ProjectRole, ProjectRoleRow } from "./ProjectConfigurationRow.js";
 import { PublicationConfigurationRow } from "./PublicationConfigurationRow.js";
+import { z } from "zod";
 
 interface ThresholdObject {
     [key: string]: number;
@@ -19,7 +20,8 @@ interface BooknamesObject {
 
 export const PROJECT_ROLES: ProjectRole[] = ['admin', 'member', 'disabled'];
 
-export type ProjectId = string;
+export const ProjectIdSchema = z.string();
+export type ProjectId = z.infer<typeof ProjectIdSchema>;
 
 export class ProjectConfiguration {
     static Default = "default";

@@ -1,110 +1,122 @@
-export interface WorkflowRun {
-    id: number;
-    name: string;
-    node_id: string;
-    head_branch: string;
-    head_sha: string;
-    run_number: number;
-    event: string;
-    status: 'queued' | 'in_progress' | 'completed'; // Possible values for status
-    conclusion: 'action_required' | 'cancelled' | 'failure' | 'neutral' | 'success' | 'skipped' | 'stale' | 'timed_out'; // Possible values for conclusion
-    workflow_id: number;
-    check_suite_id: number;
-    check_suite_node_id: string;
-    url: string;
-    html_url: string;
-    pull_requests: unknown[];
-    created_at: string;
-    updated_at: string;
-    run_attempt: number;
-    run_started_at: string;
-    jobs_url: string;
-    logs_url: string;
-    check_suite_url: string;
-    artifacts_url: string;
-    cancel_url: string;
-    rerun_url: string;
-    previous_attempt_url: string | null;
-    workflow_url: string;
-    head_commit: {
-        id: string;
-        tree_id: string;
-        message: string;
-        timestamp: string;
-        author: {
-            name: string;
-            email: string;
-        };
-        committer: {
-            name: string;
-            email: string;
-        };
-    };
-    repository: {
-        id: number;
-        node_id: string;
-        name: string;
-        full_name: string;
-        private: boolean;
-        owner: {
-            login: string;
-            id: number;
-            node_id: string;
-            avatar_url: string;
-            gravatar_id: string;
-            url: string;
-            html_url: string;
-            followers_url: string;
-            following_url: string;
-            gists_url: string;
-            starred_url: string;
-            subscriptions_url: string;
-            organizations_url: string;
-            repos_url: string;
-            events_url: string;
-            received_events_url: string;
-            type: string;
-            site_admin: boolean;
-        };
-        html_url: string;
-        description: string;
-        fork: boolean;
-        url: string;
-        forks_url: string;
-        keys_url: string;
-        collaborators_url: string;
-        teams_url: string;
-        hooks_url: string;
-        issue_events_url: string;
-        events_url: string;
-        assignees_url: string;
-        branches_url: string;
-        tags_url: string;
-        blobs_url: string;
-        git_tags_url: string;
-        git_refs_url: string;
-        trees_url: string;
-        statuses_url: string;
-        languages_url: string;
-        stargazers_url: string;
-        contributors_url: string;
-        subscribers_url: string;
-        subscription_url: string;
-        commits_url: string;
-        git_commits_url: string;
-        comments_url: string;
-        issue_comment_url: string;
-        contents_url: string;
-        compare_url: string;
-        merges_url: string;
-        archive_url: string;
-        downloads_url: string;
-        issues_url: string;
-        pulls_url: string;
-        milestones_url: string;
-        notifications_url: string;
-        labels_url: string;
-        releases_url: string;
-        deployments_url: string;
-    };
-}
+import { z } from 'zod';
+
+export const WorkflowRunSchema = z.object({
+    id: z.number(),
+    name: z.string(),
+    node_id: z.string(),
+    head_branch: z.string(),
+    head_sha: z.string(),
+    run_number: z.number(),
+    event: z.string(),
+    status: z.enum(['queued', 'in_progress', 'completed']),
+    conclusion: z.enum([
+        'action_required',
+        'cancelled',
+        'failure',
+        'neutral',
+        'success',
+        'skipped',
+        'stale',
+        'timed_out',
+    ]),
+    workflow_id: z.number(),
+    check_suite_id: z.number(),
+    check_suite_node_id: z.string(),
+    url: z.string(),
+    html_url: z.string(),
+    pull_requests: z.array(z.unknown()),
+    created_at: z.string(),
+    updated_at: z.string(),
+    run_attempt: z.number(),
+    run_started_at: z.string(),
+    jobs_url: z.string(),
+    logs_url: z.string(),
+    check_suite_url: z.string(),
+    artifacts_url: z.string(),
+    cancel_url: z.string(),
+    rerun_url: z.string(),
+    previous_attempt_url: z.string().nullable(),
+    workflow_url: z.string(),
+    head_commit: z.object({
+        id: z.string(),
+        tree_id: z.string(),
+        message: z.string(),
+        timestamp: z.string(),
+        author: z.object({
+            name: z.string(),
+            email: z.string(),
+        }),
+        committer: z.object({
+            name: z.string(),
+            email: z.string(),
+        }),
+    }),
+    repository: z.object({
+        id: z.number(),
+        node_id: z.string(),
+        name: z.string(),
+        full_name: z.string(),
+        private: z.boolean(),
+        owner: z.object({
+            login: z.string(),
+            id: z.number(),
+            node_id: z.string(),
+            avatar_url: z.string(),
+            gravatar_id: z.string(),
+            url: z.string(),
+            html_url: z.string(),
+            followers_url: z.string(),
+            following_url: z.string(),
+            gists_url: z.string(),
+            starred_url: z.string(),
+            subscriptions_url: z.string(),
+            organizations_url: z.string(),
+            repos_url: z.string(),
+            events_url: z.string(),
+            received_events_url: z.string(),
+            type: z.string(),
+            site_admin: z.boolean(),
+        }),
+        html_url: z.string(),
+        description: z.string(),
+        fork: z.boolean(),
+        url: z.string(),
+        forks_url: z.string(),
+        keys_url: z.string(),
+        collaborators_url: z.string(),
+        teams_url: z.string(),
+        hooks_url: z.string(),
+        issue_events_url: z.string(),
+        events_url: z.string(),
+        assignees_url: z.string(),
+        branches_url: z.string(),
+        tags_url: z.string(),
+        blobs_url: z.string(),
+        git_tags_url: z.string(),
+        git_refs_url: z.string(),
+        trees_url: z.string(),
+        statuses_url: z.string(),
+        languages_url: z.string(),
+        stargazers_url: z.string(),
+        contributors_url: z.string(),
+        subscribers_url: z.string(),
+        subscription_url: z.string(),
+        commits_url: z.string(),
+        git_commits_url: z.string(),
+        comments_url: z.string(),
+        issue_comment_url: z.string(),
+        contents_url: z.string(),
+        compare_url: z.string(),
+        merges_url: z.string(),
+        archive_url: z.string(),
+        downloads_url: z.string(),
+        issues_url: z.string(),
+        pulls_url: z.string(),
+        milestones_url: z.string(),
+        notifications_url: z.string(),
+        labels_url: z.string(),
+        releases_url: z.string(),
+        deployments_url: z.string(),
+    }),
+});
+export type WorkflowRun = z.infer<typeof WorkflowRunSchema>;

@@ -1,10 +1,12 @@
-import { Canon } from "./Canon.js";
-import { UbsBook } from "./UbsBook.js";
+import { Canon, CanonSchema } from "./Canon.js";
+import { UbsBook, UbsBookSchema } from "./UbsBook.js";
+import { z } from "zod";
 
-export interface BookIdentifierJson {
-    book: UbsBook,
-    canon: Canon
-}
+export const BookIdentifierJsonSchema = z.object({
+    book: UbsBookSchema,
+    canon: CanonSchema
+});
+export type BookIdentifierJson = z.infer<typeof BookIdentifierJsonSchema>;
 
 export class BookIdentifier {
     book: UbsBook;
