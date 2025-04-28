@@ -42,6 +42,14 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
     }
 
     requiredFootnoteType(ref: VerseReference): PublicationFootnoteType {
+        /// this is a special case, but I'm not proud of this code.
+        /// It's the word יָהּ, which occurs in Hallelujah. Technically
+        /// it's a rare word (49 occurrences), but it sort of a short
+        /// form for יהוה, so it should not be glossed. 
+        if (this.row.lex_id === 1439638) {
+            return PublicationFootnoteType.None;
+        }
+
         if (this.isVerb) {
             if (this.getBelowFrequencyThreshold(ref)) {
                 return PublicationFootnoteType.ParsingGloss;
@@ -55,7 +63,7 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
                 return PublicationFootnoteType.None;
             }
         } else {
-            if (this.getBelowFrequencyThreshold(ref)) {
+            if (this.getBelowFrequencyThreshold(ref) && !this.isInteroggative) {
                 return PublicationFootnoteType.Gloss;
             } else {
                 return PublicationFootnoteType.None;
@@ -97,7 +105,8 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
 
     get isInteroggative(): boolean {
         /// TODO is this the only/best way to do this?
-        return this.row.lex_id === 1437821;
+        /// these are the Hebrew and Aramaic lexical ids for the interrogative proclitic
+        return this.row.lex_id === 1437821 || this.row.lex_id === 1445345;
     }
 
     get hasPrecedingInterrogative(): boolean {
