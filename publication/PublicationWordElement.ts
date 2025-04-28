@@ -13,7 +13,8 @@ export interface PublicationWordElement {
     get isInteroggative(): boolean; // only relevant to Hebrew/Aramaic?
     gloss: Annotation | null;
     getParsingString(ref: VerseReference): string;
-    get ketivQereString(): string; // only relevant for Hebrew/Aramaic
+    get ketiv(): string; // only relevant for Hebrew/Aramaic
+    get qere(): string; // only relevant for Hebrew/Aramaic
     get terminatesWord(): boolean;
     phrasalGlosses: PublicationPhrasalGloss[];
     get id(): number;

@@ -34,7 +34,11 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
         return false; // only relevant to Hebrew/Aramaic?
     }
 
-    get ketivQereString(): string {
+    get ketiv(): string {
+        return ""; /// only relevant for Hebrew/Aramaic
+    }
+
+    get qere(): string {
         return ""; /// only relevant for Hebrew/Aramaic
     }
 

@@ -50,10 +50,10 @@ export class PublicationVerse {
 
             /// if there is only one gloss, add a footnote marker
             const gc = word.getNumberOfGlosses();
-            if (gc == 1) {
+            if (gc == 1 || word.hasKetivQere) {
                 // text += `<note type="gloss" n="${this.request.project.getFootnoteMarker(glossCounter)}">dummy</note>`;
                 const note_node = parent.ele('note', { type: 'gloss', n: this.request.configuration.getFootnoteMarker(glossCounter) });
-                PublicationFootnote.xml(this, word.glossableElements()[0], note_node);
+                PublicationFootnote.xml(this, word, note_node);
 
                 glossCounter++;
             } else if (gc > 1) {
@@ -61,6 +61,7 @@ export class PublicationVerse {
                 word.glossableElements().forEach((element) => {
                     console.error(`${element.id} ${element.gloss?.html} ${element.requiredFootnoteType(this.reference)}`);
                 });
+                throw new Error(`More than one gloss for a word in ${this.reference.toString()}`);
             }
 
             parent.txt(word.getSeparator());

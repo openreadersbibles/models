@@ -43,4 +43,16 @@ export class PublicationWord {
         return this.elements.some((element) => element.id == id);
     }
 
+    get hasKetivQere(): boolean {
+        return this.elements.some((element) => element.ketiv.length > 0);
+    }
+
+    get ketiv(): string {
+        return this.elements.map((element) => element.ketiv).join('');
+    }
+
+    get qere(): string {
+        return this.elements.map((element) => element.qere).join('');
+    }
+
 }

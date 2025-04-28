@@ -42,14 +42,6 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
     }
 
     requiredFootnoteType(ref: VerseReference): PublicationFootnoteType {
-        if (this.hasKetivQere) {
-            if (this.canBeParsed) {
-                return PublicationFootnoteType.ParsingGloss;
-            } else {
-                return PublicationFootnoteType.Gloss;
-            }
-        }
-
         if (this.isVerb) {
             if (this.getBelowFrequencyThreshold(ref)) {
                 return PublicationFootnoteType.ParsingGloss;
@@ -139,9 +131,12 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
         }
     }
 
-    get ketivQereString(): string {
-        if (this.qere_utf8.length === 0) { return ""; }
-        return `\\FnKetivQere{${this.kq_hybrid_utf8}}{${this.qere_utf8}}`;
+    get ketiv(): string {
+        return this.kq_hybrid_utf8;
+    }
+
+    get qere(): string {
+        return this.qere_utf8;
     }
 
     get phrasalGlosses(): PublicationPhrasalGloss[] {
