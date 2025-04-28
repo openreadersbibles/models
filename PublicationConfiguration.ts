@@ -2,7 +2,6 @@ import { ParsingFormat, ParsingFormatId } from './parsing-formats/ParsingFormat.
 import { ProjectConfiguration } from './ProjectConfiguration.js';
 import { Canon } from './Canon.js';
 import { latexTemplate } from './assets/default_latex_template.js';
-import { cssTemplate } from './assets/style.js';
 import { PublicationConfigurationRow, PublicationFootnoteStyle } from './PublicationConfigurationRow.js';
 
 export class PublicationConfiguration {
@@ -183,5 +182,5 @@ export class PublicationConfiguration {
     }
 
     static default_latex_template = latexTemplate;
-    static default_css_template = cssTemplate;
+    static default_css_template = "";
 }
