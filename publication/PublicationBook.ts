@@ -149,6 +149,7 @@ export class PublicationBook<T extends PublicationGreekWordElementRow | Publicat
                 verse.push(row);
             } else {
                 console.error('Error parsing reference: ' + reference);
+                console.error('Row: ' + JSON.stringify(row));
             }
         }
         return hopper;
