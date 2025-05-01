@@ -4,7 +4,9 @@ import { PublicationConfigurationRowSchema } from "./PublicationConfigurationRow
 import { ProjectParsingFormatsObjectSchema } from "./ProjectParsingFormatsObject";
 
 // Define dependent schemas
-const ThresholdObjectSchema = z.record(z.number()); // { [key: string]: number }
+export const ThresholdObjectSchema = z.record(z.number()); // { [key: string]: number }
+export type ThresholdObject = z.infer<typeof ThresholdObjectSchema>;
+
 const BooknamesObjectSchema = z.record(z.string()); // { [key: string]: string }
 
 const ProjectRoleSchema = z.enum(['admin', 'member', 'disabled']); // ProjectRole
