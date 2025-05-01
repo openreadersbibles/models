@@ -18,4 +18,5 @@ export interface PublicationWordElement {
     get terminatesWord(): boolean;
     phrasalGlosses: PublicationPhrasalGloss[];
     get id(): number;
+    get freq_lex(): number;
 }

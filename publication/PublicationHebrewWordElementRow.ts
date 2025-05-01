@@ -1,8 +1,9 @@
 import { Annotation } from "../../models/Annotation.js";
 import { OTGender, OTGrammaticalNumber, OTState, OTTense, OTVerbStem, OTPerson, OTPartOfSpeech } from "../../models/HebrewWordRow.js";
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
+import { PublicationWordElementRow } from "./PublicationWordElementRow.js";
 
-export interface PublicationHebrewWordElementRow {
+export interface PublicationHebrewWordElementRow extends PublicationWordElementRow {
     _id: number;
     g_word_utf8: string;
     trailer_utf8: string;

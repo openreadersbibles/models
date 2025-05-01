@@ -1,12 +1,10 @@
 import { PublicationWord } from "./PublicationWord.js";
 import { PublicationFootnoteType } from "./PublicationFootnote.js";
 import { PublicationRequest } from "../../models/PublicationRequest.js";
-import { Annotation } from "../../models/Annotation.js";
 import { PublicationWordElement } from "./PublicationWordElement.js";
 import { PublicationHebrewWordElementRow } from "./PublicationHebrewWordElementRow.js";
 import { BaseWordElement } from "./BaseWordElement.js";
 import { OTGender, OTGrammaticalNumber, OTPartOfSpeech, OTPerson, OTState, OTTense, OTVerbStem } from "../../models/HebrewWordRow.js";
-import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 import { VerseReference } from "../../models/VerseReference.js";
 
 export class PublicationHebrewWordElement extends BaseWordElement<PublicationHebrewWordElementRow> implements PublicationWordElement {
@@ -18,8 +16,6 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
 
     get plaintext(): string { return this.g_word_utf8; }
     get trailer(): string { return this.trailer_utf8; }
-    get gloss(): Annotation | null { return this.row.gloss; }
-    get _id(): number { return this.row._id; }
     get g_word_utf8(): string { return this.row.g_word_utf8; }
     get trailer_utf8(): string { return this.row.trailer_utf8; }
     get voc_lex_utf8(): string { return this.row.voc_lex_utf8; }
@@ -30,7 +26,6 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
     get vs(): OTVerbStem { return this.row.vs; }
     get ps(): OTPerson { return this.row.ps; }
     get pdp(): OTPartOfSpeech { return this.row.pdp; }
-    get freq_lex(): number { return this.row.freq_lex; }
     get qere_utf8(): string { return this.row.qere_utf8; }
     get kq_hybrid_utf8(): string { return this.row.kq_hybrid_utf8; }
     get prs_gn(): OTGender { return this.row.prs_gn; }
@@ -81,10 +76,6 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
 
     get hasKetivQere(): boolean {
         return this.qere_utf8.length > 0;
-    }
-
-    getBelowFrequencyThreshold(ref: VerseReference): boolean {
-        return this.row.freq_lex < this.request.project.getFrequencyThreshold(ref.canon);
     }
 
     get terminatesWord(): boolean {
@@ -146,14 +137,6 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
 
     get qere(): string {
         return this.qere_utf8;
-    }
-
-    get phrasalGlosses(): PublicationPhrasalGloss[] {
-        return this.row.phrasalGlosses;
-    }
-
-    get id(): number {
-        return this.row._id;
     }
 
 }

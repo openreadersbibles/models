@@ -2,8 +2,9 @@
 import { Annotation } from "../../models/Annotation.js";
 import { NTCase, NTDegree, NTGender, NTMood, NTNumber, NTPartOfSpeech, NTPerson, NTTense, NTVoice } from "../../models/GreekWordRow.js";
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
+import { PublicationWordElementRow } from "./PublicationWordElementRow.js";
 
-export interface PublicationGreekWordElementRow {
+export interface PublicationGreekWordElementRow extends PublicationWordElementRow {
     _id: number;
     freq_lex: number;
     lex_id: number;

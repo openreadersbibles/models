@@ -3,6 +3,7 @@ import { ProjectConfiguration } from './ProjectConfiguration.js';
 import { Canon } from './Canon.js';
 import { latexTemplate } from './assets/default_latex_template.js';
 import { PublicationConfigurationRow, PublicationFootnoteStyle } from './PublicationConfigurationRow.js';
+import { ThresholdObject } from './ProjectConfigurationRow.js';
 
 export class PublicationConfiguration {
     _project: ProjectConfiguration;
@@ -17,6 +18,7 @@ export class PublicationConfiguration {
     private _parsing_formats: Map<Canon, ParsingFormatId> = new Map<Canon, ParsingFormatId>();
     private _footnote_style: PublicationFootnoteStyle;
     private _css_template: string;
+    private _frequency_thresholds: Map<Canon, number> | undefined;
 
     constructor(id: string, project: ProjectConfiguration) {
         this._id = id;
@@ -52,6 +54,10 @@ export class PublicationConfiguration {
 
     get parsing_formats(): Map<Canon, ParsingFormatId> {
         return this._parsing_formats;
+    }
+
+    get frequency_thresholds(): Map<Canon, number> | undefined {
+        return this._frequency_thresholds;
     }
 
     public get latex_template(): string {
@@ -151,6 +157,16 @@ export class PublicationConfiguration {
         this._parsing_formats.forEach((value, key) => {
             parsing_formats[key] = value;
         });
+
+        let frequency_thresholds: { [key: string]: number } | undefined = undefined;
+        if (this._frequency_thresholds) {
+            const ft: ThresholdObject = {};
+            this._frequency_thresholds.forEach((value, key) => {
+                ft[key] = value;
+            });
+            frequency_thresholds = ft;
+        }
+
         return {
             footnoteMarkers: this._footnoteMarkers,
             polyglossiaOtherLanguage: this._polyglossiaOtherLanguage,
@@ -161,6 +177,7 @@ export class PublicationConfiguration {
             parsing_formats: parsing_formats,
             css_template: this._css_template,
             footnote_style: this._footnote_style,
+            frequency_thresholds: frequency_thresholds,
         };
     }
 
@@ -177,6 +194,12 @@ export class PublicationConfiguration {
         pc._parsing_formats = new Map<Canon, ParsingFormatId>();
         for (const [key, value] of Object.entries(row.parsing_formats || [])) {
             pc._parsing_formats.set(key as Canon, value);
+        }
+        if (row.frequency_thresholds) {
+            pc._frequency_thresholds = new Map<Canon, number>();
+            for (const [key, value] of Object.entries(row.frequency_thresholds)) {
+                pc._frequency_thresholds.set(key as Canon, value);
+            }
         }
         return pc;
     }

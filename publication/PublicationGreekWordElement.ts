@@ -1,11 +1,9 @@
-import { Annotation } from "../../models/Annotation.js";
 import { NTPartOfSpeech, NTPerson, NTTense, NTVoice, NTMood, NTCase, NTNumber, NTGender, NTDegree } from "../../models/GreekWordRow.js";
 import { PublicationRequest } from "../../models/PublicationRequest.js";
 import { VerseReference } from "../../models/VerseReference.js";
 import { BaseWordElement } from "./BaseWordElement.js";
 import { PublicationFootnoteType } from "./PublicationFootnote.js";
 import { PublicationGreekWordElementRow } from "./PublicationGreekWordElementRow.js";
-import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 import { PublicationWord } from "./PublicationWord.js";
 import { PublicationWordElement } from "./PublicationWordElement.js";
 
@@ -46,10 +44,6 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
         return " "; /// this is originally for Hebrew/Aramaic, but the Greek database doesn't actually include spaces
     }
 
-    getBelowFrequencyThreshold(ref: VerseReference): boolean {
-        return this.row.freq_lex < this.request.project.getFrequencyThreshold(ref.canon);
-    }
-
     requiredFootnoteType(ref: VerseReference): PublicationFootnoteType {
         if (this.isVerb) {
             if (this.getBelowFrequencyThreshold(ref)) {
@@ -70,10 +64,6 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
                 return PublicationFootnoteType.None;
             }
         }
-    }
-
-    get gloss(): Annotation | null {
-        return this.row.gloss;
     }
 
     getParsingString(ref: VerseReference): string {
@@ -139,14 +129,6 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
 
     get degree(): NTDegree {
         return this.row.degree;
-    }
-
-    get phrasalGlosses(): PublicationPhrasalGloss[] {
-        return this.row.phrasalGlosses;
-    }
-
-    get id(): number {
-        return this.row._id;
     }
 
 }

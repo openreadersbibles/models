@@ -1,7 +1,6 @@
 import { CANONS } from "./Canons.js";
 import { UserId } from "./UserProfile.js";
 import { VerseReference } from "./VerseReference.js";
-import { ParsingFormat } from "./parsing-formats/ParsingFormat.js";
 import { PublicationConfiguration } from "./PublicationConfiguration.js";
 import { ProjectParsingFormats } from "./ProjectParsingFormats.js";
 import { Canon } from "./Canon.js";
@@ -127,6 +126,10 @@ export class ProjectConfiguration {
         this._layout_direction = value;
     }
 
+    get frequency_thresholds() {
+        return this._frequency_thresholds;
+    }
+
     set frequency_thresholds(value: Map<Canon, number>) {
         this._frequency_thresholds = value;
     }
@@ -205,10 +208,6 @@ export class ProjectConfiguration {
             console.error("Numerals array is not of length 10", numerals);
         }
         return str;
-    }
-
-    setParsingFormat(value: ParsingFormat) {
-        this.parsingFormats.setParsingFormat(value.canon, value.id, value);
     }
 
     get repositoryName(): string {

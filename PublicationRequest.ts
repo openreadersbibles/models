@@ -1,13 +1,15 @@
+import { z } from "zod";
 import { ProjectConfiguration, ProjectIdSchema } from "./ProjectConfiguration.js";
 import { BookIdentifier, BookIdentifierJsonSchema } from "./BookIdentifier.js";
 import { PublicationConfiguration } from "./PublicationConfiguration.js";
-import { z } from "zod";
+import { Canon } from "./Canon.js";
 
 export interface PublicationRequest {
     books: BookIdentifier[];
     project: ProjectConfiguration;
     configuration: PublicationConfiguration;
     nopdf: boolean;
+    frequency_thresholds: Map<Canon, number>;
 }
 
 export const HollowPublicationRequestSchema = z.object({
