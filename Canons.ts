@@ -57,6 +57,10 @@ export class CanonData {
         return this._books[this._books.length - 1];
     }
 
+    lastBook(): UbsBook {
+        return this._books[this._books.length - 1];
+    }
+
     lastChapter(book: UbsBook): number | undefined {
         return this._max_chapter[book];
     }
@@ -72,6 +76,23 @@ export class CanonData {
             console.error(`BookNavigator.lastVerse: no data for ${book} ${chapter}.`);
             return undefined;
         }
+    }
+
+    firstVerseOfCanon(): VerseReference {
+        return new VerseReference(this._books[0], 1, 1, this._name);
+    }
+
+    lastVerseOfCanon(): VerseReference {
+        const lastBook = this.lastBook();
+        const lastChapter = this.lastChapter(lastBook);
+        if (lastChapter === undefined) {
+            throw new Error(`BookNavigator.lastVerseOfCanon: lastChapter is null for ${lastBook}`);
+        }
+        const lastVerse = this.lastVerse(lastBook, lastChapter);
+        if (lastVerse === undefined) {
+            throw new Error(`BookNavigator.lastVerseOfCanon: lastVerse is null for ${lastBook} ${lastChapter}`);
+        }
+        return new VerseReference(lastBook, lastChapter, lastVerse, this._name);
     }
 
     nextVerse(reference: VerseReference): VerseReference {
