@@ -131,7 +131,9 @@ export class WordPlusMarkdownAnnotation extends AnnotationBase implements Annota
     }
 
     get html(): string {
-        return this._gloss + " " + converter.makeHtml(this._markdown);
+        /// TODO: use PublicationConfiguration._gloss_markdown_separator
+        /// and create a GUI to customize that.
+        return this._gloss + ". " + converter.makeHtml(this._markdown);
     }
 
     toAnnotationObject(): AnnotationJsonObject {

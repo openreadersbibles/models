@@ -19,6 +19,7 @@ export class PublicationConfiguration {
     private _footnote_style: PublicationFootnoteStyle;
     private _css_template: string;
     private _frequency_thresholds: Map<Canon, number> | undefined;
+    private _gloss_markdown_separator: string = ". ";
 
     constructor(id: string, project: ProjectConfiguration) {
         this._id = id;
@@ -70,6 +71,14 @@ export class PublicationConfiguration {
 
     public get css_template(): string {
         return this._css_template;
+    }
+
+    public get gloss_markdown_separator(): string {
+        return this._gloss_markdown_separator;
+    }
+
+    public set gloss_markdown_separator(value: string) {
+        this._gloss_markdown_separator = value;
     }
 
     public set css_template(value: string) {
@@ -178,6 +187,7 @@ export class PublicationConfiguration {
             css_template: this._css_template,
             footnote_style: this._footnote_style,
             frequency_thresholds: frequency_thresholds,
+            gloss_markdown_separator: this._gloss_markdown_separator,
         };
     }
 
@@ -192,6 +202,7 @@ export class PublicationConfiguration {
         pc.css_template = row.css_template || PublicationConfiguration.default_css_template;
         pc.footnote_style = row.footnote_style || "lettered-by-verse";
         pc._parsing_formats = new Map<Canon, ParsingFormatId>();
+        pc._gloss_markdown_separator = row.gloss_markdown_separator || ". ";
         for (const [key, value] of Object.entries(row.parsing_formats || [])) {
             pc._parsing_formats.set(key as Canon, value);
         }
