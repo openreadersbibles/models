@@ -24,7 +24,11 @@ export class PublicationWord {
     }
 
     public glossableElements(): PublicationWordElement[] {
-        return this.elements.filter((value: PublicationWordElement) => { return value.requiredFootnoteType(this.ref) != PublicationFootnoteType.None; });
+        return this.elements.filter((element: PublicationWordElement) => {
+            return element.requiredFootnoteType(this.ref) != PublicationFootnoteType.None
+                && element.gloss != null
+                && element.gloss.type != "null";
+        });
     }
 
     public getNumberOfGlosses(): number {
