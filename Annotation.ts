@@ -1,19 +1,19 @@
-import { z } from "zod";
 import { MiniMarkdown } from './MiniMarkdown.js';
-import { AnnotationJsonObject, AnnotationJsonObjectSchema, AnnotationType, AnnotationTypeSchema } from "./AnnotationJsonObject.js";
+import { AnnotationJsonObject, AnnotationType } from "./AnnotationJsonObject.js";
+import { XMLBuilder } from 'xmlbuilder2/lib/interfaces.js';
+import { fragment } from 'xmlbuilder2';
 
 export const converter = new MiniMarkdown();
 
 // Define the Annotation schema
-export const AnnotationSchema = z.object({
+export interface Annotation {
     /// NB: this could be the _id from the gloss table or the _id from the phrase_gloss table
-    gloss_id: z.number(),
-    type: AnnotationTypeSchema,
-    html: z.string(),
-    tex: z.string(),
-    toAnnotationObject: z.function().returns(AnnotationJsonObjectSchema),
-});
-export type Annotation = z.infer<typeof AnnotationSchema>;
+    gloss_id: number;
+    type: AnnotationType;
+    html: string;
+    xml: (parent: XMLBuilder) => void;
+    toAnnotationObject: () => AnnotationJsonObject;
+}
 
 export function annotationFromJson(json: string): Annotation | undefined {
     const obj = JSON.parse(json) as AnnotationJsonObject;
@@ -35,7 +35,7 @@ export function annotationFromObject(obj: AnnotationJsonObject): Annotation | un
     }
 }
 
-class AnnotationBase {
+abstract class AnnotationBase {
     public type: AnnotationType;
     /// NB: this could be the _id from the gloss table or the _id from the phrase_gloss table
     public gloss_id: number;
@@ -43,6 +43,14 @@ class AnnotationBase {
     constructor(type: AnnotationType, gloss_id: number) {
         this.type = type;
         this.gloss_id = gloss_id;
+    }
+
+    abstract get html(): string;
+
+    xml(parent: XMLBuilder): void {
+        /// awkward two-step because fragment needs a complete element
+        const wrapped = fragment({ skipWhitespaceOnlyText: false }, `<wrapper>${this.html}</wrapper>`);
+        wrapped.first().map((node) => parent.import(node));
     }
 }
 
@@ -55,10 +63,6 @@ export class WordAnnotation extends AnnotationBase implements Annotation {
     }
 
     get html(): string {
-        return this._gloss;
-    }
-
-    get tex(): string {
         return this._gloss;
     }
 
@@ -96,9 +100,6 @@ export class MarkdownAnnotation extends AnnotationBase implements Annotation {
         return converter.makeHtml(this._markdown);
     }
 
-    get tex(): string {
-        return converter.makeTex(this._markdown);
-    }
 
     toAnnotationObject(): AnnotationJsonObject {
         return {
@@ -133,10 +134,6 @@ export class WordPlusMarkdownAnnotation extends AnnotationBase implements Annota
         return this._gloss + " " + converter.makeHtml(this._markdown);
     }
 
-    get tex(): string {
-        return this._gloss + " " + converter.makeTex(this._markdown);
-    }
-
     toAnnotationObject(): AnnotationJsonObject {
         return {
             type: "wordplusmarkdown",
@@ -163,10 +160,6 @@ export class NullAnnotation extends AnnotationBase implements Annotation {
     }
 
     get html(): string {
-        return "";
-    }
-
-    get tex(): string {
         return "";
     }
 

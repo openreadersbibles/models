@@ -27,37 +27,32 @@ export class PublicationFootnote {
                 break;
             case PublicationFootnoteType.ParsingGloss:
                 if (element.gloss == null) {
-                    console.error(`Gloss expected, but 'gloss' is null. (Word Element: ${element.id}}, ${verse.reference.toString()})`);
-                    // console.error(element);
-                } else if (element.gloss.tex == null) {
-                    console.error("Gloss expected, but 'gloss.tex' is null.");
+                    // console.error(`Gloss expected, but 'gloss' is null. (Word Element: ${element.id}}, ${verse.reference.toString()})`);
                     // console.error(element);
                 } else {
-                    parent
+                    const glossgloss = parent
                         .ele('gloss', { type: 'parsing' })
                         .txt(element.getParsingString(verse.reference))
                         .up()
                         .ele('gloss', { type: 'lexical-form' })
                         .txt(element.lexicalform)
                         .up()
-                        .ele('gloss', { type: 'gloss' })
-                        .txt(element.gloss.tex);
+                        .ele('gloss', { type: 'gloss' });
+                    element.gloss.xml(glossgloss);
+                    // .txt(element.gloss.tex);
                 }
                 break;
             case PublicationFootnoteType.Gloss:
                 if (element.gloss === null) {
-                    console.error(`Gloss expected, but 'gloss' is null. (Word Element: ${element.id}}, ${verse.reference.toString()})`);
-                    // console.error(element);
-                } else if (element.gloss.tex === null || element.gloss.tex === undefined) {
-                    console.error("Gloss expected, but 'gloss.tex' is null.");
+                    // console.error(`Gloss expected, but 'gloss' is null. (Word Element: ${element.id}}, ${verse.reference.toString()})`);
                     // console.error(element);
                 } else {
-                    parent
+                    const glossgloss = parent
                         .ele('gloss', { type: 'lexical-form' })
                         .txt(element.lexicalform)
                         .up()
-                        .ele('gloss', { type: 'gloss' })
-                        .txt(element.gloss.tex);
+                        .ele('gloss', { type: 'gloss' });
+                    element.gloss.xml(glossgloss);
                 }
                 break;
             case PublicationFootnoteType.None:
