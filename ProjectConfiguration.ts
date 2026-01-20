@@ -5,7 +5,7 @@ import { PublicationConfiguration } from "./PublicationConfiguration.js";
 import { ProjectParsingFormats } from "./ProjectParsingFormats.js";
 import { Canon } from "./Canon.js";
 import { UbsBook } from "./UbsBook.js";
-import { LayoutDirection, ProjectConfigurationRow, ProjectRole, ProjectRoleRow } from "./ProjectConfigurationRow.js";
+import { GlossSuggestionMode, LayoutDirection, ProjectConfigurationRow, ProjectRole, ProjectRoleRow } from "./ProjectConfigurationRow.js";
 import { PublicationConfigurationRow } from "./PublicationConfigurationRow.js";
 import { z } from "zod";
 
@@ -37,6 +37,7 @@ export class ProjectConfiguration {
     private _font_size: number | undefined;
     private _parsingFormats: ProjectParsingFormats = new ProjectParsingFormats();
     private _numerals: string[];
+    private _glossSuggestionMode: GlossSuggestionMode = "byBinyanOrVoice";
 
     // private _latex_templates: Map<string, string> = new Map<string, string>();
     private _publication_configurations: Map<string, PublicationConfiguration> = new Map<string, PublicationConfiguration>();
@@ -162,6 +163,14 @@ export class ProjectConfiguration {
         this._numerals = numerals;
     }
 
+    get glossSuggestionMode(): GlossSuggestionMode {
+        return this._glossSuggestionMode;
+    }
+
+    set glossSuggestionMode(mode: GlossSuggestionMode) {
+        this._glossSuggestionMode = mode;
+    }
+
     replaceNumerals(str: string): string {
         return ProjectConfiguration.performNumeralReplacement(str, this._numerals);
     }
@@ -268,6 +277,7 @@ export class ProjectConfiguration {
             parsing_formats: this._parsingFormats.toObject(),
             publication_configurations: configurations,
             numerals: this._numerals,
+            glossSuggestionMode: this._glossSuggestionMode,
         };
     }
 
@@ -302,6 +312,7 @@ export class ProjectConfiguration {
                 }
             }
         }
+        pc._glossSuggestionMode = row.glossSuggestionMode || 'byBinyanOrVoice';
         return pc;
     }
 

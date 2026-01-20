@@ -12,6 +12,8 @@ const BooknamesObjectSchema = z.record(z.string()); // { [key: string]: string }
 const ProjectRoleSchema = z.enum(['admin', 'member', 'disabled']); // ProjectRole
 export type ProjectRole = z.infer<typeof ProjectRoleSchema>;
 
+const GlossSuggestionModeSchema = z.enum(['byLexicalItem', 'byBinyanOrVoice']); // GlossSuggestionMode
+export type GlossSuggestionMode = z.infer<typeof GlossSuggestionModeSchema>;
 
 const LayoutDirectionSchema = z.enum(['ltr', 'rtl']); // LayoutDirection
 export type LayoutDirection = z.infer<typeof LayoutDirectionSchema>;
@@ -41,5 +43,6 @@ export const ProjectConfigurationRowSchema = z.object({
     parsing_formats: ProjectParsingFormatsObjectSchema,
     publication_configurations: z.record(PublicationConfigurationRowSchema).optional(), // { [key: string]: PublicationConfigurationRow }
     numerals: z.array(z.string()),
+    glossSuggestionMode: GlossSuggestionModeSchema,
 });
 export type ProjectConfigurationRow = z.infer<typeof ProjectConfigurationRowSchema>;
