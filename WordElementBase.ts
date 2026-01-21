@@ -20,8 +20,7 @@ export class WordElementBase<T extends WordRow> {
             return Gloss.fromWordGlossRow(suggestion, location);
         });
 
-        /// suggestions is just an array of strings. If a string is
-        /// not already represented in the _glosses member, it should be added
+        /// suggestions is just an array of Annotation objects
         suggestions?.forEach((annotation: Annotation) => {
             if (this._glosses.find(g => g.html === annotation.html) !== undefined) return;
             const g = new Gloss(annotation, annotation.gloss_id, this.location(), []);

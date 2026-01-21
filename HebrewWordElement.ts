@@ -1,4 +1,6 @@
-import { HebrewWordRow, OTGender, OTGrammaticalNumber, OTState, OTTense, OTVerbStem, OTPerson, OTPartOfSpeech, OTGenderToEnglish, OTGrammaticalNumberToEnglish, OTStateToEnglish, OTTenseToEnglish, OTVerbStemToEnglish, OTPersonToEnglish, OTPartOfSpeechToEnglish } from './HebrewWordRow.js';
+import { HebrewWordRow, OTGender, OTGrammaticalNumber, OTState, OTTense, OTPerson, OTPartOfSpeech, OTGenderToEnglish, OTGrammaticalNumberToEnglish, OTStateToEnglish, OTTenseToEnglish, OTVerbStemToEnglish, OTPersonToEnglish, OTPartOfSpeechToEnglish } from './HebrewWordRow.js';
+import { OTVerbStem } from './OTVerbStem.js';
+import { Voice } from './Voice.js';
 import { WordElement } from './WordElement.js';
 import { WordElementBase } from './WordElementBase.js';
 
@@ -12,6 +14,10 @@ export class HebrewWordElement extends WordElementBase<HebrewWordRow> implements
 
     get text(): string {
         return this._row.g_word_utf8 + this._row.trailer_utf8;
+    }
+
+    get voice(): Voice {
+        return this._row.vs;
     }
 
     get gender(): OTGender {

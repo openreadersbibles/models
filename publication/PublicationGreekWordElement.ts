@@ -1,4 +1,5 @@
-import { NTPartOfSpeech, NTPerson, NTTense, NTVoice, NTMood, NTCase, NTNumber, NTGender, NTDegree } from "../../models/GreekWordRow.js";
+import { NTVoice } from "@models/NTVoice.js";
+import { NTPartOfSpeech, NTPerson, NTTense, NTMood, NTCase, NTNumber, NTGender, NTDegree } from "../../models/GreekWordRow.js";
 import { PublicationRequest } from "../../models/PublicationRequest.js";
 import { VerseReference } from "../../models/VerseReference.js";
 import { BaseWordElement } from "./BaseWordElement.js";

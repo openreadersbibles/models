@@ -4,8 +4,9 @@ import { PublicationRequest } from "../../models/PublicationRequest.js";
 import { PublicationWordElement } from "./PublicationWordElement.js";
 import { PublicationHebrewWordElementRow } from "./PublicationHebrewWordElementRow.js";
 import { BaseWordElement } from "./BaseWordElement.js";
-import { OTGender, OTGrammaticalNumber, OTPartOfSpeech, OTPerson, OTState, OTTense, OTVerbStem } from "../../models/HebrewWordRow.js";
+import { OTGender, OTGrammaticalNumber, OTPartOfSpeech, OTPerson, OTState, OTTense } from "../../models/HebrewWordRow.js";
 import { VerseReference } from "../../models/VerseReference.js";
+import { OTVerbStem } from "@models/OTVerbStem.js";
 
 export class PublicationHebrewWordElement extends BaseWordElement<PublicationHebrewWordElementRow> implements PublicationWordElement {
     static substantives = ["subs", "nmpr", "adjv", "prps", "prde"];

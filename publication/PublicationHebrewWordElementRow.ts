@@ -1,5 +1,6 @@
+import { OTVerbStem } from "@models/OTVerbStem.js";
 import { Annotation } from "../../models/Annotation.js";
-import { OTGender, OTGrammaticalNumber, OTState, OTTense, OTVerbStem, OTPerson, OTPartOfSpeech } from "../../models/HebrewWordRow.js";
+import { OTGender, OTGrammaticalNumber, OTState, OTTense, OTPerson, OTPartOfSpeech } from "../../models/HebrewWordRow.js";
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 import { PublicationWordElementRow } from "./PublicationWordElementRow.js";
 

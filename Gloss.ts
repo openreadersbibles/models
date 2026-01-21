@@ -5,6 +5,7 @@ import { GlossRow } from "./GlossRow.js";
 import { GlossSendObject } from "./GlossSendObject.js";
 import { PhraseGlossRow } from "./PhraseGlossRow.js";
 import { UserId } from "./UserProfile.js";
+import { Voice } from "./Voice.js";
 
 export class Gloss {
     private _annotation: Annotation;
@@ -22,13 +23,16 @@ export class Gloss {
     }
 
     static fromWordGlossRow(row: GlossRow, location: GlossLocation): Gloss {
-        const annotation = annotationFromObject(row.annotationObject) || new WordAnnotation("", row.gloss_id);
+        let annotation = annotationFromObject(row.annotationObject);
+        if (annotation === undefined) {
+            annotation = new WordAnnotation("", row.gloss_id, row.voice);
+        }
         const gloss_id = row.gloss_id;
         return new Gloss(annotation, gloss_id, location, row.votes);
     }
 
     static fromPhraseGlossRow(row: PhraseGlossRow, location: PhraseGlossLocation): Gloss {
-        const annotation = new MarkdownAnnotation(row.markdown, row.phrase_gloss_id);
+        const annotation = new MarkdownAnnotation(row.markdown, row.phrase_gloss_id, 'NA');
         const gloss_id = row.phrase_gloss_id;
         return new Gloss(annotation, gloss_id, location, row.votes);
     }
@@ -51,6 +55,10 @@ export class Gloss {
 
     get annotationType(): AnnotationType {
         return this._annotation.type;
+    }
+
+    get voice(): Voice {
+        return this._annotation.voice;
     }
 
     markAsChanged(): void {

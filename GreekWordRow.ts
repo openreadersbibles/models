@@ -2,6 +2,7 @@ import { z } from "zod";
 import { GlossRowSchema } from "./GlossRow.js";
 import { WordRow } from "./WordRow.js";
 import { LanguageIsoSchema } from "./LanguageIso.js";
+import { NTVoiceSchema } from "./NTVoice.js";
 
 // Define NTPartOfSpeech schema
 export const NTPartOfSpeechSchema = z.enum([
@@ -36,10 +37,6 @@ export const NTTenseSchema = z.enum([
     "pluperfect",
 ]);
 export type NTTense = z.infer<typeof NTTenseSchema>;
-
-// Define NTVoice schema
-export const NTVoiceSchema = z.enum(["NA", "active", "middle", "passive"]);
-export type NTVoice = z.infer<typeof NTVoiceSchema>;
 
 // Define NTMood schema
 export const NTMoodSchema = z.enum([

@@ -2,6 +2,7 @@ import { MiniMarkdown } from './MiniMarkdown.js';
 import { AnnotationJsonObject, AnnotationType } from "./AnnotationJsonObject.js";
 import { XMLBuilder } from 'xmlbuilder2/lib/interfaces.js';
 import { fragment } from 'xmlbuilder2';
+import { Voice } from './Voice.js';
 
 export const converter = new MiniMarkdown();
 
@@ -10,6 +11,7 @@ export interface Annotation {
     /// NB: this could be the _id from the gloss table or the _id from the phrase_gloss table
     gloss_id: number;
     type: AnnotationType;
+    voice: Voice;
     html: string;
     xml: (parent: XMLBuilder) => void;
     toAnnotationObject: () => AnnotationJsonObject;
@@ -39,10 +41,12 @@ abstract class AnnotationBase {
     public type: AnnotationType;
     /// NB: this could be the _id from the gloss table or the _id from the phrase_gloss table
     public gloss_id: number;
+    public voice: Voice;
 
-    constructor(type: AnnotationType, gloss_id: number) {
+    constructor(type: AnnotationType, gloss_id: number, voice: Voice) {
         this.type = type;
         this.gloss_id = gloss_id;
+        this.voice = voice;
     }
 
     abstract get html(): string;
@@ -57,8 +61,8 @@ abstract class AnnotationBase {
 export class WordAnnotation extends AnnotationBase implements Annotation {
     private _gloss: string;
 
-    constructor(gloss: string, gloss_id: number) {
-        super("word", gloss_id);
+    constructor(gloss: string, gloss_id: number, voice: Voice) {
+        super("word", gloss_id, voice);
         this._gloss = gloss;
     }
 
@@ -76,7 +80,8 @@ export class WordAnnotation extends AnnotationBase implements Annotation {
             gloss_id: this.gloss_id,
             content: {
                 gloss: this._gloss
-            }
+            },
+            voice: this.voice
         };
     }
 
@@ -84,15 +89,15 @@ export class WordAnnotation extends AnnotationBase implements Annotation {
         if (obj.type !== "word") {
             throw new Error("Invalid type for WordAnnotation");
         }
-        return new WordAnnotation(obj.content.gloss, obj.gloss_id);
+        return new WordAnnotation(obj.content.gloss, obj.gloss_id, obj.voice);
     }
 }
 
 export class MarkdownAnnotation extends AnnotationBase implements Annotation {
     private _markdown: string;
 
-    constructor(markdown: string, gloss_id: number) {
-        super("markdown", gloss_id);
+    constructor(markdown: string, gloss_id: number, voice: Voice) {
+        super("markdown", gloss_id, voice);
         this._markdown = markdown;
     }
 
@@ -107,7 +112,8 @@ export class MarkdownAnnotation extends AnnotationBase implements Annotation {
             gloss_id: this.gloss_id,
             content: {
                 markdown: this._markdown
-            }
+            },
+            voice: this.voice
         };
     }
 
@@ -115,7 +121,7 @@ export class MarkdownAnnotation extends AnnotationBase implements Annotation {
         if (obj.type !== "markdown") {
             throw new Error("Invalid type for MarkdownAnnotation");
         }
-        return new MarkdownAnnotation(obj.content.markdown, obj.gloss_id);
+        return new MarkdownAnnotation(obj.content.markdown, obj.gloss_id, obj.voice);
     }
 }
 
@@ -124,8 +130,8 @@ export class WordPlusMarkdownAnnotation extends AnnotationBase implements Annota
     private _gloss: string;
     private _markdown: string;
 
-    constructor(gloss: string, markdown: string, gloss_id: number) {
-        super("wordplusmarkdown", gloss_id);
+    constructor(gloss: string, markdown: string, gloss_id: number, voice: Voice) {
+        super("wordplusmarkdown", gloss_id, voice);
         this._gloss = gloss;
         this._markdown = markdown;
     }
@@ -143,7 +149,8 @@ export class WordPlusMarkdownAnnotation extends AnnotationBase implements Annota
             content: {
                 gloss: this._gloss,
                 markdown: this._markdown
-            }
+            },
+            voice: this.voice
         };
     }
 
@@ -151,14 +158,14 @@ export class WordPlusMarkdownAnnotation extends AnnotationBase implements Annota
         if (obj.type !== "wordplusmarkdown") {
             throw new Error("Invalid type for WordPlusMarkdownAnnotation");
         }
-        return new WordPlusMarkdownAnnotation(obj.content.gloss, obj.content.markdown, obj.gloss_id);
+        return new WordPlusMarkdownAnnotation(obj.content.gloss, obj.content.markdown, obj.gloss_id, obj.voice);
     }
 }
 
 
 export class NullAnnotation extends AnnotationBase implements Annotation {
     constructor(gloss_id: number) {
-        super("null", gloss_id);
+        super("null", gloss_id, "NA");
     }
 
     get html(): string {
@@ -169,7 +176,8 @@ export class NullAnnotation extends AnnotationBase implements Annotation {
         return {
             type: "null",
             gloss_id: this.gloss_id,
-            content: ""
+            content: "",
+            voice: this.voice
         };
     }
 

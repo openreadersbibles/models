@@ -1,4 +1,5 @@
 import { GreekWordRow } from "./GreekWordRow.js";
+import { Voice } from "./Voice.js";
 import { WordElement } from "./WordElement.js";
 import { WordElementBase } from "./WordElementBase.js";
 
@@ -12,6 +13,10 @@ export class GreekWordElement extends WordElementBase<GreekWordRow> implements W
 
     get text(): string {
         return this._row.punctuated_text;
+    }
+
+    get voice(): Voice {
+        return this._row.voice;
     }
 
     parsingSummary(): Map<string, string> {

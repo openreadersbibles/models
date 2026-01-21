@@ -1,4 +1,5 @@
 import { z } from "zod";
+import { VoiceSchema } from "./Voice";
 
 // Define the AnnotationType schema
 export const AnnotationTypeSchema = z.enum(["word", "markdown", "wordplusmarkdown", "null"]);
@@ -29,21 +30,25 @@ export const AnnotationJsonObjectSchema = z.discriminatedUnion("type", [
         gloss_id: z.number(),
         type: z.literal("word"),
         content: WordAnnotationContentSchema,
+        voice: VoiceSchema
     }),
     z.object({
         gloss_id: z.number(),
         type: z.literal("markdown"),
         content: MarkdownAnnotationContentSchema,
+        voice: VoiceSchema
     }),
     z.object({
         gloss_id: z.number(),
         type: z.literal("wordplusmarkdown"),
         content: WordPlusMarkdownAnnotationContentSchema,
+        voice: VoiceSchema
     }),
     z.object({
         gloss_id: z.number(),
         type: z.literal("null"),
         content: z.string(),
+        voice: VoiceSchema
     }),
 ]);
 export type AnnotationJsonObject = z.infer<typeof AnnotationJsonObjectSchema>;

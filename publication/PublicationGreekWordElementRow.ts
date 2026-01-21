@@ -1,6 +1,7 @@
 
+import { NTVoice } from "@models/NTVoice.js";
 import { Annotation } from "../../models/Annotation.js";
-import { NTCase, NTDegree, NTGender, NTMood, NTNumber, NTPartOfSpeech, NTPerson, NTTense, NTVoice } from "../../models/GreekWordRow.js";
+import { NTCase, NTDegree, NTGender, NTMood, NTNumber, NTPartOfSpeech, NTPerson, NTTense } from "../../models/GreekWordRow.js";
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 import { PublicationWordElementRow } from "./PublicationWordElementRow.js";
 

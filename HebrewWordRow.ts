@@ -2,6 +2,7 @@ import { z } from "zod";
 import { GlossRowSchema } from "./GlossRow";
 import { WordRow } from "./WordRow";
 import { LanguageIsoSchema } from "./LanguageIso";
+import { OTVerbStem, OTVerbStemSchema } from "./OTVerbStem";
 
 // Define OTGender schema
 export const OTGenderSchema = z.enum(["NA", "f", "m", "unknown"]);
@@ -24,14 +25,6 @@ export const OTTenseSchema = z.enum([
     "NA", "perf", "ptca", "wayq", "impf", "infc", "impv", "infa", "ptcp"
 ]);
 export type OTTense = z.infer<typeof OTTenseSchema>;
-
-// Define OTVerbStem schema
-export const OTVerbStemSchema = z.enum([
-    "NA", "qal", "piel", "hif", "nif", "pual", "hit", "hof", "hsht", "pasq",
-    "hotp", "nit", "poal", "poel", "htpo", "peal", "tif", "etpa", "pael",
-    "haf", "htpe", "htpa", "peil", "etpe", "afel", "shaf"
-]);
-export type OTVerbStem = z.infer<typeof OTVerbStemSchema>;
 
 // Define OTPartOfSpeech schema
 export const OTPartOfSpeechSchema = z.enum([
@@ -161,7 +154,7 @@ export function OTPartOfSpeechToEnglish(partOfSpeech: OTPartOfSpeech) {
         case "prde": return "demonstrative pronoun";
         case "nmpr": return "proper noun";
         case "nega": return "negative particle";
-        case "prps": return " 	personal pronoun";
+        case "prps": return "personal pronoun";
         case "prin": return "interrogative pronoun";
         case "inrg": return "interrogative particle";
     }
