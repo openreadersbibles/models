@@ -5,17 +5,10 @@ import { PublicationConfiguration } from "./PublicationConfiguration.js";
 import { ProjectParsingFormats } from "./ProjectParsingFormats.js";
 import { Canon } from "./Canon.js";
 import { UbsBook } from "./UbsBook.js";
-import { GlossSuggestionMode, LayoutDirection, ProjectConfigurationRow, ProjectRole, ProjectRoleRow } from "./ProjectConfigurationRow.js";
+import { BooknamesObject, CorporaObject, GlossSuggestionMode, LayoutDirection, ProjectConfigurationRow, ProjectRole, ProjectRoleRow, ThresholdObject } from "./ProjectConfigurationRow.js";
 import { PublicationConfigurationRow } from "./PublicationConfigurationRow.js";
 import { z } from "zod";
-
-interface ThresholdObject {
-    [key: string]: number;
-}
-
-interface BooknamesObject {
-    [key: string]: string;
-}
+import { CorpusId } from "./CorpusId.js";
 
 export const PROJECT_ROLES: ProjectRole[] = ['admin', 'member', 'disabled'];
 
@@ -24,6 +17,10 @@ export type ProjectId = z.infer<typeof ProjectIdSchema>;
 
 export class ProjectConfiguration {
     static Default = "default";
+    static DefaultNTCorpus = '4d1d4fbcb6db8521476204151ab544e5e1b58bb6';
+    static DefaultOTCorpus = '2021';
+    static DefaultLXXCorpus = '';
+
     private _project_id: ProjectId;
     private _project_title: string = "";
     private _project_description: string = "";
@@ -38,6 +35,7 @@ export class ProjectConfiguration {
     private _parsingFormats: ProjectParsingFormats = new ProjectParsingFormats();
     private _numerals: string[];
     private _glossSuggestionMode: GlossSuggestionMode = "byBinyanOrVoice";
+    private _corpora: Map<Canon, CorpusId> = new Map<Canon, CorpusId>();
 
     // private _latex_templates: Map<string, string> = new Map<string, string>();
     private _publication_configurations: Map<string, PublicationConfiguration> = new Map<string, PublicationConfiguration>();
@@ -50,6 +48,9 @@ export class ProjectConfiguration {
         this._frequency_thresholds.set("NT", 30);
         this._frequency_thresholds.set("OT", 50);
         this._numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
+
+        this._corpora.set("NT", ProjectConfiguration.DefaultNTCorpus);
+        this._corpora.set("OT", ProjectConfiguration.DefaultOTCorpus);
 
         /// ensure that there is a default publication configuration
         this._publication_configurations.set(ProjectConfiguration.Default, new PublicationConfiguration(ProjectConfiguration.Default, this));
@@ -133,6 +134,22 @@ export class ProjectConfiguration {
 
     set frequency_thresholds(value: Map<Canon, number>) {
         this._frequency_thresholds = value;
+    }
+
+    getCorpus(c: Canon): CorpusId {
+        const fromProject = this._corpora.get(c);
+        if (fromProject) {
+            return fromProject;
+        } else {
+            switch (c) {
+                case 'NT':
+                    return ProjectConfiguration.DefaultNTCorpus;
+                case 'OT':
+                    return ProjectConfiguration.DefaultOTCorpus;
+                case 'LXX':
+                    return ProjectConfiguration.DefaultLXXCorpus;
+            }
+        }
     }
 
     set bookNames(value: Map<UbsBook, string>) {
@@ -261,6 +278,10 @@ export class ProjectConfiguration {
         this._publication_configurations.forEach((value, key) => {
             configurations[key] = value.toObject();
         });
+        const corpora: CorporaObject = {};
+        for (const [canon, id] of this._corpora) {
+            corpora[canon] = id;
+        }
 
         return {
             project_id: this._project_id,
@@ -278,6 +299,7 @@ export class ProjectConfiguration {
             publication_configurations: configurations,
             numerals: this._numerals,
             glossSuggestionMode: this._glossSuggestionMode,
+            corpora: corpora,
         };
     }
 
@@ -309,6 +331,13 @@ export class ProjectConfiguration {
             for (const key in row.publication_configurations) {
                 if (Object.prototype.hasOwnProperty.call(row.publication_configurations, key)) {
                     pc.publicationConfigurations.set(key, PublicationConfiguration.fromRow(row.publication_configurations[key], key, pc));
+                }
+            }
+        }
+        if (row.corpora) {
+            for (const canon in row.corpora) {
+                if (Object.prototype.hasOwnProperty.call(row.corpora, canon)) {
+                    pc._corpora.set(canon as Canon, row.corpora[canon]);
                 }
             }
         }

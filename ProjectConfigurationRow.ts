@@ -7,10 +7,14 @@ import { ProjectParsingFormatsObjectSchema } from "./ProjectParsingFormatsObject
 export const ThresholdObjectSchema = z.record(z.number()); // { [key: string]: number }
 export type ThresholdObject = z.infer<typeof ThresholdObjectSchema>;
 
-const BooknamesObjectSchema = z.record(z.string()); // { [key: string]: string }
+export const BooknamesObjectSchema = z.record(z.string()); // { [key: string]: string }
+export type BooknamesObject = z.infer<typeof BooknamesObjectSchema>;
 
-const ProjectRoleSchema = z.enum(['admin', 'member', 'disabled']); // ProjectRole
+export const ProjectRoleSchema = z.enum(['admin', 'member', 'disabled']); // ProjectRole
 export type ProjectRole = z.infer<typeof ProjectRoleSchema>;
+
+export const CorporaObjectSchema = z.record(z.string()); // { [key: string]: string }
+export type CorporaObject = z.infer<typeof CorporaObjectSchema>;
 
 const GlossSuggestionModeSchema = z.enum(['byLexicalItem', 'byBinyanOrVoice']); // GlossSuggestionMode
 export type GlossSuggestionMode = z.infer<typeof GlossSuggestionModeSchema>;
@@ -44,5 +48,6 @@ export const ProjectConfigurationRowSchema = z.object({
     publication_configurations: z.record(PublicationConfigurationRowSchema).optional(), // { [key: string]: PublicationConfigurationRow }
     numerals: z.array(z.string()),
     glossSuggestionMode: GlossSuggestionModeSchema,
+    corpora: CorporaObjectSchema,
 });
 export type ProjectConfigurationRow = z.infer<typeof ProjectConfigurationRowSchema>;
