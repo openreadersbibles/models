@@ -30,6 +30,7 @@ export const AnnotationJsonObjectSchema = z.discriminatedUnion("type", [
         gloss_id: z.number(),
         type: z.literal("word"),
         content: WordAnnotationContentSchema,
+        /// NB: this stands for either Greek voice or Hebrew binyan (here and below)
         voice: VoiceSchema
     }),
     z.object({

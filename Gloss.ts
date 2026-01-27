@@ -25,7 +25,7 @@ export class Gloss {
     static fromWordGlossRow(row: GlossRow, location: GlossLocation): Gloss {
         let annotation = annotationFromObject(row.annotationObject);
         if (annotation === undefined) {
-            annotation = new WordAnnotation("", row.gloss_id, row.voice);
+            annotation = new WordAnnotation("", row.gloss_id, row.annotationObject.voice);
         }
         const gloss_id = row.gloss_id;
         return new Gloss(annotation, gloss_id, location, row.votes);

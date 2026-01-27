@@ -8,7 +8,7 @@ import { UbsBook } from "./UbsBook.js";
 import { BooknamesObject, CorporaObject, GlossSuggestionMode, LayoutDirection, ProjectConfigurationRow, ProjectRole, ProjectRoleRow, ThresholdObject } from "./ProjectConfigurationRow.js";
 import { PublicationConfigurationRow } from "./PublicationConfigurationRow.js";
 import { z } from "zod";
-import { CorpusId } from "./CorpusId.js";
+import { CorpusId, getFallbackCorpus } from "./CorpusId.js";
 
 export const PROJECT_ROLES: ProjectRole[] = ['admin', 'member', 'disabled'];
 
@@ -17,9 +17,6 @@ export type ProjectId = z.infer<typeof ProjectIdSchema>;
 
 export class ProjectConfiguration {
     static Default = "default";
-    static DefaultNTCorpus = '4d1d4fbcb6db8521476204151ab544e5e1b58bb6';
-    static DefaultOTCorpus = '2021';
-    static DefaultLXXCorpus = '';
 
     private _project_id: ProjectId;
     private _project_title: string = "";
@@ -49,8 +46,8 @@ export class ProjectConfiguration {
         this._frequency_thresholds.set("OT", 50);
         this._numerals = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
-        this._corpora.set("NT", ProjectConfiguration.DefaultNTCorpus);
-        this._corpora.set("OT", ProjectConfiguration.DefaultOTCorpus);
+        this._corpora.set("NT", getFallbackCorpus("NT"));
+        this._corpora.set("OT", getFallbackCorpus("OT"));
 
         /// ensure that there is a default publication configuration
         this._publication_configurations.set(ProjectConfiguration.Default, new PublicationConfiguration(ProjectConfiguration.Default, this));
@@ -141,14 +138,7 @@ export class ProjectConfiguration {
         if (fromProject) {
             return fromProject;
         } else {
-            switch (c) {
-                case 'NT':
-                    return ProjectConfiguration.DefaultNTCorpus;
-                case 'OT':
-                    return ProjectConfiguration.DefaultOTCorpus;
-                case 'LXX':
-                    return ProjectConfiguration.DefaultLXXCorpus;
-            }
+            return getFallbackCorpus(c);
         }
     }
 

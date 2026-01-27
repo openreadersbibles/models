@@ -47,7 +47,7 @@ export const ProjectConfigurationRowSchema = z.object({
     parsing_formats: ProjectParsingFormatsObjectSchema,
     publication_configurations: z.record(PublicationConfigurationRowSchema).optional(), // { [key: string]: PublicationConfigurationRow }
     numerals: z.array(z.string()),
-    glossSuggestionMode: GlossSuggestionModeSchema,
-    corpora: CorporaObjectSchema,
+    glossSuggestionMode: GlossSuggestionModeSchema.optional(), /// since it was added later
+    corpora: CorporaObjectSchema.optional(), /// since it was added later
 });
 export type ProjectConfigurationRow = z.infer<typeof ProjectConfigurationRowSchema>;
