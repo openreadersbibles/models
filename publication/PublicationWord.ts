@@ -26,8 +26,9 @@ export class PublicationWord {
     public glossableElements(): PublicationWordElement[] {
         return this.elements.filter((element: PublicationWordElement) => {
             return element.requiredFootnoteType(this.ref) != PublicationFootnoteType.None
-                && element.gloss != null
-                && element.gloss.type != "null";
+            // 2026-01-28: These conditions remove glosses that are PublicationFootnoteType.Parsing
+            //     && element.gloss != null
+            // && element.gloss.type != "null";
         });
     }
 
