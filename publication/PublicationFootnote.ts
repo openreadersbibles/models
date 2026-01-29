@@ -23,7 +23,12 @@ export class PublicationFootnote {
 
         switch (element.requiredFootnoteType(verse.reference)) {
             case PublicationFootnoteType.Parsing:
-                parent.ele('gloss', { type: 'parsing' }).txt(element.getParsingString(verse.reference));
+                parent
+                    .ele('gloss', { type: 'parsing' })
+                    .txt(element.getParsingString(verse.reference))
+                    .up()
+                    .ele('gloss', { type: 'lexical-form' })
+                    .txt(element.lexicalform);
                 break;
             case PublicationFootnoteType.ParsingGloss:
                 if (element.gloss == null) {
