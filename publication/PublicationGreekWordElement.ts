@@ -49,8 +49,10 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
         if (this.isVerb) {
             if (this.getBelowFrequencyThreshold(ref)) {
                 return PublicationFootnoteType.ParsingGloss;
-            } else {
+            } else if (!(this.mood == 'indicative' && this.tense == 'present')) {
                 return PublicationFootnoteType.Parsing;
+            } else {
+                return PublicationFootnoteType.None;
             }
         } if (this.isSubstantive) {
             if (this.getBelowFrequencyThreshold(ref)) {
