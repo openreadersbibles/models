@@ -37,6 +37,18 @@ export function annotationFromObject(obj: AnnotationJsonObject): Annotation | un
     }
 }
 
+function escapeHTML(str: string): string {
+    const p: Record<string, string> = {
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;',
+        '/': '&#x2F;'
+    };
+    return str.replace(/[&<>"'/]/g, (s) => p[s]);
+}
+
 abstract class AnnotationBase {
     public type: AnnotationType;
     /// NB: this could be the _id from the gloss table or the _id from the phrase_gloss table
@@ -67,7 +79,7 @@ export class WordAnnotation extends AnnotationBase implements Annotation {
     }
 
     get html(): string {
-        return this._gloss;
+        return escapeHTML(this._gloss);
     }
 
     get gloss(): string {
@@ -102,7 +114,7 @@ export class MarkdownAnnotation extends AnnotationBase implements Annotation {
     }
 
     get html(): string {
-        return converter.makeHtml(this._markdown);
+        return escapeHTML(converter.makeHtml(this._markdown));
     }
 
 
@@ -139,7 +151,7 @@ export class WordPlusMarkdownAnnotation extends AnnotationBase implements Annota
     get html(): string {
         /// TODO: use PublicationConfiguration._gloss_markdown_separator
         /// and create a GUI to customize that.
-        return this._gloss + ". " + converter.makeHtml(this._markdown);
+        return escapeHTML(this._gloss + ". " + converter.makeHtml(this._markdown));
     }
 
     toAnnotationObject(): AnnotationJsonObject {
