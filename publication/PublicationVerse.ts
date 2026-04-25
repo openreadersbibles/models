@@ -51,7 +51,7 @@ export class PublicationVerse {
             /// if there is only one gloss, add a footnote marker
             const gc = word.getNumberOfGlosses();
             if (gc == 1 || word.hasKetivQere) {
-                // text += `<note type="gloss" n="${this.request.project.getFootnoteMarker(glossCounter)}">dummy</note>`;
+
                 const note_node = parent.ele('note', { type: 'gloss', n: this.request.configuration.getFootnoteMarker(glossCounter) });
                 PublicationFootnote.xml(this, word, note_node);
 
