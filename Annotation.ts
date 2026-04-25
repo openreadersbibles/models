@@ -114,7 +114,7 @@ export class MarkdownAnnotation extends AnnotationBase implements Annotation {
     }
 
     get html(): string {
-        return escapeHTML(converter.makeHtml(this._markdown));
+        return converter.makeHtml(escapeHTML(this._markdown));
     }
 
 
@@ -151,7 +151,7 @@ export class WordPlusMarkdownAnnotation extends AnnotationBase implements Annota
     get html(): string {
         /// TODO: use PublicationConfiguration._gloss_markdown_separator
         /// and create a GUI to customize that.
-        return escapeHTML(this._gloss + ". " + converter.makeHtml(this._markdown));
+        return escapeHTML(this._gloss) + ". " + converter.makeHtml(escapeHTML(this._markdown));
     }
 
     toAnnotationObject(): AnnotationJsonObject {
