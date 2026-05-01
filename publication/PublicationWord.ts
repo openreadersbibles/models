@@ -31,7 +31,7 @@ export class PublicationWord {
                 //     && element.gloss != null
                 // && element.gloss.type != "null";
                 // 2026-05-01: So we will skip them only if it's supposed to have a gloss and it doesn't have one
-                && !(fnType == PublicationFootnoteType.Gloss && (element.gloss == null || element.gloss.type == "null"));
+                && !((fnType == PublicationFootnoteType.Gloss || fnType == PublicationFootnoteType.ParsingGloss) && (element.gloss == null || element.gloss.type == "null"));
         });
     }
 
