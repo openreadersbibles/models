@@ -25,10 +25,13 @@ export class PublicationWord {
 
     public glossableElements(): PublicationWordElement[] {
         return this.elements.filter((element: PublicationWordElement) => {
-            return element.requiredFootnoteType(this.ref) != PublicationFootnoteType.None
-            // 2026-01-28: These conditions remove glosses that are PublicationFootnoteType.Parsing
-            //     && element.gloss != null
-            // && element.gloss.type != "null";
+            const fnType = element.requiredFootnoteType(this.ref);
+            return fnType != PublicationFootnoteType.None
+                // 2026-01-28: These conditions remove glosses that are PublicationFootnoteType.Parsing
+                //     && element.gloss != null
+                // && element.gloss.type != "null";
+                // 2026-05-01: So we will skip them only if it's supposed to have a gloss and it doesn't have one
+                && !(fnType == PublicationFootnoteType.Gloss && element.gloss != null && element.gloss.type != "null");
         });
     }
 
