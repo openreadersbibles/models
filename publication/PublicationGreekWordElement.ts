@@ -1,7 +1,6 @@
 import { NTVoice } from "@models/NTVoice.js";
 import { NTPartOfSpeech, NTPerson, NTTense, NTMood, NTCase, NTNumber, NTGender, NTDegree } from "../../models/GreekWordRow.js";
 import { PublicationRequest } from "../../models/PublicationRequest.js";
-import { VerseReference } from "../../models/VerseReference.js";
 import { BaseWordElement } from "./BaseWordElement.js";
 import { PublicationFootnoteType } from "./PublicationFootnote.js";
 import { PublicationGreekWordElementRow } from "./PublicationGreekWordElementRow.js";
@@ -45,9 +44,9 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
         return " "; /// this is originally for Hebrew/Aramaic, but the Greek database doesn't actually include spaces
     }
 
-    requiredFootnoteType(ref: VerseReference): PublicationFootnoteType {
+    requiredFootnoteType(): PublicationFootnoteType {
         if (this.isVerb) {
-            if (this.getBelowFrequencyThreshold(ref)) {
+            if (this.getBelowFrequencyThreshold()) {
                 return PublicationFootnoteType.ParsingGloss;
             } else if (!(this.mood == 'indicative' && this.tense == 'present')) {
                 return PublicationFootnoteType.Parsing;
@@ -55,13 +54,13 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
                 return PublicationFootnoteType.None;
             }
         } if (this.isSubstantive) {
-            if (this.getBelowFrequencyThreshold(ref)) {
+            if (this.getBelowFrequencyThreshold()) {
                 return PublicationFootnoteType.ParsingGloss;
             } else {
                 return PublicationFootnoteType.None;
             }
         } else {
-            if (this.getBelowFrequencyThreshold(ref)) {
+            if (this.getBelowFrequencyThreshold()) {
                 return PublicationFootnoteType.Gloss;
             } else {
                 return PublicationFootnoteType.None;
@@ -69,11 +68,11 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
         }
     }
 
-    getParsingString(ref: VerseReference): string {
-        const parsingFormat = this.request.configuration.getParsingFormat(ref.canon);
+    getParsingString(): string {
+        const parsingFormat = this.request.configuration.getParsingFormat(this.reference.canon);
         if (parsingFormat === undefined) {
-            console.error(`Parsing format not found for ${ref.canon}`);
-            throw new Error(`Parsing format not found for ${ref.canon}`);
+            console.error(`Parsing format not found for ${this.reference.canon}`);
+            throw new Error(`Parsing format not found for ${this.reference.canon}`);
         }
         if (this.isVerb) {
             return parsingFormat.verbParsingString(this);

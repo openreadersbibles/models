@@ -21,11 +21,11 @@ export class PublicationFootnote {
             return;
         }
 
-        switch (element.requiredFootnoteType(verse.reference)) {
+        switch (element.requiredFootnoteType()) {
             case PublicationFootnoteType.Parsing:
                 parent
                     .ele('gloss', { type: 'parsing' })
-                    .txt(element.getParsingString(verse.reference))
+                    .txt(element.getParsingString())
                     .up()
                     .ele('gloss', { type: 'lexical-form' })
                     .txt(element.lexicalform);
@@ -37,7 +37,7 @@ export class PublicationFootnote {
                 } else {
                     const glossgloss = parent
                         .ele('gloss', { type: 'parsing' })
-                        .txt(element.getParsingString(verse.reference))
+                        .txt(element.getParsingString())
                         .up()
                         .ele('gloss', { type: 'lexical-form' })
                         .txt(element.lexicalform)

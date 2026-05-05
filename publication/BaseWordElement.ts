@@ -9,21 +9,28 @@ export abstract class BaseWordElement<T extends PublicationWordElementRow> {
     row: T;
     request: PublicationRequest;
     word: PublicationWord;
+    reference: VerseReference;
 
     constructor(obj: T, word: PublicationWord, request: PublicationRequest) {
         this.row = obj;
         this.word = word;
         this.request = request;
+        const ref = VerseReference.fromString(obj.reference);
+        if (ref === undefined) {
+            throw new Error(`Invalid reference in object of type PublicationWordElementRow: ${obj.reference}`);
+        } else {
+            this.reference = ref;
+        }
     }
 
     get freq_lex(): number {
         return this.row.freq_lex;
     }
 
-    getBelowFrequencyThreshold(ref: VerseReference): boolean {
-        const threshold = this.request.frequency_thresholds.get(ref.canon);
+    getBelowFrequencyThreshold(): boolean {
+        const threshold = this.request.frequency_thresholds.get(this.reference.canon);
         if (threshold === undefined) {
-            const msg = `Threshold not found for canon: ${ref.canon}`;
+            const msg = `Threshold not found for canon: ${this.reference.canon}`;
             console.error(msg);
             throw new Error(msg);
         } else {

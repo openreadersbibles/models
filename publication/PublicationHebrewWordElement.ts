@@ -5,7 +5,6 @@ import { PublicationWordElement } from "./PublicationWordElement.js";
 import { PublicationHebrewWordElementRow } from "./PublicationHebrewWordElementRow.js";
 import { BaseWordElement } from "./BaseWordElement.js";
 import { OTGender, OTGrammaticalNumber, OTPartOfSpeech, OTPerson, OTState, OTTense } from "../../models/HebrewWordRow.js";
-import { VerseReference } from "../../models/VerseReference.js";
 import { OTVerbStem } from "@models/OTVerbStem.js";
 
 export class PublicationHebrewWordElement extends BaseWordElement<PublicationHebrewWordElementRow> implements PublicationWordElement {
@@ -37,7 +36,7 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
         return this.row.voc_lex_utf8;
     }
 
-    requiredFootnoteType(ref: VerseReference): PublicationFootnoteType {
+    requiredFootnoteType(): PublicationFootnoteType {
         /// this is a special case, but I'm not proud of this code.
         /// It's the word יָהּ, which occurs in Hallelujah. Technically
         /// it's a rare word (49 occurrences), but it sort of a short
@@ -47,28 +46,24 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
         }
 
         if (this.isVerb) {
-            if (this.getBelowFrequencyThreshold(ref)) {
+            if (this.getBelowFrequencyThreshold()) {
                 return PublicationFootnoteType.ParsingGloss;
             } else {
                 return PublicationFootnoteType.Parsing;
             }
         } if (this.isSubstantive) {
-            if (this.getBelowFrequencyThreshold(ref)) {
+            if (this.getBelowFrequencyThreshold()) {
                 return PublicationFootnoteType.ParsingGloss;
             } else {
                 return PublicationFootnoteType.None;
             }
         } else {
-            if (this.getBelowFrequencyThreshold(ref) && !this.isInteroggative) {
+            if (this.getBelowFrequencyThreshold() && !this.isInteroggative) {
                 return PublicationFootnoteType.Gloss;
             } else {
                 return PublicationFootnoteType.None;
             }
         }
-    }
-
-    get reference(): string {
-        return this.row.reference;
     }
 
     get hasPronominalSuffix(): boolean {
@@ -116,11 +111,11 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
         return false;
     }
 
-    getParsingString(ref: VerseReference): string {
-        const parsingFormat = this.request.configuration.getParsingFormat(ref.canon);
+    getParsingString(): string {
+        const parsingFormat = this.request.configuration.getParsingFormat(this.reference.canon);
         if (parsingFormat === undefined) {
-            console.error(`Parsing format not found for ${ref.canon}`);
-            throw new Error(`Parsing format not found for ${ref.canon}`);
+            console.error(`Parsing format not found for ${this.reference.canon}`);
+            throw new Error(`Parsing format not found for ${this.reference.canon}`);
         }
         if (this.isVerb) {
             return parsingFormat.verbParsingString(this);

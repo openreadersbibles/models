@@ -59,7 +59,7 @@ export class PublicationVerse {
             } else if (gc > 1) {
                 console.error(`More than one gloss for a word in ${this.reference.toString()}`);
                 word.glossableElements().forEach((element) => {
-                    console.error(`${element.id} ${element.gloss?.html} ${element.requiredFootnoteType(this.reference)}`);
+                    console.error(`${element.id} ${element.gloss?.html} ${element.requiredFootnoteType()}`);
                 });
                 throw new Error(`More than one gloss for a word in ${this.reference.toString()}`);
             }
