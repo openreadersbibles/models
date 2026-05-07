@@ -42,7 +42,7 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
         /// It's the word יָהּ, which occurs in Hallelujah. Technically
         /// it's a rare word (49 occurrences), but it sort of a short
         /// form for יהוה, so it should not be glossed. 
-        if (element.row.lex_id === 1439638 || element.isInteroggative) {
+        if (element.row.lex_id === 1439638) {
             return PublicationFootnoteType.None;
         }
         if (element.isVerb) {
@@ -58,7 +58,7 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
                 return PublicationFootnoteType.None;
             }
         } else {
-            if (element.getBelowFrequencyThreshold()) {
+            if (element.getBelowFrequencyThreshold() || element.isInteroggative) {
                 return PublicationFootnoteType.Gloss;
             } else {
                 return PublicationFootnoteType.None;

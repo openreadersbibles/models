@@ -280,7 +280,7 @@ export class PublicationConfiguration {
 		return FootnoteType.None;
 	}
 }`],
-        ['OT', `if (lex_id === 1439638 || isInteroggative) {
+        ['OT', `if (lex_id === 1439638) {
 	return FootnoteType.None;
 }
 if (isVerb) {
@@ -296,7 +296,7 @@ if (isVerb) {
 		return FootnoteType.None;
 	}
 } else {
-	if (belowFrequencyThreshold) {
+	if (belowFrequencyThreshold || isInteroggative) {
 		return FootnoteType.Gloss;
 	} else {
 		return FootnoteType.None;
