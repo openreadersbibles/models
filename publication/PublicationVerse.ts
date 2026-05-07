@@ -59,7 +59,7 @@ export class PublicationVerse {
             } else if (gc > 1) {
                 console.error(`More than one gloss for a word in ${this.reference.toString()}`);
                 word.glossableElements().forEach((element) => {
-                    console.error(`${element.id} ${element.gloss?.html} ${element.requiredFootnoteType()}`);
+                    console.error(`${element.id} ${element.gloss?.html} ${this.request.configuration.getFootnoteType(element)}`);
                 });
                 throw new Error(`More than one gloss for a word in ${this.reference.toString()}`);
             }
@@ -80,7 +80,7 @@ export class PublicationVerse {
         objectCreator: (obj: T, word: PublicationWord, request: PublicationRequest) => PublicationWordElement): PublicationVerse {
         const v = new PublicationVerse(reference, request);
 
-        v.words.push(new PublicationWord(reference));
+        v.words.push(new PublicationWord(request));
         for (let i = 0; i < rows.length; i++) {
             const currentWord = v.words[v.words.length - 1];
             const e = objectCreator(rows[i], currentWord, request);
@@ -89,7 +89,7 @@ export class PublicationVerse {
             v.words[v.words.length - 1].addElement(e);
 
             if (e.terminatesWord && i != rows.length - 1) {
-                v.words.push(new PublicationWord(reference));
+                v.words.push(new PublicationWord(request));
             }
         }
         return v;

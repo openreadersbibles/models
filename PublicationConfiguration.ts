@@ -4,6 +4,9 @@ import { Canon } from './Canon.js';
 import { latexTemplate } from './assets/default_latex_template.js';
 import { PublicationConfigurationRow, PublicationFootnoteStyle } from './PublicationConfigurationRow.js';
 import { ThresholdObject } from './ProjectConfigurationRow.js';
+import { PublicationWordElement } from './publication/PublicationWordElement.js';
+import { PublicationFootnoteType } from './publication/PublicationFootnoteType.js';
+import { FootnoteTypeResolver } from './publication/FootnoteTypeResolver.js';
 
 export class PublicationConfiguration {
     _project: ProjectConfiguration;
@@ -20,6 +23,8 @@ export class PublicationConfiguration {
     private _css_template: string;
     private _frequency_thresholds: Map<Canon, number> | undefined;
     private _gloss_markdown_separator: string = ". ";
+    private _footnote_type_functions: Map<Canon, FootnoteTypeResolver> = new Map<Canon, FootnoteTypeResolver>();
+    private _footnote_type_function_strings: Map<Canon, string> = new Map<Canon, string>();
 
     constructor(id: string, project: ProjectConfiguration) {
         this._id = id;
@@ -161,6 +166,24 @@ export class PublicationConfiguration {
         return result;
     }
 
+    getFootnoteType(element: PublicationWordElement): PublicationFootnoteType {
+        const f = this._footnote_type_functions.get(element.canon);
+        if (f) {
+            return f.getFootnoteType(element);
+        } else {
+            console.error(`No footnote type function for ${f}.`);
+            return PublicationFootnoteType.None;
+        }
+    }
+
+    getFootnoteTypeFunction(c: Canon): string | undefined {
+        return this._footnote_type_function_strings.get(c);
+    }
+
+    setFootnoteTypeFunction(c: Canon, func: string) {
+        return this._footnote_type_function_strings.set(c, func);
+    }
+
     public toObject(): PublicationConfigurationRow {
         const parsing_formats: { [key: string]: string } = {};
         this._parsing_formats.forEach((value, key) => {
@@ -176,6 +199,11 @@ export class PublicationConfiguration {
             frequency_thresholds = ft;
         }
 
+        const footnote_type_functions: { [key: string]: (string) } = {};
+        this._footnote_type_function_strings.forEach((value, key) => {
+            footnote_type_functions[key] = value;
+        });
+
         return {
             footnoteMarkers: this._footnoteMarkers,
             polyglossiaOtherLanguage: this._polyglossiaOtherLanguage,
@@ -188,6 +216,7 @@ export class PublicationConfiguration {
             footnote_style: this._footnote_style,
             frequency_thresholds: frequency_thresholds,
             gloss_markdown_separator: this._gloss_markdown_separator,
+            footnote_type_functions: footnote_type_functions
         };
     }
 
@@ -212,9 +241,67 @@ export class PublicationConfiguration {
                 pc._frequency_thresholds.set(key as Canon, value);
             }
         }
+        for (const [key, value] of Object.entries(row.footnote_type_functions || {})) {
+            const c = key as Canon;
+            pc._footnote_type_function_strings.set(c, value);
+            if (c == 'NT') {
+                pc._footnote_type_functions.set(c, FootnoteTypeResolver.CreateNTFootnoteTypeFunction(value));
+            } else if (c == 'OT') {
+                pc._footnote_type_functions.set(c, FootnoteTypeResolver.CreateOTFootnoteTypeFunction(value));
+            } else {
+                console.error(`Unsupported custom footnote function: ${c}.`);
+            }
+        }
         return pc;
     }
 
     static default_latex_template = latexTemplate;
     static default_css_template = "";
+
+    static default_functions = new Map([
+        ['NT', `if (isVerb) {
+	if (belowFrequencyThreshold) {
+		return FootnoteType.ParsingGloss;
+	} else if (!(mood == 'indicative' && tense == 'present')) {
+		return FootnoteType.Parsing;
+	} else {
+		return FootnoteType.None;
+	}
+} if (isSubstantive) {
+	if (belowFrequencyThreshold) {
+		return FootnoteType.ParsingGloss;
+	} else {
+		return FootnoteType.None;
+	}
+} else {
+	if (belowFrequencyThreshold) {
+		return FootnoteType.Gloss;
+	} else {
+		return FootnoteType.None;
+	}
+}`],
+        ['OT', `if (lex_id === 1439638 || isInteroggative) {
+	return FootnoteType.None;
+}
+if (isVerb) {
+	if (belowFrequencyThreshold) {
+		return FootnoteType.ParsingGloss;
+	} else {
+		return FootnoteType.Parsing;
+	}
+} if (isSubstantive) {
+	if (belowFrequencyThreshold) {
+		return FootnoteType.ParsingGloss;
+	} else {
+		return FootnoteType.None;
+	}
+} else {
+	if (belowFrequencyThreshold) {
+		return FootnoteType.Gloss;
+	} else {
+		return FootnoteType.None;
+	}
+}`],
+        ['LXX', `(currently not supported)`],
+    ]);
 }

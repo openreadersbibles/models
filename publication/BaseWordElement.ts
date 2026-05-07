@@ -1,9 +1,10 @@
-import { VerseReference } from "@models/VerseReference.js";
 import { PublicationRequest } from "../../models/PublicationRequest.js";
 import { PublicationWord } from "./PublicationWord.js";
 import { Annotation } from "@models/Annotation.js";
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 import { PublicationWordElementRow } from "./PublicationWordElementRow.js";
+import { Canon } from "@models/Canon.js";
+import { VerseReference } from "@models/VerseReference.js";
 
 export abstract class BaseWordElement<T extends PublicationWordElementRow> {
     row: T;
@@ -28,9 +29,9 @@ export abstract class BaseWordElement<T extends PublicationWordElementRow> {
     }
 
     getBelowFrequencyThreshold(): boolean {
-        const threshold = this.request.frequency_thresholds.get(this.reference.canon);
+        const threshold = this.request.frequency_thresholds.get(this.canon);
         if (threshold === undefined) {
-            const msg = `Threshold not found for canon: ${this.reference.canon}`;
+            const msg = `Threshold not found for canon: ${this.canon}`;
             console.error(msg);
             throw new Error(msg);
         } else {
@@ -52,4 +53,7 @@ export abstract class BaseWordElement<T extends PublicationWordElementRow> {
 
     abstract get isVerb(): boolean;
     abstract get isSubstantive(): boolean;
+
+    /// the idea here is to be able to distinguish between a Greek or Hebrew word element
+    abstract get canon(): Canon;
 }

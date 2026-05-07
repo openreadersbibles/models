@@ -2,10 +2,11 @@ import { NTVoice } from "@models/NTVoice.js";
 import { NTPartOfSpeech, NTPerson, NTTense, NTMood, NTCase, NTNumber, NTGender, NTDegree } from "../../models/GreekWordRow.js";
 import { PublicationRequest } from "../../models/PublicationRequest.js";
 import { BaseWordElement } from "./BaseWordElement.js";
-import { PublicationFootnoteType } from "./PublicationFootnote.js";
+import { PublicationFootnoteType } from "./PublicationFootnoteType.js";
 import { PublicationGreekWordElementRow } from "./PublicationGreekWordElementRow.js";
 import { PublicationWord } from "./PublicationWord.js";
 import { PublicationWordElement } from "./PublicationWordElement.js";
+import { Canon } from "@models/Canon.js";
 
 
 export class PublicationGreekWordElement extends BaseWordElement<PublicationGreekWordElementRow> implements PublicationWordElement {
@@ -44,23 +45,23 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
         return " "; /// this is originally for Hebrew/Aramaic, but the Greek database doesn't actually include spaces
     }
 
-    requiredFootnoteType(): PublicationFootnoteType {
-        if (this.isVerb) {
-            if (this.getBelowFrequencyThreshold()) {
+    static defaultFootnoteFunction(element: PublicationGreekWordElement): PublicationFootnoteType {
+        if (element.isVerb) {
+            if (element.getBelowFrequencyThreshold()) {
                 return PublicationFootnoteType.ParsingGloss;
-            } else if (!(this.mood == 'indicative' && this.tense == 'present')) {
+            } else if (!(element.mood == 'indicative' && element.tense == 'present')) {
                 return PublicationFootnoteType.Parsing;
             } else {
                 return PublicationFootnoteType.None;
             }
-        } if (this.isSubstantive) {
-            if (this.getBelowFrequencyThreshold()) {
+        } if (element.isSubstantive) {
+            if (element.getBelowFrequencyThreshold()) {
                 return PublicationFootnoteType.ParsingGloss;
             } else {
                 return PublicationFootnoteType.None;
             }
         } else {
-            if (this.getBelowFrequencyThreshold()) {
+            if (element.getBelowFrequencyThreshold()) {
                 return PublicationFootnoteType.Gloss;
             } else {
                 return PublicationFootnoteType.None;
@@ -69,10 +70,10 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
     }
 
     getParsingString(): string {
-        const parsingFormat = this.request.configuration.getParsingFormat(this.reference.canon);
+        const parsingFormat = this.request.configuration.getParsingFormat(this.canon);
         if (parsingFormat === undefined) {
-            console.error(`Parsing format not found for ${this.reference.canon}`);
-            throw new Error(`Parsing format not found for ${this.reference.canon}`);
+            console.error(`Parsing format not found for ${this.canon}`);
+            throw new Error(`Parsing format not found for ${this.canon}`);
         }
         if (this.isVerb) {
             return parsingFormat.verbParsingString(this);
@@ -131,6 +132,10 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
 
     get degree(): NTDegree {
         return this.row.degree;
+    }
+
+    get canon(): Canon {
+        return 'NT';
     }
 
 }

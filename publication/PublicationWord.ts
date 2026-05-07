@@ -1,14 +1,12 @@
-import { VerseReference } from "../../models/VerseReference.js";
-import { PublicationFootnoteType } from "./PublicationFootnote.js";
+import { PublicationRequest } from "@models/PublicationRequest.js";
+import { PublicationFootnoteType } from "./PublicationFootnoteType.js";
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 import { PublicationWordElement } from "./PublicationWordElement.js";
 
 export class PublicationWord {
     public elements = new Array<PublicationWordElement>();
-    private ref: VerseReference;
 
-    constructor(ref: VerseReference) {
-        this.ref = ref;
+    constructor(private request: PublicationRequest) {
     }
 
     addElement(e: PublicationWordElement) {
@@ -25,7 +23,7 @@ export class PublicationWord {
 
     public glossableElements(): PublicationWordElement[] {
         return this.elements.filter((element: PublicationWordElement) => {
-            const fnType = element.requiredFootnoteType();
+            const fnType = this.request.configuration.getFootnoteType(element);
             return fnType != PublicationFootnoteType.None
                 // 2026-01-28: These conditions remove glosses that are PublicationFootnoteType.Parsing
                 //     && element.gloss != null
