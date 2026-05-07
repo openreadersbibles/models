@@ -6,7 +6,7 @@ import { PublicationConfigurationRow, PublicationFootnoteStyle } from './Publica
 import { ThresholdObject } from './ProjectConfigurationRow.js';
 import { PublicationWordElement } from './publication/PublicationWordElement.js';
 import { PublicationFootnoteType } from './publication/PublicationFootnoteType.js';
-import { FootnoteTypeResolver } from './publication/FootnoteTypeResolver.js';
+import { FootnoteTypeResolver } from '@lib/FootnoteTypeResolver';
 
 export class PublicationConfiguration {
     _project: ProjectConfiguration;
