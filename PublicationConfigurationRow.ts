@@ -15,5 +15,10 @@ export const PublicationConfigurationRowSchema = z.object({
     css_template: z.string().optional(), // String
     footnote_style: PublicationFootnoteStyleSchema.optional(), // Enum for footnote styles
     frequency_thresholds: z.record(z.number()).optional(),
+<<<<<<< Updated upstream
+=======
+    gloss_markdown_separator: z.string().optional(),
+    footnote_type_functions: z.record(z.string()).optional(),
+>>>>>>> Stashed changes
 });
 export type PublicationConfigurationRow = z.infer<typeof PublicationConfigurationRowSchema>;

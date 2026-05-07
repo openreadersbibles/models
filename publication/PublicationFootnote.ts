@@ -1,8 +1,7 @@
+import { PublicationFootnoteType } from "./PublicationFootnoteType.js";
 import { PublicationVerse } from "./PublicationVerse.js";
 import { PublicationWord } from "./PublicationWord.js";
 import { XMLBuilder } from "xmlbuilder2/lib/interfaces.js";
-
-export enum PublicationFootnoteType { None, Parsing, Gloss, ParsingGloss }
 
 export class PublicationFootnote {
 
@@ -21,7 +20,11 @@ export class PublicationFootnote {
             return;
         }
 
+<<<<<<< Updated upstream
         switch (element.requiredFootnoteType(verse.reference)) {
+=======
+        switch (verse.request.configuration.getFootnoteType(element)) {
+>>>>>>> Stashed changes
             case PublicationFootnoteType.Parsing:
                 parent.ele('gloss', { type: 'parsing' }).txt(element.getParsingString(verse.reference));
                 break;

@@ -1,13 +1,20 @@
+import { Canon } from "@models/Canon.js";
 import { Annotation } from "../../models/Annotation.js";
+<<<<<<< Updated upstream
 import { VerseReference } from "../../models/VerseReference.js";
 import { PublicationFootnoteType } from "./PublicationFootnote.js";
+=======
+>>>>>>> Stashed changes
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 
 export interface PublicationWordElement {
     plaintext: string;
     lexicalform: string;
     trailer: string; /// this will admittedly only be relevant for Hebrew/Aramaic
+<<<<<<< Updated upstream
     requiredFootnoteType(ref: VerseReference): PublicationFootnoteType;
+=======
+>>>>>>> Stashed changes
     get isVerb(): boolean;
     get isSubstantive(): boolean;
     get isInteroggative(): boolean; // only relevant to Hebrew/Aramaic?
@@ -19,4 +26,6 @@ export interface PublicationWordElement {
     phrasalGlosses: PublicationPhrasalGloss[];
     get id(): number;
     get freq_lex(): number;
+    get canon(): Canon;
+    getBelowFrequencyThreshold(): boolean;
 }

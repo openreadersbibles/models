@@ -1,11 +1,17 @@
 import { PublicationWord } from "./PublicationWord.js";
-import { PublicationFootnoteType } from "./PublicationFootnote.js";
+import { PublicationFootnoteType } from "./PublicationFootnoteType.js";
 import { PublicationRequest } from "../../models/PublicationRequest.js";
 import { PublicationWordElement } from "./PublicationWordElement.js";
 import { PublicationHebrewWordElementRow } from "./PublicationHebrewWordElementRow.js";
 import { BaseWordElement } from "./BaseWordElement.js";
+<<<<<<< Updated upstream
 import { OTGender, OTGrammaticalNumber, OTPartOfSpeech, OTPerson, OTState, OTTense, OTVerbStem } from "../../models/HebrewWordRow.js";
 import { VerseReference } from "../../models/VerseReference.js";
+=======
+import { OTGender, OTGrammaticalNumber, OTPartOfSpeech, OTPerson, OTState, OTTense } from "../../models/HebrewWordRow.js";
+import { OTVerbStem } from "@models/OTVerbStem.js";
+import { Canon } from "@models/Canon.js";
+>>>>>>> Stashed changes
 
 export class PublicationHebrewWordElement extends BaseWordElement<PublicationHebrewWordElementRow> implements PublicationWordElement {
     static substantives = ["subs", "nmpr", "adjv", "prps", "prde"];
@@ -36,29 +42,47 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
         return this.row.voc_lex_utf8;
     }
 
+<<<<<<< Updated upstream
     requiredFootnoteType(ref: VerseReference): PublicationFootnoteType {
+=======
+    static defaultFootnoteFunction(element: PublicationHebrewWordElement): PublicationFootnoteType {
+>>>>>>> Stashed changes
         /// this is a special case, but I'm not proud of this code.
         /// It's the word יָהּ, which occurs in Hallelujah. Technically
         /// it's a rare word (49 occurrences), but it sort of a short
         /// form for יהוה, so it should not be glossed. 
-        if (this.row.lex_id === 1439638) {
+        if (element.row.lex_id === 1439638 || element.isInteroggative) {
             return PublicationFootnoteType.None;
         }
+<<<<<<< Updated upstream
 
         if (this.isVerb) {
             if (this.getBelowFrequencyThreshold(ref)) {
+=======
+        if (element.isVerb) {
+            if (element.getBelowFrequencyThreshold()) {
+>>>>>>> Stashed changes
                 return PublicationFootnoteType.ParsingGloss;
             } else {
                 return PublicationFootnoteType.Parsing;
             }
+<<<<<<< Updated upstream
         } if (this.isSubstantive) {
             if (this.getBelowFrequencyThreshold(ref)) {
+=======
+        } if (element.isSubstantive) {
+            if (element.getBelowFrequencyThreshold()) {
+>>>>>>> Stashed changes
                 return PublicationFootnoteType.ParsingGloss;
             } else {
                 return PublicationFootnoteType.None;
             }
         } else {
+<<<<<<< Updated upstream
             if (this.getBelowFrequencyThreshold(ref) && !this.isInteroggative) {
+=======
+            if (element.getBelowFrequencyThreshold()) {
+>>>>>>> Stashed changes
                 return PublicationFootnoteType.Gloss;
             } else {
                 return PublicationFootnoteType.None;
@@ -138,5 +162,10 @@ export class PublicationHebrewWordElement extends BaseWordElement<PublicationHeb
     get qere(): string {
         return this.qere_utf8;
     }
+
+    get canon(): Canon {
+        return 'OT';
+    }
+
 
 }

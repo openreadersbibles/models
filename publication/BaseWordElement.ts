@@ -4,6 +4,7 @@ import { PublicationWord } from "./PublicationWord.js";
 import { Annotation } from "@models/Annotation.js";
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 import { PublicationWordElementRow } from "./PublicationWordElementRow.js";
+import { Canon } from "@models/Canon.js";
 
 export abstract class BaseWordElement<T extends PublicationWordElementRow> {
     row: T;
@@ -45,4 +46,7 @@ export abstract class BaseWordElement<T extends PublicationWordElementRow> {
 
     abstract get isVerb(): boolean;
     abstract get isSubstantive(): boolean;
+
+    /// the idea here is to be able to distinguish between a Greek or Hebrew word element
+    abstract get canon(): Canon;
 }

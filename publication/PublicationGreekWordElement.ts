@@ -2,10 +2,11 @@ import { NTPartOfSpeech, NTPerson, NTTense, NTVoice, NTMood, NTCase, NTNumber, N
 import { PublicationRequest } from "../../models/PublicationRequest.js";
 import { VerseReference } from "../../models/VerseReference.js";
 import { BaseWordElement } from "./BaseWordElement.js";
-import { PublicationFootnoteType } from "./PublicationFootnote.js";
+import { PublicationFootnoteType } from "./PublicationFootnoteType.js";
 import { PublicationGreekWordElementRow } from "./PublicationGreekWordElementRow.js";
 import { PublicationWord } from "./PublicationWord.js";
 import { PublicationWordElement } from "./PublicationWordElement.js";
+import { Canon } from "@models/Canon.js";
 
 
 export class PublicationGreekWordElement extends BaseWordElement<PublicationGreekWordElementRow> implements PublicationWordElement {
@@ -44,21 +45,39 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
         return " "; /// this is originally for Hebrew/Aramaic, but the Greek database doesn't actually include spaces
     }
 
+<<<<<<< Updated upstream
     requiredFootnoteType(ref: VerseReference): PublicationFootnoteType {
         if (this.isVerb) {
             if (this.getBelowFrequencyThreshold(ref)) {
                 return PublicationFootnoteType.ParsingGloss;
+=======
+    static defaultFootnoteFunction(element: PublicationGreekWordElement): PublicationFootnoteType {
+        if (element.isVerb) {
+            if (element.getBelowFrequencyThreshold()) {
+                return PublicationFootnoteType.ParsingGloss;
+            } else if (!(element.mood == 'indicative' && element.tense == 'present')) {
+                return PublicationFootnoteType.Parsing;
+>>>>>>> Stashed changes
             } else {
                 return PublicationFootnoteType.Parsing;
             }
+<<<<<<< Updated upstream
         } if (this.isSubstantive) {
             if (this.getBelowFrequencyThreshold(ref)) {
+=======
+        } if (element.isSubstantive) {
+            if (element.getBelowFrequencyThreshold()) {
+>>>>>>> Stashed changes
                 return PublicationFootnoteType.ParsingGloss;
             } else {
                 return PublicationFootnoteType.None;
             }
         } else {
+<<<<<<< Updated upstream
             if (this.getBelowFrequencyThreshold(ref)) {
+=======
+            if (element.getBelowFrequencyThreshold()) {
+>>>>>>> Stashed changes
                 return PublicationFootnoteType.Gloss;
             } else {
                 return PublicationFootnoteType.None;
@@ -129,6 +148,10 @@ export class PublicationGreekWordElement extends BaseWordElement<PublicationGree
 
     get degree(): NTDegree {
         return this.row.degree;
+    }
+
+    get canon(): Canon {
+        return 'NT';
     }
 
 }

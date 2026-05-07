@@ -1,14 +1,12 @@
-import { VerseReference } from "../../models/VerseReference.js";
-import { PublicationFootnoteType } from "./PublicationFootnote.js";
+import { PublicationRequest } from "@models/PublicationRequest.js";
+import { PublicationFootnoteType } from "./PublicationFootnoteType.js";
 import { PublicationPhrasalGloss } from "./PublicationPhrasalGloss.js";
 import { PublicationWordElement } from "./PublicationWordElement.js";
 
 export class PublicationWord {
     public elements = new Array<PublicationWordElement>();
-    private ref: VerseReference;
 
-    constructor(ref: VerseReference) {
-        this.ref = ref;
+    constructor(private request: PublicationRequest) {
     }
 
     addElement(e: PublicationWordElement) {
@@ -24,7 +22,19 @@ export class PublicationWord {
     }
 
     public glossableElements(): PublicationWordElement[] {
+<<<<<<< Updated upstream
         return this.elements.filter((value: PublicationWordElement) => { return value.requiredFootnoteType(this.ref) != PublicationFootnoteType.None; });
+=======
+        return this.elements.filter((element: PublicationWordElement) => {
+            const fnType = this.request.configuration.getFootnoteType(element);
+            return fnType != PublicationFootnoteType.None
+                // 2026-01-28: These conditions remove glosses that are PublicationFootnoteType.Parsing
+                //     && element.gloss != null
+                // && element.gloss.type != "null";
+                // 2026-05-01: So we will skip them only if it's supposed to have a gloss and it doesn't have one
+                && !((fnType == PublicationFootnoteType.Gloss || fnType == PublicationFootnoteType.ParsingGloss) && (element.gloss == null || element.gloss.type == "null"));
+        });
+>>>>>>> Stashed changes
     }
 
     public getNumberOfGlosses(): number {
