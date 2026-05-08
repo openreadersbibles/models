@@ -244,15 +244,12 @@ export class PublicationConfiguration {
         for (const [key, value] of Object.entries(row.footnote_type_functions || {})) {
             const c = key as Canon;
             pc._footnote_type_function_strings.set(c, value);
-            /// We only want this code to run if we're in Node.
-            if (typeof process !== 'undefined' && process.versions && process.versions.node) {
-                if (c == 'NT') {
-                    pc._footnote_type_functions.set(c, FootnoteTypeResolver.CreateNTFootnoteTypeFunction(value));
-                } else if (c == 'OT') {
-                    pc._footnote_type_functions.set(c, FootnoteTypeResolver.CreateOTFootnoteTypeFunction(value));
-                } else {
-                    console.error(`Unsupported custom footnote function: ${c}.`);
-                }
+            if (c == 'NT') {
+                pc._footnote_type_functions.set(c, FootnoteTypeResolver.CreateNTFootnoteTypeFunction(value));
+            } else if (c == 'OT') {
+                pc._footnote_type_functions.set(c, FootnoteTypeResolver.CreateOTFootnoteTypeFunction(value));
+            } else {
+                console.error(`Unsupported custom footnote function: ${c}.`);
             }
         }
         return pc;

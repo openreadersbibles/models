@@ -19,7 +19,7 @@ export class FootnoteTypeResolver {
     }
 
     static CreateNTFootnoteTypeFunction(userFunctionText: string | undefined): FootnoteTypeResolver {
-        logger.info(`Constructing CreateNTFootnoteTypeFunction with ${userFunctionText} from the original source`);
+        logger.info(`Browser: Constructing CreateNTFootnoteTypeFunction with... doesn't matter`);
         const dummyContext = {
             isVerb: true,
             isSubstantive: false,
@@ -43,7 +43,7 @@ export class FootnoteTypeResolver {
     }
 
     static CreateOTFootnoteTypeFunction(userFunctionText: string | undefined): FootnoteTypeResolver {
-        logger.info(`Constructing CreateOTFootnoteTypeFunction with ${userFunctionText} from the original source`);
+        logger.info(`Browser: Constructing CreateOTFootnoteTypeFunction with... doesn't matter.`);
         const dummyContext = {
             isVerb: true,
             isSubstantive: false,
