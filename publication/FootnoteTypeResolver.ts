@@ -4,6 +4,7 @@ import { PublicationFootnoteType } from "./PublicationFootnoteType";
 import { PublicationGreekWordElement } from "./PublicationGreekWordElement";
 import vm from 'node:vm';
 import { PublicationHebrewWordElement } from "./PublicationHebrewWordElement";
+import logger from "@lib/logger";
 
 type FootnoteFunction = (element: any) => PublicationFootnoteType;
 
@@ -15,9 +16,11 @@ export class FootnoteTypeResolver {
     private dummyContext: any;
 
     private constructor(functionText: string | undefined, dummyContext: any, defaultFunction: FootnoteFunction) {
+        logger.info(`Constructing FootnoteTypeResolver with ${functionText}`);
         this.defaultFunction = defaultFunction;
         this.functionText = functionText;
         if (this.functionText) {
+            logger.info(`Setting compiledScript`);
             this.compiledScript = new vm.Script(this.functionText);
         }
         this.dummyContext = dummyContext;
@@ -43,6 +46,7 @@ export class FootnoteTypeResolver {
     }
 
     static CreateNTFootnoteTypeFunction(userFunctionText: string | undefined): FootnoteTypeResolver {
+        logger.info(`Constructing CreateNTFootnoteTypeFunction with ${userFunctionText} from the original source`);
         const dummyContext = {
             isVerb: true,
             isSubstantive: false,
@@ -66,6 +70,7 @@ export class FootnoteTypeResolver {
     }
 
     static CreateOTFootnoteTypeFunction(userFunctionText: string | undefined): FootnoteTypeResolver {
+        logger.info(`Constructing CreateOTFootnoteTypeFunction with ${userFunctionText} from the original source`);
         const dummyContext = {
             isVerb: true,
             isSubstantive: false,

@@ -3,6 +3,7 @@
 import { PublicationFootnoteType } from "./PublicationFootnoteType";
 import { PublicationGreekWordElement } from "./PublicationGreekWordElement";
 import { PublicationHebrewWordElement } from "./PublicationHebrewWordElement";
+import logger from "@lib/logger";
 
 type FootnoteFunction = (element: any) => PublicationFootnoteType;
 
@@ -18,6 +19,7 @@ export class FootnoteTypeResolver {
     }
 
     static CreateNTFootnoteTypeFunction(userFunctionText: string | undefined): FootnoteTypeResolver {
+        logger.info(`Constructing CreateNTFootnoteTypeFunction with ${userFunctionText} from the original source`);
         const dummyContext = {
             isVerb: true,
             isSubstantive: false,
@@ -41,6 +43,7 @@ export class FootnoteTypeResolver {
     }
 
     static CreateOTFootnoteTypeFunction(userFunctionText: string | undefined): FootnoteTypeResolver {
+        logger.info(`Constructing CreateOTFootnoteTypeFunction with ${userFunctionText} from the original source`);
         const dummyContext = {
             isVerb: true,
             isSubstantive: false,
